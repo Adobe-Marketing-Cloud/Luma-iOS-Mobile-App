@@ -88,3 +88,6 @@ fastlane/test_output
 # https://github.com/johnno1962/injectionforxcode
 
 iOSInjectionProject/
+Empty Luma App/.DS_Store
+Empty Luma App/Documentation/.DS_Store
+.DS_Store

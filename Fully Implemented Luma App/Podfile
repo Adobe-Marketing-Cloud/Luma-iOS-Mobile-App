@@ -1,0 +1,18 @@
+platform :ios, '12.0'
+
+target 'Luma' do
+  use_frameworks!
+  pod 'AEPCore', '~> 3'
+  pod 'AEPEdge', '~> 1'
+  pod 'AEPUserProfile', '~> 3'
+  pod 'AEPAssurance', '~> 3'
+  pod 'AEPServices', '~> 3'
+  pod 'AEPIdentity', '~> 3'
+  pod 'AEPEdgeConsent', '~> 1'
+  pod 'AEPLifecycle', '~>3'
+  pod 'AEPMessaging', '~>1'
+  pod 'AEPEdgeIdentity', '~>1'
+  pod 'AEPSignal', '~>3'
+  pod 'Alamofire'
+  pod 'SwiftyJSON'
+end
