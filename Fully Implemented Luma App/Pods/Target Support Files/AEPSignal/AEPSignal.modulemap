@@ -1,0 +1,6 @@
+framework module AEPSignal {
+  umbrella header "AEPSignal-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,6 @@
+framework module AEPRulesEngine {
+  umbrella header "AEPRulesEngine-umbrella.h"
+
+  export *
+  module * { export * }
+}

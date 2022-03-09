@@ -1,0 +1,6 @@
+framework module AEPAssurance {
+  umbrella header "AEPAssurance-umbrella.h"
+
+  export *
+  module * { export * }
+}

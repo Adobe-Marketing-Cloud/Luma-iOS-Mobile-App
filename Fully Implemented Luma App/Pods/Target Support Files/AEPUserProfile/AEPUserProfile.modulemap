@@ -1,0 +1,6 @@
+framework module AEPUserProfile {
+  umbrella header "AEPUserProfile-umbrella.h"
+
+  export *
+  module * { export * }
+}

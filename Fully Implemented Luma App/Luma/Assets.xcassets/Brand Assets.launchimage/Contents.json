@@ -1,0 +1,86 @@
+{
+  "images" : [
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "2688h",
+      "filename" : "iPhone XsMaX.png",
+      "minimum-system-version" : "12.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "1792h",
+      "filename" : "iPhone Xr-1.png",
+      "minimum-system-version" : "12.0",
+      "orientation" : "portrait",
+      "scale" : "2x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "2436h",
+      "filename" : "iPhone Xspng.png",
+      "minimum-system-version" : "11.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "736h",
+      "filename" : "iPhone 8p.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "3x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "667h",
+      "filename" : "iPhone 8.png",
+      "minimum-system-version" : "8.0",
+      "orientation" : "portrait",
+      "scale" : "2x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "iphone",
+      "filename" : "iPhone 7p.png",
+      "extent" : "full-screen",
+      "minimum-system-version" : "7.0",
+      "scale" : "2x"
+    },
+    {
+      "extent" : "full-screen",
+      "idiom" : "iphone",
+      "subtype" : "retina4",
+      "filename" : "iPhone 7p-1.png",
+      "minimum-system-version" : "7.0",
+      "orientation" : "portrait",
+      "scale" : "2x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "iPad.png",
+      "extent" : "full-screen",
+      "minimum-system-version" : "7.0",
+      "scale" : "1x"
+    },
+    {
+      "orientation" : "portrait",
+      "idiom" : "ipad",
+      "filename" : "iPad-1.png",
+      "extent" : "full-screen",
+      "minimum-system-version" : "7.0",
+      "scale" : "2x"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

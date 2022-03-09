@@ -1,0 +1,6 @@
+framework module AEPEdgeConsent {
+  umbrella header "AEPEdgeConsent-umbrella.h"
+
+  export *
+  module * { export * }
+}
