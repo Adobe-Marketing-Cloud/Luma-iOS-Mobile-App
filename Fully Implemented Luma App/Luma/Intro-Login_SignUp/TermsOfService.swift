@@ -49,7 +49,6 @@ class TermsOfService: UIViewController {
                     return;
                 }
                 
-                
                 if let urlVariables: String = urlVariables {
                     urlString.append("?" + urlVariables)
                 }
@@ -62,9 +61,6 @@ class TermsOfService: UIViewController {
         } else {
             self.simpleAlert("Failed to create URL for webView")
         }
-
-        
-    
         
         // Adobe Experience Platform - Send XDM Event
         let stateName = "luma: content: ios: us: en: terms of service"
