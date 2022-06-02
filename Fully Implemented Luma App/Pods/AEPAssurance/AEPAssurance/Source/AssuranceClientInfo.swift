@@ -15,7 +15,7 @@ import CoreLocation
 import Foundation
 import UIKit
 
-struct AssuranceClientInfo {
+enum AssuranceClientInfo {
 
     static let PLATFORM_NAME = "Canonical platform name"
     static let DEVICE_NAME = "Device name"
@@ -54,7 +54,7 @@ struct AssuranceClientInfo {
         return appSettingsInDictionary
     }
 
-    ///- Returns: A `Dictionary` with the required device information
+    /// - Returns: A `Dictionary` with the required device information
     private static func readDeviceInfo() -> [String: Any] {
         let systemInfoService = ServiceProvider.shared.systemInfoService
 
@@ -77,7 +77,7 @@ struct AssuranceClientInfo {
     /// Battery level ranges from 0 (fully discharged) to 100 (fully charged).
     /// For simulator where the battery levels are not available -1 is returned.
     ///
-    ///- Returns: An `Int` representing the battery level of the device
+    /// - Returns: An `Int` representing the battery level of the device
     private static func getBatteryLevel() -> Int {
         let batteryPercentage = Int(UIDevice.current.batteryLevel * 100)
         return (batteryPercentage) > 0 ? batteryPercentage : -1

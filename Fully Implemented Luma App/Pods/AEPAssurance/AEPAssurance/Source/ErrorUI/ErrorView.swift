@@ -26,7 +26,7 @@ class ErrorView: FullscreenMessageDelegate {
     }
 
     func display() {
-        fullscreenMessage = ServiceProvider.shared.uiService.createFullscreenMessage(payload: String(bytes: PinDialogHTML.content, encoding: .utf8)!, listener: self, isLocalImageUsed: false)
+        fullscreenMessage = ServiceProvider.shared.uiService.createFullscreenMessage(payload: String(bytes: PinDialogHTML.content, encoding: .utf8) ?? "", listener: self, isLocalImageUsed: false)
         fullscreenMessage?.show()
     }
 

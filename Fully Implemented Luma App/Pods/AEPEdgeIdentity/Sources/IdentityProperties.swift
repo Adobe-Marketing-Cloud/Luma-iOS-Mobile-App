@@ -52,7 +52,7 @@ struct IdentityProperties: Codable {
                         identityMap.remove(item: item, withNamespace: IdentityConstants.Namespaces.ECID)
                     }
                     Log.debug(label: IdentityConstants.LOG_TAG, "IdentityProperties - Multiple ECID values found when clearing primary ECID. " +
-                        "Primary ECID must be set to have secondary ECID values. ECID value(s) are cleared \(items)")
+                                "Primary ECID must be set to have secondary ECID values. ECID value(s) are cleared \(items)")
                 }
             }
         }

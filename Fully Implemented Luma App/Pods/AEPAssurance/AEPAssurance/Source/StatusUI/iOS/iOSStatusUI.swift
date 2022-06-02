@@ -35,7 +35,7 @@ class iOSStatusUI {
         }
 
         if fullScreenMessage == nil {
-            self.fullScreenMessage = ServiceProvider.shared.uiService.createFullscreenMessage(payload: String(bytes: StatusInfoHTML.content, encoding: .utf8)!, listener: self, isLocalImageUsed: false)
+            self.fullScreenMessage = ServiceProvider.shared.uiService.createFullscreenMessage(payload: String(bytes: StatusInfoHTML.content, encoding: .utf8) ?? "", listener: self, isLocalImageUsed: false)
         }
 
         floatingButton = ServiceProvider.shared.uiService.createFloatingButton(listener: self)
@@ -65,7 +65,7 @@ class iOSStatusUI {
     /// Updates Assurance Status UI to denote socket connection is currently inactive.
     ///
     func updateForSocketInActive() {
-        addClientLog("Assurance disconnected. Attempting to reconnect..", visibility: .low)
+        addClientLog("Attempting to reconnect..", visibility: .low)
         floatingButton?.setButtonImage(imageData: Data(bytes: InactiveIcon.content, count: InactiveIcon.content.count))
     }
 

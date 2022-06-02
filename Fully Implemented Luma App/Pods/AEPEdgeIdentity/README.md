@@ -1,5 +1,11 @@
 # Adobe Experience Platform Edge Identity Mobile Extension
 
+[![Cocoapods](https://img.shields.io/cocoapods/v/AEPEdgeIdentity.svg?color=orange&label=AEPEdgeIdentity&logo=apple&logoColor=white)](https://cocoapods.org/pods/AEPEdgeIdentity)
+
+[![SPM](https://img.shields.io/badge/SPM-Supported-orange.svg?logo=apple&logoColor=white)](https://swift.org/package-manager/)
+[![CircleCI](https://img.shields.io/circleci/project/github/adobe/aepsdk-edgeidentity-ios/main.svg?logo=circleci)](https://circleci.com/gh/adobe/workflows/aepsdk-edgeidentity-ios)
+[![Code Coverage](https://img.shields.io/codecov/c/github/adobe/aepsdk-edgeidentity-ios/main.svg?logo=codecov)](https://codecov.io/gh/adobe/aepsdk-edgeidentity-ios/branch/main)
+
 ## About this project
 
 The AEP Edge Identity Mobile Extension is an extension enables handling of user identity data from a mobile app when using the [Adobe Experience Platform SDK](https://github.com/Adobe-Marketing-Cloud/acp-sdks) and the Edge Network extension.

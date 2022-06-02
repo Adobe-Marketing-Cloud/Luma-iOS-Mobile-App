@@ -12,7 +12,7 @@
 
 import Foundation
 
-///Constants that indicate the states of the socket connection
+/// Constants that indicate the states of the socket connection
 enum SocketState {
     /// The socket connection is initiated and it is in progress.
     case connecting

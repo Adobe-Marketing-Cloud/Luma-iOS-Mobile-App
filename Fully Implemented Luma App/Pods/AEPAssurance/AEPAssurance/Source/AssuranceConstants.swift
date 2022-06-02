@@ -15,7 +15,7 @@ import Foundation
 enum AssuranceConstants {
     static let EXTENSION_NAME = "com.adobe.assurance"
     static let FRIENDLY_NAME = "Assurance"
-    static let EXTENSION_VERSION = "3.0.0"
+    static let EXTENSION_VERSION = "3.0.1"
     static let LOG_TAG = FRIENDLY_NAME
     static let DEFAULT_ENVIRONMENT = AssuranceEnvironment.prod
 
@@ -38,8 +38,8 @@ enum AssuranceConstants {
     }
 
     enum SDKEventName {
-        static let SHARED_STATE_CHANGE    = "Shared state change"
-        static let XDM_SHARED_STATE_CHANGE    = "Shared state change (XDM)"
+        static let SHARED_STATE_CHANGE = "Shared state change"
+        static let XDM_SHARED_STATE_CHANGE = "Shared state change (XDM)"
     }
 
     enum SDKEventType {
@@ -47,10 +47,10 @@ enum AssuranceConstants {
     }
 
     enum PluginFakeEvent {
-        static let NAME    = "eventName"
-        static let TYPE    = "eventType"
-        static let SOURCE  = "eventSource"
-        static let DATA    = "eventData"
+        static let NAME = "eventName"
+        static let TYPE = "eventType"
+        static let SOURCE = "eventSource"
+        static let DATA = "eventData"
     }
 
     // todo verify the impact of making these keys AEPExtensionEvent*
@@ -59,8 +59,8 @@ enum AssuranceConstants {
         static let TYPE    = "ACPExtensionEventType"
         static let SOURCE  = "ACPExtensionEventSource"
         static let DATA    = "ACPExtensionEventData"
-        static let TIMESTAMP    = "ACPExtensionEventTimestamp"
-        static let NUMBER    = "ACPExtensionEventNumber"
+        static let TIMESTAMP = "ACPExtensionEventTimestamp"
+        static let NUMBER = "ACPExtensionEventNumber"
         static let UNIQUE_IDENTIFIER = "ACPExtensionEventUniqueIdentifier"
         static let RESPONSE_IDENTIFIER = "ACPExtensionEventResponseIdentifier" // todo new key introduced : convey to UI team
     }
@@ -106,21 +106,21 @@ enum AssuranceConstants {
     enum HTMLURLPath {
         static let CANCEL   = "cancel"
         static let CONFIRM  = "confirm"
-        static let DISCONNECT  = "disconnect"
+        static let DISCONNECT = "disconnect"
     }
 
     enum ClientInfoKeys {
-        static let TYPE  = "type"
-        static let VERSION   = "version"
-        static let DEVICE_INFO  = "deviceInfo"
-        static let APP_SETTINGS  = "appSettings"
+        static let TYPE = "type"
+        static let VERSION = "version"
+        static let DEVICE_INFO = "deviceInfo"
+        static let APP_SETTINGS = "appSettings"
     }
 
     enum CommandType {
-        static let START_EVENT_FORWARDING  = "startEventForwarding"
-        static let CONFIG_UPDATE  = "configUpdate"
-        static let FAKE_EVENT  = "fakeEvent"
-        static let SCREENSHOT  = "screenshot"
+        static let START_EVENT_FORWARDING = "startEventForwarding"
+        static let CONFIG_UPDATE = "configUpdate"
+        static let FAKE_EVENT = "fakeEvent"
+        static let SCREENSHOT = "screenshot"
         static let LOG_FORWARDING = "logForwarding"
         static let WILDCARD = "wildcard"
     }
@@ -131,6 +131,7 @@ enum AssuranceConstants {
         static let ORG_MISMATCH = 4900
         static let CONNECTION_LIMIT = 4901
         static let EVENTS_LIMIT = 4902
+        static let DELETED_SESSION = 4903
         static let CLIENT_ERROR = 4400
     }
 
@@ -158,4 +159,21 @@ enum AssuranceConstants {
             static let NEARBY_POI = "nearbypois"
         }
     }
+
+    enum AssuranceEvent {
+        /// The maximum size of an event that can get through the socket is 32KB.
+        /// The factor 0.75 is introduced to accommodate blowing up of size due to the mandatory base64 encoding of AssuranceEvent before sending through the socket.
+        static let SIZE_LIMIT = (Int) ((32 * 1024) * 0.75)
+
+        enum PayloadKey {
+            static let CHUNK_DATA = "chunkData"
+        }
+
+        enum MetadataKey {
+            static let CHUNK_ID = "chunkId"
+            static let CHUNK_SEQUENCE = "chunkSequenceNumber"
+            static let CHUNK_TOTAL = "chunkTotal"
+        }
+    }
+
 }

@@ -22,6 +22,7 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
     func onShow(message: FullscreenMessage) {
         isDisplayed = true
         fullscreenWebView = message.webView as? WKWebView
+        Log.trace(label: AssuranceConstants.LOG_TAG, "PinCode Screen loaded and awaiting input from user.")
     }
 
     /// Invoked when the fullscreen message is dismissed
@@ -49,6 +50,7 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
         // when the user hits "Cancel" on the iOS pinpad screen. Dismiss the fullscreen message
         // return false, to indicate that the URL has been handled
         if host == AssuranceConstants.HTMLURLPath.CANCEL {
+            Log.trace(label: AssuranceConstants.LOG_TAG, "Cancel Button clicked. Dismissing the PinCode Screen.")
             self.pinCodeCallback?(nil, AssuranceConnectionError.userCancelled)
             message.dismiss()
             return false
@@ -73,7 +75,7 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
                 return false
             }
 
-            //wss://connect%@.griffon.adobe.com/client/v1?sessionId=%@&token=%@&orgId=%@&clientId=%@
+            // wss://connect%@.griffon.adobe.com/client/v1?sessionId=%@&token=%@&orgId=%@&clientId=%@
             let socketURL = String(format: AssuranceConstants.BASE_SOCKET_URL,
                                    assuranceExtension.environment.urlFormat,
                                    sessionId,
@@ -86,6 +88,7 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
                 return false
             }
 
+            Log.trace(label: AssuranceConstants.LOG_TAG, "Connect Button clicked. Making a socket connection with url \(url).")
             self.connectionInitialized()
             self.pinCodeCallback?(url, nil)
             return false

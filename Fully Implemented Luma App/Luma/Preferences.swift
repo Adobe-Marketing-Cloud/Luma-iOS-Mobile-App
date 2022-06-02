@@ -18,7 +18,6 @@ import SwiftyJSON
 import AEPCore
 import AEPEdge
 import AEPEdgeIdentity
-import AEPIdentity
 
 class Preferences: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
     

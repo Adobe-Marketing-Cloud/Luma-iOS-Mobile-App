@@ -72,7 +72,7 @@ public class IdentityMap: NSObject, Codable {
     /// already in the map, then the new item replaces the existing item. Empty `withNamespace` or items with an empty `item.id` are not allowed and are ignored.
     /// - Parameters:
     ///   - item: The identity as an `IdentityItem` object
-    ///   - namespace: The namespace for this identity
+    ///   - withNamespace: The namespace for this identity
     @objc(addItem:withNamespace:)
     public func add(item: IdentityItem, withNamespace: String) {
         add(item: item, withNamespace: withNamespace, asFirstItem: false)

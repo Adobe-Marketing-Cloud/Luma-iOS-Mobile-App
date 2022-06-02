@@ -40,8 +40,20 @@ class AssuranceSession {
     /// indicates if Assurance SDK can start forwarding events to the session. This flag is set when a command `startForwarding` is received from the socket.
     var canStartForwarding: Bool = false
 
-    /// true indicates Assurance SDK has timeout and shutdown after non-reception of deep link URL because of which it  has cleared all the queued initial SDK events from memory.
+    /// true indicates Assurance SDK has timeout and shutdown after non-reception of deep link URL because of which it has cleared all the queued initial SDK events from memory.
     var didClearBootEvent: Bool = false
+
+    /// Boolean flag indicating whether to process and queue the SDK events heard from the wildcard listener.
+    /// This flag is set to false on the following occasions:
+    ///  1. When the Assurance extension automatically shuts down on non arrival of assurance deeplink after the 5 second timeout.
+    ///  2. When the Assurance session is disconnected by the user.
+    /// This flag is turned back on when Assurance extension is reconnected to an new Assurance session
+    ///
+    /// TODO: MOB-15936
+    /// Tracking flags is difficult! This flag should be removed in favor of recreating a
+    /// new AssuranceSession for each new socket connection and making the AssuranceExtension rely
+    /// on the existence of a session for inferring event processing.
+    var canProcessSDKEvents: Bool = true
 
     /// Initializer with instance of  `Assurance` extension
     init(_ assuranceExtension: Assurance) {
@@ -57,6 +69,8 @@ class AssuranceSession {
     /// Otherwise PinCode screen is presented for establishing a new connection.
     ///
     func startSession() {
+        canProcessSDKEvents = true
+
         if socket.socketState == .open || socket.socketState == .connecting {
             Log.debug(label: AssuranceConstants.LOG_TAG, "There is already an ongoing Assurance session. Ignoring to start new session.")
             return
@@ -65,7 +79,11 @@ class AssuranceSession {
         // if there is a socket URL already connected in the previous session, reuse it.
         if let socketURL = assuranceExtension.connectedWebSocketURL {
             self.statusUI.display()
-            socket.connect(withUrl: URL(string: socketURL)!)
+            guard let url = URL(string: socketURL) else {
+                Log.warning(label: AssuranceConstants.LOG_TAG, "Invalid socket url. Ignoring to start new session.")
+                return
+            }
+            socket.connect(withUrl: url)
             return
         }
 
@@ -84,7 +102,7 @@ class AssuranceSession {
         // invoke the pinpad screen and create a socketURL with the pincode and other essential parameters
         pinCodeScreen.show(callback: { [weak self]  socketURL, error in
             if let error = error {
-                self?.handleConnectionError(error: error, closeCode: nil)
+                self?.handleConnectionError(error: error, closeCode: -1)
                 return
             }
 
@@ -104,6 +122,7 @@ class AssuranceSession {
     /// Terminates the ongoing Assurance session.
     ///
     func terminateSession() {
+        canProcessSDKEvents = false
         socket.disconnect()
         clearSessionData()
     }
@@ -117,9 +136,13 @@ class AssuranceSession {
         outboundSource.add(data: 1)
     }
 
-    func handleConnectionError(error: AssuranceConnectionError, closeCode: Int?) {
+    /// Handles the Assurance socket connection error by showing the appropriate UI to the user.
+    /// - Parameters:
+    ///   - error: The `AssurancConnectionError` representing the error
+    ///   - closeCode: close code defining the reason for socket closure.
+    func handleConnectionError(error: AssuranceConnectionError, closeCode: Int) {
         // if the pinCode screen is still being displayed. Then use the same webView to display error
-        Log.debug(label: AssuranceConstants.LOG_TAG, "Socket disconnected with error :\(error.info.name) \n description : \(error.info.description) \n close code: \(closeCode ?? -1)")
+        Log.debug(label: AssuranceConstants.LOG_TAG, "Socket disconnected with error :\(error.info.name) \n description : \(error.info.description) \n close code: \(closeCode)")
         if pinCodeScreen?.isDisplayed == true {
             pinCodeScreen?.connectionFailedWithError(error)
         } else {
@@ -127,9 +150,7 @@ class AssuranceSession {
             errorView.display()
         }
 
-        if let closeCode = closeCode {
-            pluginHub.notifyPluginsOnDisconnect(withCloseCode: closeCode)
-        }
+        pluginHub.notifyPluginsOnDisconnect(withCloseCode: closeCode)
 
         // since we don't give retry option for these errors and UI will be dismissed anyway, hence notify plugins for onSessionTerminated
         if !error.info.shouldRetry {
@@ -152,10 +173,11 @@ class AssuranceSession {
     ///
     /// Clears the queued SDK events from memory. Call this method once Assurance shut down timer is triggered.
     ///
-    func clearQueueEvents() {
+    func shutDownSession() {
         inboundQueue.clear()
         outboundQueue.clear()
         didClearBootEvent = true
+        canProcessSDKEvents = false
     }
 
     ///

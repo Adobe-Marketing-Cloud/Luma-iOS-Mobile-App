@@ -41,8 +41,8 @@ protocol AssurancePlugin {
     /// - Parameter closeCode : an integer value representing the reason for webSocket disconnect
     func onSessionDisconnectedWithCloseCode(_ closeCode: Int)
 
-    ///This protocol method is invoked when Assurance session is disconnected and the Assurance Floating UI button is removed.
-    ///Invocation of this method guarantees that the Assurance session is completely terminated and the Assurance extension will not automatically
-    ///reconnect the session on the next app launch.
+    /// This protocol method is invoked when Assurance session is disconnected and the Assurance Floating UI button is removed.
+    /// Invocation of this method guarantees that the Assurance session is completely terminated and the Assurance extension will not automatically
+    /// reconnect the session on the next app launch.
     func onSessionTerminated()
 }
