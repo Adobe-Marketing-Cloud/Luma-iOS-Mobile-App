@@ -24,7 +24,6 @@ import AEPEdge
 import AEPCore
 import AEPEdgeIdentity
 import AEPEdgeConsent
-import AEPIdentity
 import AEPLifecycle
 import AEPMessaging
 import AEPSignal
@@ -44,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let currentAppId = "b5cbd1a1220e/bae66382cce8/launch-88492c6dcb6e-development"
 
 
-        let extensions = [Edge.self, Assurance.self, UserProfile.self, Consent.self, AEPEdgeIdentity.Identity.self, AEPIdentity.Identity.self, Messaging.self]
+        let extensions = [Edge.self, Assurance.self, UserProfile.self, Consent.self, AEPEdgeIdentity.Identity.self, Messaging.self]
 
         let appState = application.applicationState
         MobileCore.registerExtensions(extensions, {

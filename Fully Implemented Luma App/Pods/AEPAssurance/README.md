@@ -51,12 +51,12 @@ Alternatively, if your project has a `Package.swift` file, you can add AEPAssura
 
 ```
 dependencies: [
-	.package(url: "https://github.com/adobe/aepsdk-assurance-ios.git", from: "3.0.0")
+    .package(url: "https://github.com/adobe/aepsdk-assurance-ios.git", .upToNextMajor(from: "3.0.0"))
+],
 targets: [
-   	.target(name: "YourTarget",
-    		dependencies: ["AEPAssurance"],
-          	path: "your/path")
-    ]
+    .target(name: "YourTarget",
+            dependencies: ["AEPAssurance"],
+            path: "your/path")
 ]
 ```
 

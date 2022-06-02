@@ -59,7 +59,7 @@ class iOSPinCodeScreen: SessionAuthorizingUI {
 
     /// Uses the UIService to create a fullscreen message with the `PinDialogHTML` and show to the user.
     func showPincodeScreen() {
-        fullscreenMessage = ServiceProvider.shared.uiService.createFullscreenMessage(payload: String(bytes: PinDialogHTML.content, encoding: .utf8)!, listener: self, isLocalImageUsed: false)
+        fullscreenMessage = ServiceProvider.shared.uiService.createFullscreenMessage(payload: String(bytes: PinDialogHTML.content, encoding: .utf8) ?? "", listener: self, isLocalImageUsed: false)
         fullscreenMessage?.show()
     }
 }

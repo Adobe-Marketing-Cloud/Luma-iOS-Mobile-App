@@ -36,7 +36,6 @@ import typealias CommonCrypto.CC_LONG
 import AEPEdge
 import AEPCore
 import AEPEdgeIdentity
-import AEPIdentity
 
 class Login: UIViewController, UITextFieldDelegate {
     

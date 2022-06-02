@@ -16,7 +16,6 @@ import UserNotifications
 import AEPEdge
 import AEPCore
 import AEPEdgeIdentity
-import AEPIdentity
 
 class SignUp: UIViewController, UITextFieldDelegate, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     

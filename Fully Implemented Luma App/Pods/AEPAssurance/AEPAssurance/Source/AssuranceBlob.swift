@@ -13,7 +13,7 @@
 import AEPServices
 import Foundation
 
-struct AssuranceBlob {
+enum AssuranceBlob {
 
     static let HTTPS_SCHEME = "https"
     static let HOST_FORMAT = "blob%@.griffon.adobe.com"
@@ -57,15 +57,18 @@ struct AssuranceBlob {
         let headers = [HttpConstants.HTTP_HEADER_KEY_ACCEPT: HttpConstants.HTTP_HEADER_CONTENT_TYPE_JSON_APPLICATION,
                        HttpConstants.HTTP_HEADER_KEY_CONTENT_TYPE: HTTP_HEADER_VALUE_OCTET_STREAM,
                        HTTP_HEADER_KEY_FILE_CONTENT_TYPE: contentType]
-
-        let networkRequest = NetworkRequest(url: components.url!,
+        guard let url = components.url else {
+            Log.warning(label: AssuranceConstants.LOG_TAG, "Invalid blob url. Unable to send blob data.")
+            return
+        }
+        let networkRequest = NetworkRequest(url: url,
                                             httpMethod: HttpMethod.post,
                                             connectPayloadData: blob,
                                             httpHeaders: headers,
                                             connectTimeout: CONNECTION_TIMEOUT,
                                             readTimeout: CONNECTION_TIMEOUT)
 
-        Log.debug(label: AssuranceConstants.LOG_TAG, "Uploading blob data to URL : \(components.url!.absoluteString)")
+        Log.debug(label: AssuranceConstants.LOG_TAG, "Uploading blob data to URL : \(url.absoluteString)")
         ServiceProvider.shared.networkService.connectAsync(networkRequest: networkRequest, completionHandler: { connection in
             handleNetworkResponse(connection: connection, callback: callback)
         })

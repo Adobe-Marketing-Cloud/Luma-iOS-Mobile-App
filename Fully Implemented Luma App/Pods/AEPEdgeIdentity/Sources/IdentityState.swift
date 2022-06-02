@@ -55,7 +55,7 @@ class IdentityState {
                 identityProperties.ecid = ecid.ecidString // migrate ECID from direct Identity persisted store
                 Log.debug(label: IdentityConstants.LOG_TAG, "IdentityState - Loading ECID from direct Identity extension on bootup '\(ecid)'")
             }
-                // If direct Identity has no persisted ECID, check if direct Identity is registered with the SDK
+            // If direct Identity has no persisted ECID, check if direct Identity is registered with the SDK
             else if isIdentityDirectRegistered(getSharedState: getSharedState) {
                 // If the direct Identity extension is registered, attempt to get its shared state
                 if identityDirectSharedState.isSet {
@@ -63,23 +63,23 @@ class IdentityState {
                     if let ecid = identityDirectSharedState.ecid {
                         identityProperties.ecid = ecid // migrate ECID from direct Identity shared state
                         Log.debug(label: IdentityConstants.LOG_TAG, "IdentityState - Bootup setting ECID from direct Identity " +
-                            "extension shared state: '\(identityProperties.ecid?.description ?? "")'")
+                                    "extension shared state: '\(identityProperties.ecid?.description ?? "")'")
                     }
-                        // If the shared state is set but does not contain an ECID, generate a new one
+                    // If the shared state is set but does not contain an ECID, generate a new one
                     else {
                         identityProperties.ecid = ECID().ecidString
                         Log.debug(label: IdentityConstants.LOG_TAG, "IdentityState - Generating new ECID on bootup as direct Identity " +
-                            "extension shared state contained none: '\(identityProperties.ecid?.description ?? "")'")
+                                    "extension shared state contained none: '\(identityProperties.ecid?.description ?? "")'")
                     }
                 }
-                    // If there is no direct Identity shared state, abort boot-up and try again when direct Identity shares its state
+                // If there is no direct Identity shared state, abort boot-up and try again when direct Identity shares its state
                 else {
                     Log.debug(label: IdentityConstants.LOG_TAG, "IdentityState - Bootup detected the direct Identity " +
-                        "extension is registered, waiting for its state change.")
+                                "extension is registered, waiting for its state change.")
                     return false // If no ECID to migrate but Identity direct is registered, wait for Identity direct shared state
                 }
             }
-                // Generate a new ECID as the direct Identity extension is not registered with the SDK and there was no direct Identity persisted ECID
+            // Generate a new ECID as the direct Identity extension is not registered with the SDK and there was no direct Identity persisted ECID
             else {
                 identityProperties.ecid = ECID().ecidString // generate new ECID
                 Log.debug(label: IdentityConstants.LOG_TAG, "IdentityState - Generating new ECID on bootup '\(identityProperties.ecid?.description ?? "")'")
@@ -104,39 +104,43 @@ class IdentityState {
     ///
     /// - Parameters
     ///   - event: event containing customer identifiers to add or update with the current customer identifiers
-    ///   - createXDMSharedState: function which creates new XDM shared state
-    func updateCustomerIdentifiers(event: Event, createXDMSharedState: ([String: Any], Event) -> Void) {
+    ///   - resolveXDMSharedState: function which resolves pending XDM shared state
+    func updateCustomerIdentifiers(event: Event, resolveXDMSharedState: ([String: Any]) -> Void) {
         guard let identifiersData = event.data else {
             Log.debug(label: IdentityConstants.FRIENDLY_NAME, "IdentityState - Failed to update identifiers as no identifiers were found in the event data.")
+            resolveXDMSharedState(identityProperties.toXdmData())
             return
         }
 
         guard let updateIdentityMap = IdentityMap.from(eventData: identifiersData) else {
             Log.debug(label: IdentityConstants.FRIENDLY_NAME, "IdentityState - Failed to update identifiers as the event data could not be encoded to an IdentityMap.")
+            resolveXDMSharedState(identityProperties.toXdmData())
             return
         }
 
         identityProperties.updateCustomerIdentifiers(updateIdentityMap)
-        saveToPersistence(and: createXDMSharedState, using: event)
+        saveToPersistence(and: resolveXDMSharedState)
     }
 
     /// Remove customer identifiers specified in `event` from the current `IdentityMap`.
     /// - Parameters:
     ///   - event: event containing customer identifiers to remove from the current customer identities
-    ///   - createXDMSharedState: function which creates new XDM shared states
-    func removeCustomerIdentifiers(event: Event, createXDMSharedState: ([String: Any], Event) -> Void) {
+    ///   - resolveXDMSharedState: function which resolves pending XDM shared states
+    func removeCustomerIdentifiers(event: Event, resolveXDMSharedState: ([String: Any]) -> Void) {
         guard let identifiersData = event.data else {
             Log.debug(label: IdentityConstants.LOG_TAG, "IdentityState - Failed to remove identifier as no identifiers were found in the event data.")
+            resolveXDMSharedState(identityProperties.toXdmData())
             return
         }
 
         guard let removeIdentityMap = IdentityMap.from(eventData: identifiersData) else {
             Log.debug(label: IdentityConstants.LOG_TAG, "IdentityState - Failed to remove identifier as the event data could not be encoded to an IdentityMap.")
+            resolveXDMSharedState(identityProperties.toXdmData())
             return
         }
 
         identityProperties.removeCustomerIdentifiers(removeIdentityMap)
-        saveToPersistence(and: createXDMSharedState, using: event)
+        saveToPersistence(and: resolveXDMSharedState)
     }
 
     /// Clears all identities and regenerates a new ECID value.
@@ -146,13 +150,13 @@ class IdentityState {
     ///   - createXDMSharedState: function which creates new XDM shared states
     ///   - eventDispatcher: function which dispatches a new `Event`
     func resetIdentifiers(event: Event,
-                          createXDMSharedState: ([String: Any], Event) -> Void,
+                          resolveXDMSharedState: ([String: Any]) -> Void,
                           eventDispatcher: (Event) -> Void) {
 
         identityProperties.clear()
         identityProperties.ecid = ECID().ecidString
 
-        saveToPersistence(and: createXDMSharedState, using: event)
+        saveToPersistence(and: resolveXDMSharedState)
 
         let event = Event(name: IdentityConstants.EventNames.RESET_IDENTITIES_COMPLETE,
                           type: EventType.edgeIdentity,
@@ -175,13 +179,12 @@ class IdentityState {
         return true
     }
 
-    /// Save `identityProperties` to persistence and create an XDM shared state.
+    /// Save `identityProperties` to persistence and resolves the XDM shared state.
     /// - Parameters:
-    ///   - createXDMSharedState: function which creates an XDM shared state
-    ///   - event: the event used to share the XDM state
-    private func saveToPersistence(and createXDMSharedState: ([String: Any], Event) -> Void, using event: Event) {
+    ///   - resolveXDMSharedState: function which resolves the XDM shared state
+    private func saveToPersistence(and resolveXDMSharedState: ([String: Any]) -> Void) {
         identityProperties.saveToPersistence()
-        createXDMSharedState(identityProperties.toXdmData(), event)
+        resolveXDMSharedState(identityProperties.toXdmData())
     }
 
     /// Check if the Identity direct extension is registered by checking the EventHub's shared state list of registered extensions.
@@ -189,8 +192,8 @@ class IdentityState {
     /// - Returns: true if the Identity direct extension is registered with the EventHub
     private func isIdentityDirectRegistered(getSharedState: (_ name: String, _ event: Event?) -> SharedStateResult?) -> Bool {
         if let registeredExtensionsWithHub = getSharedState(IdentityConstants.SharedState.Hub.SHARED_OWNER_NAME, nil)?.value,
-            let extensions = registeredExtensionsWithHub[IdentityConstants.SharedState.Hub.EXTENSIONS] as? [String: Any],
-            extensions[IdentityConstants.SharedState.IdentityDirect.SHARED_OWNER_NAME] as? [String: Any] != nil {
+           let extensions = registeredExtensionsWithHub[IdentityConstants.SharedState.Hub.EXTENSIONS] as? [String: Any],
+           extensions[IdentityConstants.SharedState.IdentityDirect.SHARED_OWNER_NAME] as? [String: Any] != nil {
             return true
         }
 
