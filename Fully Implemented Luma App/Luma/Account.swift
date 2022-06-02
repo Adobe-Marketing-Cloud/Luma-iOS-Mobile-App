@@ -18,7 +18,6 @@ import SwiftyJSON
 import AEPEdge
 import AEPCore
 import AEPEdgeIdentity
-import AEPIdentity
 import AEPUserProfile
 
 class Account: UIViewController {

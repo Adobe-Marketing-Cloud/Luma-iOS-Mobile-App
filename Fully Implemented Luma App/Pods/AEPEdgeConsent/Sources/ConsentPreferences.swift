@@ -37,7 +37,7 @@ struct ConsentPreferences: Codable, Equatable {
     /// Sets the provided date as metadata time for current consent preferences
     /// - Parameter date: date for the metadata reflecting time of last update
     mutating func setTimestamp(date: Date) {
-        consents[ConsentConstants.EventDataKeys.METADATA] = [ConsentConstants.EventDataKeys.TIME: date.iso8601String]
+        consents[ConsentConstants.EventDataKeys.METADATA] = [ConsentConstants.EventDataKeys.TIME: date.getISO8601UTCDateWithMilliseconds()]
     }
 
     /// Decodes a [String: Any] dictionary into a `ConsentPreferences`

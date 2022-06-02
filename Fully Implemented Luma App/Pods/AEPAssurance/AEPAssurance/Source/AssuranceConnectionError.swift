@@ -22,6 +22,7 @@ enum AssuranceConnectionError {
     case orgIDMismatch
     case connectionLimit
     case eventLimit
+    case deletedSession
     case clientError
     case userCancelled
 
@@ -40,11 +41,11 @@ enum AssuranceConnectionError {
             return ("Socket Connection Error",
                     "Unable to form a valid socket URL for connection.", false)
         case .noOrgId:
-            return ("Invalid Launch & SDK Configuration",
-                    "The Experience Cloud Org identifier is unavailable from SDK configuration. Please ensure the Launch mobile property is properly configured.", false)
+            return (" Invalid Mobile SDK Configuration",
+                    "The Experience Cloud organization identifier is unavailable. Ensure SDK configuration is setup correctly. See documentation for more detail.", false)
         case .orgIDMismatch:
             return ("Unauthorized Access",
-                    "The Experience Cloud organization for this Launch Property does not match that of the AEP Assurance session", false)
+                    "The Experience Cloud organization identifier does not match with that of the Assurance session. Ensure the right Experience Cloud organization is being used. See documentation for more detail.", false)
         case .connectionLimit:
             return ("Connection Limit Reached",
                     "You have reached the maximum number of connected device (50) allowed to a session.", false)
@@ -53,6 +54,9 @@ enum AssuranceConnectionError {
                     "You have reached the maximum number of events (10k) that can be sent per minute.", false)
         // todo immediate:  check with the team on better description.
         // todo later:  have griffon server return error description and how to solve... Same for connection & event limit errors
+        case .deletedSession:
+            return ("Session Deleted",
+                    "You attempted to connect to a deleted session.", false)
         case .clientError:
             return ("Client Disconnected",
                     "This client has been disconnected due to an unexpected error. Error Code 4400.", false)

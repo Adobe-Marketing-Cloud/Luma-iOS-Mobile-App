@@ -30,9 +30,12 @@ extension AssuranceSession: SocketDelegate {
     /// - Parameters:
     ///     - socket: the socket instance.
     ///     - closeCode:An `Int` representing the reason for socket disconnection. Reference : https://developer.mozilla.org/en-US/docs/Web/API/CloseEvent
-    ///     - reason: A `String` description for the reason of disconnection
+    ///     - reason: A `String` description for the reason for socket disconnection
     ///     - wasClean: A boolean representing if the connection has been terminated successfully. A false value represents the socket connection can be attempted to reconnected.
     func webSocketDidDisconnect(_ socket: SocketConnectable, _ closeCode: Int, _ reason: String, _ wasClean: Bool) {
+
+        // Adding client log so user knows the reason for disconnection
+        statusUI.addClientLog("Assurance Session disconnected : <br> &emsp; close code: \(closeCode) <br> &emsp; reason: \(reason) <br> &emsp; isClean : \(wasClean) ", visibility: .low)
 
         switch closeCode {
 
@@ -44,14 +47,12 @@ extension AssuranceSession: SocketDelegate {
             pinCodeScreen?.connectionFinished()
             statusUI.remove()
             pluginHub.notifyPluginsOnDisconnect(withCloseCode: closeCode)
-            break
 
         // ORG Mismatch : Close code 4900
         // Happens when there is an orgId mismatch between the griffon session and configured mobile SDK.
         // This is a non-retry error. Display the error back to user and close the connection.
         case AssuranceConstants.SocketCloseCode.ORG_MISMATCH:
             handleConnectionError(error: AssuranceConnectionError.orgIDMismatch, closeCode: closeCode)
-            break
 
         // Connection Limit : Close code 4901
         // Happens when the number of connections per session exceeds the limit
@@ -59,7 +60,6 @@ extension AssuranceSession: SocketDelegate {
         // This is a non-retry error. Display the error back to user and close the connection.
         case AssuranceConstants.SocketCloseCode.CONNECTION_LIMIT:
             handleConnectionError(error: AssuranceConnectionError.connectionLimit, closeCode: closeCode)
-            break
 
         // Events Limit : Close code 4902
         // Happens when the clients exceeds the number of Griffon events that can be sent per minute.
@@ -67,7 +67,12 @@ extension AssuranceSession: SocketDelegate {
         // This is a non-retry error. Display the error back to user and close the connection.
         case AssuranceConstants.SocketCloseCode.EVENTS_LIMIT:
             handleConnectionError(error: AssuranceConnectionError.eventLimit, closeCode: closeCode)
-            break
+
+        // Deleted Session : Close code 4903
+        // Happens when the client connects to a deleted session.
+        // This is a non-retry error. Display the error back to user and close the connection.
+        case AssuranceConstants.SocketCloseCode.DELETED_SESSION:
+            handleConnectionError(error: AssuranceConnectionError.deletedSession, closeCode: closeCode)
 
         // Events Limit : Close code 4400
         // This error is generically thrown if the client doesn't adhere to the protocol of the socket connection.
@@ -76,7 +81,6 @@ extension AssuranceSession: SocketDelegate {
         // - If there are any missing parameters in the socket URL.
         case AssuranceConstants.SocketCloseCode.CLIENT_ERROR:
             handleConnectionError(error: AssuranceConnectionError.clientError, closeCode: closeCode)
-            break
 
         // For all other abnormal closures, display error back to UI and attempt to reconnect.
         default:
@@ -100,7 +104,7 @@ extension AssuranceSession: SocketDelegate {
             // 4. Attempt to reconnect with appropriate time delay.
             if !isAttemptingToReconnect {
                 isAttemptingToReconnect = true
-                canStartForwarding = false //set this to false so that all the events are held up until client event is sent after successful reconnect
+                canStartForwarding = false // set this to false so that all the events are held up until client event is sent after successful reconnect
                 statusUI.updateForSocketInActive()
                 pluginHub.notifyPluginsOnDisconnect(withCloseCode: closeCode)
             }

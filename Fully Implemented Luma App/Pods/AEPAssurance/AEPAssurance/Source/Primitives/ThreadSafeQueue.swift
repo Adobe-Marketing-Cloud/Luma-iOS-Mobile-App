@@ -43,7 +43,7 @@ class ThreadSafeQueue<T> {
         return array.count
     }
 
-    ///Removes all of the elements from this queue.
+    /// Removes all of the elements from this queue.
     func clear() {
         self.array.clear()
     }
