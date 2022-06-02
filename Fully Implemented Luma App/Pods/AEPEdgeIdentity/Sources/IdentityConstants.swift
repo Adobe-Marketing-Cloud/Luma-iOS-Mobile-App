@@ -16,7 +16,7 @@ import Foundation
 enum IdentityConstants {
     static let EXTENSION_NAME = "com.adobe.edge.identity"
     static let FRIENDLY_NAME = "Edge Identity"
-    static let EXTENSION_VERSION = "1.0.0"
+    static let EXTENSION_VERSION = "1.0.1"
     static let DATASTORE_NAME = EXTENSION_NAME
     static let LOG_TAG = FRIENDLY_NAME
 
@@ -44,15 +44,21 @@ enum IdentityConstants {
 
     enum EventNames {
         static let REQUEST_IDENTITY_ECID = "Edge Identity Request ECID"
+        static let REQUEST_IDENTITY_URL_VARIABLES = "Edge Identity Request URL Variables"
         static let REQUEST_IDENTITIES = "Edge Identity Request Identities"
         static let UPDATE_IDENTITIES = "Edge Identity Update Identities"
         static let REMOVE_IDENTITIES = "Edge Identity Remove Identities"
+        static let IDENTITY_RESPONSE_URL_VARIABLES = "Edge Identity Response URL Variables"
         static let IDENTITY_RESPONSE_CONTENT_ONE_TIME = "Edge Identity Response Content One Time"
         static let RESET_IDENTITIES_COMPLETE = "Edge Identity Reset Identities Complete"
     }
 
     enum DataStoreKeys {
         static let IDENTITY_PROPERTIES = "identity.properties"
+    }
+
+    enum EventDataKeys {
+        static let URL_VARIABLES = "urlvariables"
     }
 
     enum Namespaces {
@@ -76,6 +82,17 @@ enum IdentityConstants {
             static let YES = "y"
             static let NO = "n"
         }
+    }
+
+    enum ConfigurationKeys {
+        static let EXPERIENCE_CLOUD_ORGID = "experienceCloud.org"
+    }
+
+    enum URLKeys {
+        static let TIMESTAMP = "TS"
+        static let EXPERIENCE_CLOUD_ORG_ID = "MCORGID"
+        static let EXPERIENCE_CLOUD_ID = "MCMID"
+        static let PAYLOAD = "adobe_mc"
     }
 
 }

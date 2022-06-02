@@ -28,7 +28,6 @@ public class Assurance: NSObject, Extension {
 
     let datastore = NamedCollectionDataStore(name: AssuranceConstants.EXTENSION_NAME)
     var assuranceSession: AssuranceSession?
-    var shouldProcessEvents: Bool = true
     var timer: DispatchSourceTimer?
 
     var sessionId: String? {
@@ -88,6 +87,7 @@ public class Assurance: NSObject, Extension {
         /// and do not turn on the unregister timer
         if connectedWebSocketURL != nil {
             shareState()
+            Log.trace(label: AssuranceConstants.LOG_TAG, "Assurance Session was already connected during previous app launch. Attempting to reconnect. URL : \(String(describing: connectedWebSocketURL))")
             assuranceSession?.startSession()
             return
         }
@@ -127,6 +127,9 @@ public class Assurance: NSObject, Extension {
             return stateEvents
         }
 
+        // add the eventHub shared state data to the list of shared state events
+        stateEvents.append(prepareSharedStateEvent(owner: AssuranceConstants.SharedStateName.EVENT_HUB, eventName: "EventHub State", stateContent: registeredExtension, stateType: AssuranceConstants.PayloadKey.SHARED_STATE_DATA))
+
         for (extensionName, _) in extensionsMap {
             let friendlyName = getFriendlyExtensionName(extensionMap: extensionsMap, extensionName: extensionName)
             stateEvents.append(contentsOf: getStateForExtension(stateOwner: extensionName, friendlyName: friendlyName))
@@ -146,7 +149,7 @@ public class Assurance: NSObject, Extension {
             handleAssuranceRequestContent(event: event)
         }
 
-        if !shouldProcessEvents {
+        guard let session = assuranceSession, session.canProcessSDKEvents else {
             return
         }
 
@@ -157,7 +160,7 @@ public class Assurance: NSObject, Extension {
 
         // forward all events to Assurance session
         let assuranceEvent = AssuranceEvent.from(event: event)
-        assuranceSession?.sendEvent(assuranceEvent)
+        session.sendEvent(assuranceEvent)
 
         if event.isPlacesRequestEvent {
             handlePlacesRequest(event: event)
@@ -192,14 +195,15 @@ public class Assurance: NSObject, Extension {
         // Read the environment query parameter from the deeplink url
         let environmentString = deeplinkURL?.params[AssuranceConstants.Deeplink.ENVIRONMENT_KEY] ?? ""
 
-        // invalidate the timer        
+        // invalidate the timer
         invalidateTimer()
 
         // save the environment and sessionID
         environment = AssuranceEnvironment.init(envString: environmentString)
         self.sessionId = sessionId
         shareState()
-        shouldProcessEvents = true
+
+        Log.trace(label: AssuranceConstants.LOG_TAG, "Received sessionID, Initializing Assurance session. \(sessionId)")
         assuranceSession?.startSession()
     }
 
@@ -232,7 +236,7 @@ public class Assurance: NSObject, Extension {
                 }
                 assuranceSession?.addClientLog("\t  \(poiDictionary["regionname"] as? String ?? "Unknown")", visibility: .high)
             }
-            assuranceSession?.addClientLog("Places - Found \(nearByPOIs.count) nearby POIs\(nearByPOIs.count > 0 ? " :" : ".")", visibility: .high)
+            assuranceSession?.addClientLog("Places - Found \(nearByPOIs.count) nearby POIs\(!nearByPOIs.isEmpty ? " :" : ".")", visibility: .high)
         }
     }
 
@@ -283,7 +287,7 @@ public class Assurance: NSObject, Extension {
     /// Start the shutdown timer in the background queue without blocking the current thread.
     /// If the timer get fired, then it shuts down the assurance extension.
     private func startShutDownTimer() {
-        Log.debug(label: AssuranceConstants.LOG_TAG, "Assurance shutdown timer started. Waiting for 5 seconds to receive assurance session url.");
+        Log.debug(label: AssuranceConstants.LOG_TAG, "Assurance shutdown timer started. Waiting for 5 seconds to receive assurance session url.")
         let queue = DispatchQueue.init(label: "com.adobe.assurance.shutdowntimer", qos: .background)
         timer = createDispatchTimer(queue: queue, block: {
             self.shutDownAssurance()
@@ -294,11 +298,10 @@ public class Assurance: NSObject, Extension {
     /// are listened by assurance extension
     /// @see readyForEvent
     private func shutDownAssurance() {
-        shouldProcessEvents = false
         Log.debug(label: AssuranceConstants.LOG_TAG, "Timeout - Assurance extension did not receive session url. Shutting down from processing any further events.")
         invalidateTimer()
         Log.debug(label: AssuranceConstants.LOG_TAG, "Clearing the queued events and purging Assurance shared state.")
-        self.assuranceSession?.clearQueueEvents()
+        self.assuranceSession?.shutDownSession()
         clearState()
     }
 

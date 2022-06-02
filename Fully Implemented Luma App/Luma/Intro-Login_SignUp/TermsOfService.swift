@@ -16,7 +16,6 @@ import WebKit
 import AEPEdge
 import AEPCore
 import AEPEdgeIdentity
-import AEPIdentity
 
 class TermsOfService: UIViewController {
 
@@ -42,12 +41,29 @@ class TermsOfService: UIViewController {
         
         // Show tou.html
         let url = Bundle.main.url(forResource: "tou", withExtension: "html")
-
-        // Adobe Experience Platform - Handle Web View
-        AEPIdentity.Identity.appendTo(url: url) {returnedURL, error in
-            let myRequest = URLRequest(url: returnedURL!)
-            self.webView.load(myRequest)
+        if var urlString = url?.absoluteString {
+            // Adobe Experience Platform - Handle Web View
+            AEPEdgeIdentity.Identity.getUrlVariables {(urlVariables, error) in
+                if let error = error {
+                    self.simpleAlert("\(error.localizedDescription)")
+                    return;
+                }
+                
+                
+                if let urlVariables: String = urlVariables {
+                    urlString.append("?" + urlVariables)
+                }
+                
+                DispatchQueue.main.async {
+                    self.webView.load(URLRequest(url: URL(string: urlString)!))
+                }
+                print("Successfully retrieved urlVariables for WebView, final URL: \(urlString)")
+            }
+        } else {
+            self.simpleAlert("Failed to create URL for webView")
         }
+
+        
     
         
         // Adobe Experience Platform - Send XDM Event

@@ -1,5 +1,5 @@
 /*
- Copyright 2020 Adobe. All rights reserved.
+ Copyright 2022 Adobe. All rights reserved.
  This file is licensed to you under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License. You may obtain a copy
  of the License at http://www.apache.org/licenses/LICENSE-2.0
@@ -12,11 +12,10 @@
 import AEPCore
 import Foundation
 
-/// Struct which represents an Identity hit
-struct IdentityHit: Codable {
-    /// URL to be requested for this Identity hit
-    let url: URL
+extension Event {
+    /// Reads the url variables flag from the event data, returns false if not present
+    var urlVariables: Bool {
+        return data?[IdentityConstants.EventDataKeys.URL_VARIABLES] as? Bool ?? false
+    }
 
-    /// Event responsible for triggering this Identity hit
-    let event: Event
 }

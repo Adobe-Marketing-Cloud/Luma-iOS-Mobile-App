@@ -25,15 +25,16 @@ import Foundation
     ///
     static func startSession(url: URL?) {
         guard let urlString = url?.absoluteString else {
-            Log.debug(label: AssuranceConstants.LOG_TAG, "Not a valid Assurance deeplink, ignorning start session API call.")
+            Log.debug(label: AssuranceConstants.LOG_TAG, "Start Session API called with invalid Assurance deeplink, ignoring the API call.")
             return
         }
 
         if !urlString.contains(AssuranceConstants.Deeplink.SESSIONID_KEY) {
-            Log.debug(label: AssuranceConstants.LOG_TAG, "Not a valid Assurance deeplink, ignorning start session API call for URL : \(urlString)")
+            Log.debug(label: AssuranceConstants.LOG_TAG, "Start Session API called with missing assurance sessionID, ignoring the API call. URL : \(urlString)")
             return
         }
 
+        Log.trace(label: AssuranceConstants.LOG_TAG, "Start Session API called with deeplink URL : \(urlString)")
         let eventData = [AssuranceConstants.EventDataKey.START_SESSION_URL: urlString]
         let event = Event(name: "Assurance Start Session",
                           type: AssuranceConstants.SDKEventType.ASSURANCE,

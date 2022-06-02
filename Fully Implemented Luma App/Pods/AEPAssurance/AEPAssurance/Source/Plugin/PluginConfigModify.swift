@@ -25,7 +25,9 @@ import Foundation
 /// the `MobileCore.updateConfiguration` API to modify the demanded configuration from the connected  assurance session.
 /// The modified configuration keys are stored in datastore, hence when assurance session is terminated the modified configuration is
 /// reverted back.
-struct PluginConfigModify: AssurancePlugin {
+class PluginConfigModify: AssurancePlugin {
+
+    weak var session: AssuranceSession?
 
     let datastore = NamedCollectionDataStore(name: AssuranceConstants.EXTENSION_NAME)
 
@@ -51,6 +53,11 @@ struct PluginConfigModify: AssurancePlugin {
         }
 
         MobileCore.updateConfigurationWith(configDict: commandDetails)
+        var logString = "Configuration updated for \(commandDetails.count > 1 ? "keys" : "key")"
+        for (configKey) in commandDetails.keys {
+            logString.append("<br> &emsp; \(configKey)")
+        }
+        session?.statusUI.addClientLog(logString, visibility: .high)
         saveModifiedConfigKeys(commandDetails)
     }
 
@@ -70,9 +77,12 @@ struct PluginConfigModify: AssurancePlugin {
         }
     }
 
-    // no op - protocol methods
-    func onRegistered(_ session: AssuranceSession) {}
+    /// protocol method is called from this Plugin is registered with `PluginHub`
+    func onRegistered(_ session: AssuranceSession) {
+        self.session = session
+    }
 
+    // no op - protocol methods
     func onSessionConnected() {}
 
     func onSessionDisconnectedWithCloseCode(_ closeCode: Int) {}

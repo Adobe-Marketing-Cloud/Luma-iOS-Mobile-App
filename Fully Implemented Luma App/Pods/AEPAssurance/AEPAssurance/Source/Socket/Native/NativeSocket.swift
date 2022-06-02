@@ -12,12 +12,12 @@
 
 // NativeSocket will be uncommented and included during Assurance support for TVOS.
 
-//import AEPServices
-//import Foundation
-//import WebKit
+// import AEPServices
+// import Foundation
+// import WebKit
 //
-//@available(iOS 13.0, *)
-//class NativeSocket: NSObject, SocketConnectable, URLSessionDelegate, URLSessionWebSocketDelegate {
+// @available(iOS 13.0, *)
+// class NativeSocket: NSObject, SocketConnectable, URLSessionDelegate, URLSessionWebSocketDelegate {
 //    var socketURL: URL?
 //
 //    var delegate: SocketDelegate
@@ -130,4 +130,4 @@
 //        Log.debug(label: AssuranceConstants.LOG_TAG, "Assurance SDK cannot to handle binary data received from socket.")
 //    }
 //
-//}
+// }
