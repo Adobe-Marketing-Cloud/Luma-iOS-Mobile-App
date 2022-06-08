@@ -33,6 +33,7 @@ import Foundation
 
     public func onRegistered() {
         registerListener(type: EventType.edgeIdentity, source: EventSource.requestIdentity, listener: handleIdentityRequest)
+        registerListener(type: EventType.genericIdentity, source: EventSource.requestContent, listener: handleRequestContent)
         registerListener(type: EventType.edgeIdentity, source: EventSource.updateIdentity, listener: handleUpdateIdentity)
         registerListener(type: EventType.edgeIdentity, source: EventSource.removeIdentity, listener: handleRemoveIdentity)
         registerListener(type: EventType.genericIdentity, source: EventSource.requestReset, listener: handleRequestReset)
@@ -43,15 +44,31 @@ import Foundation
     }
 
     public func readyForEvent(_ event: Event) -> Bool {
-        if event.urlVariables, getSharedState(extensionName: IdentityConstants.SharedState.Configuration.SHARED_OWNER_NAME, event: event)?.status != .set { return false}
+        guard state.bootupIfReady(getSharedState: getSharedState(extensionName:event:),
+                                  createXDMSharedState: createXDMSharedState(data:event:)) else {
+            return false
+        }
 
-        return state.bootupIfReady(getSharedState: getSharedState(extensionName:event:),
-                                   createXDMSharedState: createXDMSharedState(data:event:))
+        if event.urlVariables {
+            return getSharedState(extensionName: IdentityConstants.SharedState.Configuration.SHARED_OWNER_NAME, event: event, resolution: .lastSet)?.value != nil
+        }
+
+        return true
     }
 
     // MARK: Event Listeners
 
-    /// Handles events requesting for identifiers. Called by listener registered with event hub.
+    /// Handles events to set the advertising identifier. Called by listener registered with event hub.
+    /// - Parameter event: event containing `advertisingIdentifier` data
+    private func handleRequestContent(event: Event) {
+        if event.isAdIdEvent {
+            state.updateAdvertisingIdentifier(event: event,
+                                              createXDMSharedState: createXDMSharedState(data:event:),
+                                              eventDispatcher: dispatch(event:))
+        }
+    }
+
+    /// Handles events requesting for identifiers. Dispatches response event containing the identifiers. Called by listener registered with event hub.
     /// - Parameter event: the identity request event
     private func handleIdentityRequest(event: Event) {
         if event.urlVariables {
@@ -69,7 +86,7 @@ import Foundation
                                                            source: EventSource.responseIdentity,
                                                            data: [IdentityConstants.EventDataKeys.URL_VARIABLES: ""])
 
-        guard let configurationSharedState = getSharedState(extensionName: IdentityConstants.SharedState.Configuration.SHARED_OWNER_NAME, event: event)?.value else {
+        guard let configurationSharedState = getSharedState(extensionName: IdentityConstants.SharedState.Configuration.SHARED_OWNER_NAME, event: event, resolution: .lastSet)?.value else {
             Log.warning(label: friendlyName, "\(#function) - Cannot process getUrlVariables request Identity event, configuration not found.")
             dispatch(event: emptyResponseEvent)
             return
@@ -144,7 +161,7 @@ import Foundation
     /// - Parameter event: shared state change event
     private func handleHubSharedState(event: Event) {
         guard let eventData = event.data,
-              let stateowner = eventData[IdentityConstants.SharedState.STATE_OWNER] as? String,
+              let stateowner = eventData[IdentityConstants.EventDataKeys.STATE_OWNER] as? String,
               stateowner == IdentityConstants.SharedState.IdentityDirect.SHARED_OWNER_NAME else {
             return
         }
