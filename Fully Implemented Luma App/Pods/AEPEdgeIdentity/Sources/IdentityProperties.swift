@@ -83,6 +83,27 @@ struct IdentityProperties: Codable {
         }
     }
 
+    /// The current Ad ID (IDFA) set with the Identity extension
+    var advertisingIdentifier: String? {
+        get {
+            return getAdvertisingIdentifier()
+        }
+
+        set {
+            // remove current Ad ID; there can be only one!
+            if let currentAdId = getAdvertisingIdentifier() {
+                identityMap.remove(item: IdentityItem(id: currentAdId), withNamespace: IdentityConstants.Namespaces.IDFA)
+            }
+
+            guard let newAdId = newValue, !newAdId.isEmpty else {
+                return // new ID is nil or empty
+            }
+
+            // Update IDFA
+            identityMap.add(item: IdentityItem(id: newAdId), withNamespace: IdentityConstants.Namespaces.IDFA)
+        }
+    }
+
     /// Merge the given `identifiersMap` with the current properties. Items in `identifiersMap` will overrite current properties where the `id` and
     /// `namespace` match. No items are removed. Identifiers under the namespaces "ECID" and "IDFA" are reserved and cannot be updated using this function.
     /// - Parameter identifiersMap: the `IdentityMap` to merge with the current properties
@@ -173,6 +194,16 @@ struct IdentityProperties: Codable {
         return nil
     }
 
+    /// Get the advertising identifier from the properties map. Assumes only one `IdentityItem` under the "IDFA" namespace.
+    /// - Returns: the advertising identifier or nil if not found
+    private func getAdvertisingIdentifier() -> String? {
+        guard let adIdList = identityMap.getItems(withNamespace: IdentityConstants.Namespaces.IDFA), !adIdList.isEmpty else {
+            return nil
+        }
+
+        return adIdList[0].id
+    }
+
     /// Filter out any items contained in reserved namespaces from the given `identityMap`.
     /// The list of reserved namespaces can be found at `reservedNamespaces`.
     /// - Parameter identifiersMap: the `IdentityMap` to filter out items contained in reserved namespaces.
@@ -182,7 +213,12 @@ struct IdentityProperties: Codable {
         for reservedNamespace in IdentityProperties.reservedNamespaces {
             for namespace in identifiersMap.namespaces where namespace.caseInsensitiveCompare(reservedNamespace) == .orderedSame {
                 if let items = identifiersMap.getItems(withNamespace: namespace) {
-                    Log.debug(label: IdentityConstants.LOG_TAG, "IdentityProperties - Adding/Updating identifiers in namespace '\(namespace)' is not allowed.")
+                    if [IdentityConstants.Namespaces.IDFA, IdentityConstants.Namespaces.GAID].contains(namespace) {
+                        let logMessage = "IdentityProperties - Operation not allowed for namespace '\(namespace)'; use MobileCore.setAdvertisingIdentifier instead."
+                        Log.warning(label: IdentityConstants.LOG_TAG, logMessage)
+                    } else {
+                        Log.debug(label: IdentityConstants.LOG_TAG, "IdentityProperties - Adding/Updating identifiers in namespace '\(namespace)' is not allowed.")
+                    }
                     for item in items {
                         filterItems.add(item: item, withNamespace: namespace)
                     }
