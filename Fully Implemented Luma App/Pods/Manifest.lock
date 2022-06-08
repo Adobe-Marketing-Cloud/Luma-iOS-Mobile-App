@@ -5,14 +5,14 @@ PODS:
   - AEPCore (3.6.0):
     - AEPRulesEngine (>= 1.1.0)
     - AEPServices (>= 3.6.0)
-  - AEPEdge (1.4.0):
+  - AEPEdge (1.4.1):
     - AEPCore (>= 3.5.0)
     - AEPEdgeIdentity
   - AEPEdgeConsent (1.0.1):
     - AEPCore (>= 3.5.0)
     - AEPEdge (>= 1.4.0)
-  - AEPEdgeIdentity (1.0.1):
-    - AEPCore (>= 3.1.1)
+  - AEPEdgeIdentity (1.1.0):
+    - AEPCore (>= 3.6.0)
   - AEPLifecycle (3.6.0):
     - AEPCore (>= 3.6.0)
   - AEPMessaging (1.0.0):
@@ -34,7 +34,7 @@ DEPENDENCIES:
   - AEPCore (~> 3)
   - AEPEdge (~> 1)
   - AEPEdgeConsent (~> 1)
-  - AEPEdgeIdentity (from `https://github.com/adobe/aepsdk-edgeidentity-ios.git`, branch `feature/getUrlVariables`)
+  - AEPEdgeIdentity (~> 1)
   - AEPLifecycle (~> 3)
   - AEPMessaging (~> 1)
   - AEPServices (~> 3)
@@ -49,6 +49,7 @@ SPEC REPOS:
     - AEPCore
     - AEPEdge
     - AEPEdgeConsent
+    - AEPEdgeIdentity
     - AEPLifecycle
     - AEPMessaging
     - AEPRulesEngine
@@ -58,22 +59,12 @@ SPEC REPOS:
     - Alamofire
     - SwiftyJSON
 
-EXTERNAL SOURCES:
-  AEPEdgeIdentity:
-    :branch: feature/getUrlVariables
-    :git: https://github.com/adobe/aepsdk-edgeidentity-ios.git
-
-CHECKOUT OPTIONS:
-  AEPEdgeIdentity:
-    :commit: b580caf43c44931ab3825f5d46bb49325fd0aa96
-    :git: https://github.com/adobe/aepsdk-edgeidentity-ios.git
-
 SPEC CHECKSUMS:
   AEPAssurance: b25880cd4b14f22c61a1dce19807bd0ca0fe9b17
   AEPCore: 03a89f8b792a74e17f739ab535982569d6639b76
-  AEPEdge: 0e7c11d13e71d23d995bff46f48691c1bb65f84f
+  AEPEdge: 6faf60328f9e5ae7a107fd61f9a968f46ebf2928
   AEPEdgeConsent: a23b35ab331d2aa2013fcef49c9d6b80085d5597
-  AEPEdgeIdentity: 5c42cef81835851232136a9e1fbbbe33b204ee11
+  AEPEdgeIdentity: 47f0c6ecbec5857b2a8cb9b7bf717c2424c6bae0
   AEPLifecycle: 7c0452a650a8ccaaa2473a3625a7004e8687797e
   AEPMessaging: 661cc08435254f3c9cc0899785c20a7952952e95
   AEPRulesEngine: 71228dfdac24c9ded09be13e3257a7eb22468ccc
@@ -83,6 +74,6 @@ SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 9e4fae22681afb1bfbd5ce46f370153535c993c1
+PODFILE CHECKSUM: 5e3d52b26c150eff58a8e2da14ed7af85a31dab3
 
 COCOAPODS: 1.11.2
