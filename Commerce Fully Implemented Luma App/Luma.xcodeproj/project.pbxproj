@@ -88,11 +88,9 @@
 		724B97041C522DF200F7704D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 724B97031C522DF200F7704D /* AppDelegate.swift */; };
 		724B97091C522DF200F7704D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 724B97071C522DF200F7704D /* Main.storyboard */; };
 		724B970B1C522DF200F7704D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 724B970A1C522DF200F7704D /* Assets.xcassets */; };
-		72AB56A11CEB1B6F001DCC10 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 72AB56A01CEB1B6F001DCC10 /* StoreKit.framework */; };
 		72AF49511C522F9700C79F5E /* Configurations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72AF49501C522F9700C79F5E /* Configurations.swift */; };
 		8A0C50F72677CFA900DE2D28 /* CoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A0C50F62677CFA900DE2D28 /* CoreServices.framework */; };
 		8A45E1BF26CC5D41006D628A /* Pods_Luma.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8A45E1BE26CC5D41006D628A /* Pods_Luma.framework */; };
-		8A45E1C026CC5D41006D628A /* Pods_Luma.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 8A45E1BE26CC5D41006D628A /* Pods_Luma.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		8A59D7FE27A4B351006E9743 /* ProductBridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59D7FD27A4B350006E9743 /* ProductBridge.swift */; };
 		8A59D80627A9C5E4006E9743 /* 81b91e817aac9a8cd090723111085cdd_mj12-orange_main.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8A59D80427A9C5E4006E9743 /* 81b91e817aac9a8cd090723111085cdd_mj12-orange_main.jpeg */; };
 		8A59D80B27A9CA61006E9743 /* e0869bf00255542bdb38cbaa927ed95a_luma-yoga-strap-set.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8A59D80727A9CA61006E9743 /* e0869bf00255542bdb38cbaa927ed95a_luma-yoga-strap-set.jpeg */; };
@@ -101,20 +99,6 @@
 		8A59D80E27A9CA61006E9743 /* 08074a66ab70918d90b69fd9cec36d13_lt06.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 8A59D80A27A9CA61006E9743 /* 08074a66ab70918d90b69fd9cec36d13_lt06.jpeg */; };
 		E0020CE721B4521E00817145 /* Parse.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E0020CE621B4521E00817145 /* Parse.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXCopyFilesBuildPhase section */
-		8A45E1C126CC5D42006D628A /* Embed Frameworks */ = {
-			isa = PBXCopyFilesBuildPhase;
-			buildActionMask = 2147483647;
-			dstPath = "";
-			dstSubfolderSpec = 10;
-			files = (
-				8A45E1C026CC5D41006D628A /* Pods_Luma.framework in Embed Frameworks */,
-			);
-			name = "Embed Frameworks";
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0460C1EF22C0BE7D002B263B /* UIImage+WebP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+WebP.m"; sourceTree = "<group>"; };
@@ -219,7 +203,6 @@
 		724B97081C522DF200F7704D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		724B970A1C522DF200F7704D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		724B970F1C522DF200F7704D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		72AB56A01CEB1B6F001DCC10 /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		72AF49501C522F9700C79F5E /* Configurations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Configurations.swift; sourceTree = "<group>"; };
 		8A0C50F62677CFA900DE2D28 /* CoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreServices.framework; path = System/Library/Frameworks/CoreServices.framework; sourceTree = SDKROOT; };
 		8A45E1BE26CC5D41006D628A /* Pods_Luma.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Pods_Luma.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,7 +237,6 @@
 				721951C51D0853BF0051F93C /* Accelerate.framework in Frameworks */,
 				26EA9519216256450036708C /* FBSDKLoginKit.framework in Frameworks */,
 				7230749B1C52377800C5DF7E /* SystemConfiguration.framework in Frameworks */,
-				72AB56A11CEB1B6F001DCC10 /* StoreKit.framework in Frameworks */,
 				7230749F1C52378000C5DF7E /* libsqlite3.tbd in Frameworks */,
 				7230749D1C52377C00C5DF7E /* libz.tbd in Frameworks */,
 				26EA9517216256450036708C /* FBSDKCoreKit.framework in Frameworks */,
@@ -397,7 +379,6 @@
 				721951C81D0853D30051F93C /* CoreMedia.framework */,
 				721951C61D0853CA0051F93C /* AVFoundation.framework */,
 				721951C41D0853BF0051F93C /* Accelerate.framework */,
-				72AB56A01CEB1B6F001DCC10 /* StoreKit.framework */,
 				7230749E1C52378000C5DF7E /* libsqlite3.tbd */,
 				721951DE1D0857CC0051F93C /* libxml2.tbd */,
 				7230749C1C52377C00C5DF7E /* libz.tbd */,
@@ -495,7 +476,6 @@
 				724B96FD1C522DF200F7704D /* Frameworks */,
 				724B96FE1C522DF200F7704D /* Resources */,
 				83599D26FC96353FAD059337 /* [CP] Embed Pods Frameworks */,
-				8A45E1C126CC5D42006D628A /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -518,7 +498,7 @@
 				TargetAttributes = {
 					724B96FF1C522DF200F7704D = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = CUP3S7NYZW;
+						DevelopmentTeam = LAT9PMFRMG;
 						LastSwiftMigration = 1250;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
@@ -844,7 +824,7 @@
 				CODE_SIGN_ENTITLEMENTS = Luma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CUP3S7NYZW;
+				DEVELOPMENT_TEAM = LAT9PMFRMG;
 				"EXCLUDED_ARCHS[sdk=*]" = "";
 				"EXCLUDED_ARCHS[sdk=iphonesimulator*]" = arm64;
 				FRAMEWORK_SEARCH_PATHS = (
@@ -867,7 +847,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.luma.tutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.luma.commerce.tutorial;
 				PRODUCT_NAME = "Luma RTCDP";
 				SWIFT_OBJC_BRIDGING_HEADER = Luma/Header.h;
 				SWIFT_VERSION = 5.0;
@@ -884,7 +864,7 @@
 				CODE_SIGN_ENTITLEMENTS = Luma.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = CUP3S7NYZW;
+				DEVELOPMENT_TEAM = LAT9PMFRMG;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/Luma/Parse",
@@ -905,7 +885,7 @@
 					"-ObjC",
 					"$(inherited)",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.luma.tutorial;
+				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.luma.commerce.tutorial;
 				PRODUCT_NAME = "Luma RTCDP";
 				SWIFT_OBJC_BRIDGING_HEADER = Luma/Header.h;
 				SWIFT_VERSION = 5.0;
