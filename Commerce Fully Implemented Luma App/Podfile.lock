@@ -1,32 +1,35 @@
 PODS:
-  - AEPAssurance (3.0.1):
+  - AEPAssurance (3.1.0):
     - AEPCore (>= 3.1.0)
     - AEPServices (>= 3.1.0)
-  - AEPCore (3.6.0):
-    - AEPRulesEngine (>= 1.1.0)
-    - AEPServices (>= 3.6.0)
-  - AEPEdge (1.4.1):
-    - AEPCore (>= 3.5.0)
-    - AEPEdgeIdentity
-  - AEPEdgeConsent (1.0.1):
-    - AEPCore (>= 3.5.0)
-    - AEPEdge (>= 1.4.0)
-  - AEPEdgeIdentity (1.1.0):
-    - AEPCore (>= 3.6.0)
-  - AEPLifecycle (3.6.0):
-    - AEPCore (>= 3.6.0)
-  - AEPMessaging (1.0.0):
-    - AEPCore
-    - AEPEdge (>= 1.1.0)
-    - AEPEdgeIdentity (>= 1.0.0)
-    - AEPServices
-  - AEPRulesEngine (1.2.0)
-  - AEPServices (3.6.0)
-  - AEPSignal (3.6.0):
-    - AEPCore (>= 3.6.0)
+  - AEPCore (3.8.1):
+    - AEPRulesEngine (>= 1.2.2)
+    - AEPServices (>= 3.8.1)
+  - AEPEdge (1.6.0):
+    - AEPCore (>= 3.7.0)
+    - AEPEdgeIdentity (>= 1.2.0)
+  - AEPEdgeConsent (1.1.0):
+    - AEPCore (>= 3.7.0)
+    - AEPEdge (>= 1.6.0)
+  - AEPEdgeIdentity (1.2.0):
+    - AEPCore (>= 3.7.0)
+  - AEPLifecycle (3.8.1):
+    - AEPCore (>= 3.8.1)
+  - AEPMessaging (1.1.3):
+    - AEPCore (>= 3.8.1)
+    - AEPEdge (>= 1.5.0)
+    - AEPEdgeIdentity (>= 1.1.0)
+    - AEPServices (>= 3.8.1)
+  - AEPRulesEngine (1.2.2)
+  - AEPServices (3.8.1)
+  - AEPSignal (3.8.1):
+    - AEPCore (>= 3.8.1)
   - AEPUserProfile (3.0.1):
     - AEPCore
-  - Alamofire (5.5.0)
+  - Alamofire (5.6.4)
+  - Apollo (1.0.7):
+    - Apollo/Core (= 1.0.7)
+  - Apollo/Core (1.0.7)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
@@ -41,6 +44,7 @@ DEPENDENCIES:
   - AEPSignal (~> 3)
   - AEPUserProfile (~> 3)
   - Alamofire
+  - Apollo
   - SwiftyJSON
 
 SPEC REPOS:
@@ -57,23 +61,25 @@ SPEC REPOS:
     - AEPSignal
     - AEPUserProfile
     - Alamofire
+    - Apollo
     - SwiftyJSON
 
 SPEC CHECKSUMS:
-  AEPAssurance: b25880cd4b14f22c61a1dce19807bd0ca0fe9b17
-  AEPCore: 03a89f8b792a74e17f739ab535982569d6639b76
-  AEPEdge: 6faf60328f9e5ae7a107fd61f9a968f46ebf2928
-  AEPEdgeConsent: a23b35ab331d2aa2013fcef49c9d6b80085d5597
-  AEPEdgeIdentity: 47f0c6ecbec5857b2a8cb9b7bf717c2424c6bae0
-  AEPLifecycle: 7c0452a650a8ccaaa2473a3625a7004e8687797e
-  AEPMessaging: 661cc08435254f3c9cc0899785c20a7952952e95
-  AEPRulesEngine: 71228dfdac24c9ded09be13e3257a7eb22468ccc
-  AEPServices: fd41aa2d0eda1e6939ae00a99f8431a57d09e1ca
-  AEPSignal: bbdb296030fec8239fb316576f40b230267fcf7c
+  AEPAssurance: cea6c6b08a1ff6e5025f3ae79a68a1619c49cb4e
+  AEPCore: 460eb0a7cc85180a4b77ac204cf8a7711d1341b8
+  AEPEdge: e4364a56d358c517f7d4cef87570ac4e7652d3a2
+  AEPEdgeConsent: d10d4232615b880d484050edf47b2e3fbfb787bb
+  AEPEdgeIdentity: 6bb2c1e62d48cdc988b4d492e8e6d563f0ced73d
+  AEPLifecycle: 7b9dd2fd528035c4555ff838f89f9c45e62dbb64
+  AEPMessaging: 988ad59fa642c491aef4ebf2dc48283abe9fc722
+  AEPRulesEngine: 354b4374edefaf5bdfa3336ab9a41a07cbae4afe
+  AEPServices: 79b5e33655bfaff53e360a0f59e4b59077b75dd0
+  AEPSignal: 5208f9c32e880394ed688d618703cd9ee43083d9
   AEPUserProfile: 2ddb5ba8e2c22dd8f942992306b050f4be2c2403
-  Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
+  Alamofire: 4e95d97098eacb88856099c4fc79b526a299e48c
+  Apollo: 4db36a7f08ded7a9f73a72eb90457d98dc4c68f9
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 5e3d52b26c150eff58a8e2da14ed7af85a31dab3
+PODFILE CHECKSUM: 32f7f96884f15153523cd292757f57d175f0c946
 
-COCOAPODS: 1.11.2
+COCOAPODS: 1.12.0

@@ -22,7 +22,8 @@ import AEPEdge
 import AEPCore
 import AEPEdgeIdentity
 import AEPEdgeConsent
-
+import Foundation
+import Apollo
 
 class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CLLocationManagerDelegate
 {

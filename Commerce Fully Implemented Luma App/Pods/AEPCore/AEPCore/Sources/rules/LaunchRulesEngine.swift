@@ -72,12 +72,21 @@ public class LaunchRulesEngine {
     /// Set a new set of rules, the new rules replace the current rules. A RulesEngine Reset event will be dispatched to trigger the reprocess for the waiting events.
     /// - Parameter rules: the array of new `LaunchRule`
     public func replaceRules(with rules: [LaunchRule]) {
-        rulesQueue.async {
+        rulesQueue.sync {
             self.rulesEngine.clearRules()
             self.rulesEngine.addRules(rules: rules)
             Log.debug(label: self.LOG_TAG, "Successfully loaded \(rules.count) rule(s) into the (\(self.name)) rules engine.")
         }
         self.sendReprocessEventsRequest()
+    }
+
+    /// Adds provided rules to the current rules.
+    /// - Parameter rules: the array of `LaunchRule`s to be added
+    public func addRules(_ rules: [LaunchRule]) {
+        rulesQueue.sync {
+            self.rulesEngine.addRules(rules: rules)
+            Log.debug(label: self.LOG_TAG, "Successfully added \(rules.count) rule(s) into the (\(self.name)) rules engine.")
+        }
     }
 
     /// Evaluates all the current rules against the supplied `Event`.
@@ -175,7 +184,7 @@ public class LaunchRulesEngine {
             Log.error(label: LOG_TAG, "(\(self.name)) : Unable to process an AttachDataConsequence Event, 'eventData' is missing from original event")
             return nil
         }
-        Log.trace(label: LOG_TAG, "(\(self.name)) : Attaching event data with \(PrettyDictionary.prettify(from))\n")
+        Log.trace(label: LOG_TAG, "(\(self.name)) : Attaching event data: \(PrettyDictionary.prettify(from)) to \(PrettyDictionary.prettify(to))\n")
         return EventDataMerger.merging(to: to, from: from, overwrite: false)
     }
 
@@ -194,7 +203,7 @@ public class LaunchRulesEngine {
             Log.error(label: LOG_TAG, "(\(self.name)) : Unable to process a ModifyDataConsequence Event, 'eventData' is missing from original event")
             return nil
         }
-        Log.trace(label: LOG_TAG, "(\(self.name)) : Modifying event data with \(PrettyDictionary.prettify(from))\n")
+        Log.trace(label: LOG_TAG, "(\(self.name)) : Modifying event data: \(PrettyDictionary.prettify(to)) with data: \(PrettyDictionary.prettify(from))\n")
         return EventDataMerger.merging(to: to, from: from, overwrite: true)
     }
 

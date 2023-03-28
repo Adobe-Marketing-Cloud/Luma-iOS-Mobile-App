@@ -84,6 +84,12 @@ class WebViewSocket: NSObject, SocketConnectable, WKNavigationDelegate, WKScript
             Log.debug(label: AssuranceConstants.LOG_TAG, "Waiting for webView to be loaded open socket connection.")
             return
         }
+        
+        // Sanitize the URL to avoid JS injection attack
+        // BASE Socket URL: "wss://connect%@.griffon.adobe.com/client/v1?sessionId=%@&token=%@&orgId=%@&clientId=%@"
+        if !url.isSafe {
+            return
+        }
 
         socketQueue.async {
             let connectCommand = String(format: "connect(\"%@\");", url.absoluteString)

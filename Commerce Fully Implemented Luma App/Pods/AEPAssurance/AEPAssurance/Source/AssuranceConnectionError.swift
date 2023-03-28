@@ -13,10 +13,9 @@
 import Foundation
 
 // todo later: For better clarity separate out into two enums .. socketError vs clientSideError for socket connection
-enum AssuranceConnectionError {
+enum AssuranceConnectionError: Error, Equatable {
     case genericError
     case noOrgId
-    case noSessionID
     case noPincode
     case noURL
     case orgIDMismatch
@@ -25,15 +24,18 @@ enum AssuranceConnectionError {
     case deletedSession
     case clientError
     case userCancelled
+    case invalidURL(url: String)
+    case invalidRequestBody
+    case invalidResponseData
+    case failedToRegisterDevice(statusCode: Int, responseMessage: String)
+    case failedToGetDeviceStatus(statusCode: Int, responseMessage: String)
+    case failedToDeleteDevice(statusCode: Int, responseMessage: String)
 
     var info: (name: String, description: String, shouldRetry: Bool) {
         switch self {
         case .genericError:
             return ("Connection Error",
                     "The connection may be failing due to a network issue or an incorrect PIN. Please verify internet connectivity or the PIN and try again.", true)
-        case .noSessionID:
-            return ("Invalid SessionID",
-                    "Unable to extract valid Assurance sessionID from deeplink URL. Please try re-connecting to the session with a valid deeplink URL", false)
         case .noPincode:
             return ("HTML Error",
                     "Unable to extract the pincode entered.", true)
@@ -63,6 +65,24 @@ enum AssuranceConnectionError {
         case .userCancelled:
             return ("Assurance session connection cancelled.",
                     "User has chosen to cancel the socket connection. To start again, please open the app with an assurance deeplink url.", false)
+        case .invalidURL(let url):
+            return ("Invalid url",
+                "Attempted a network request with an invalid url: \(url)", false)
+        case .invalidResponseData:
+            return ("Invalid response data",
+                    "Received invalid response data", false)
+        case .invalidRequestBody:
+            return ("Invalid request body",
+                    "Attempted a network request with an invalid request body", false)
+        case .failedToRegisterDevice(let statusCode, let responseMessage):
+            return ("Failed to register device",
+                    "Failed to register device with status code: \(statusCode), and response message: \"\(responseMessage)\"", true)
+        case .failedToGetDeviceStatus(let statusCode, let responseMessage):
+            return ("Failed to get device status",
+                    "Failed to get device status with status code: \(statusCode), and response message: \"\(responseMessage)\"", true)
+        case .failedToDeleteDevice(let statusCode, let responseMessage):
+            return ("Failed to delete device",
+                    "Failed to delete device with status code: \(statusCode), and response message: \"\(responseMessage)\"", true)
         }
     }
 }

@@ -3,7 +3,6 @@
  This file is licensed to you under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License. You may obtain a copy
  of the License at http://www.apache.org/licenses/LICENSE-2.0
-
  Unless required by applicable law or agreed to in writing, software distributed under
  the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
  OF ANY KIND, either express or implied. See the License for the specific language
@@ -37,13 +36,11 @@ class PluginConfigModify: AssurancePlugin {
     }
 
     // MARK: - AssurancePlugin protocol properties
-
     var vendor: String = AssuranceConstants.Vendor.MOBILE
 
     var commandType: String = AssuranceConstants.CommandType.CONFIG_UPDATE
 
     // MARK: - AssurancePlugin protocol methods
-
     /// Delegate method called when a command is received to modify the configuration of Mobile SDK
     /// - Parameter event  An `AssuranceEvent` that contains the details about the configuration that need to be modified
     func receiveEvent(_ event: AssuranceEvent) {
@@ -57,7 +54,7 @@ class PluginConfigModify: AssurancePlugin {
         for (configKey) in commandDetails.keys {
             logString.append("<br> &emsp; \(configKey)")
         }
-        session?.statusUI.addClientLog(logString, visibility: .high)
+        session?.statusPresentation.statusUI.addClientLog(logString, visibility: .high)
         saveModifiedConfigKeys(commandDetails)
     }
 

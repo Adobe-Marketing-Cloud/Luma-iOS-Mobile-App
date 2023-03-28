@@ -3,7 +3,6 @@
  This file is licensed to you under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License. You may obtain a copy
  of the License at http://www.apache.org/licenses/LICENSE-2.0
-
  Unless required by applicable law or agreed to in writing, software distributed under
  the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
  OF ANY KIND, either express or implied. See the License for the specific language
@@ -22,6 +21,7 @@ extension AssuranceSession: SocketDelegate {
     ///
     func webSocketDidConnect(_ socket: SocketConnectable) {
         Log.debug(label: AssuranceConstants.LOG_TAG, "Assurance session successfully connected.")
+        self.statusPresentation.statusUI.display()
         self.sendClientInfoEvent()
     }
 
@@ -35,7 +35,7 @@ extension AssuranceSession: SocketDelegate {
     func webSocketDidDisconnect(_ socket: SocketConnectable, _ closeCode: Int, _ reason: String, _ wasClean: Bool) {
 
         // Adding client log so user knows the reason for disconnection
-        statusUI.addClientLog("Assurance Session disconnected : <br> &emsp; close code: \(closeCode) <br> &emsp; reason: \(reason) <br> &emsp; isClean : \(wasClean) ", visibility: .low)
+        statusPresentation.addClientLog("Assurance Session disconnected : <br> &emsp; close code: \(closeCode) <br> &emsp; reason: \(reason) <br> &emsp; isClean : \(wasClean) ", visibility: .low)
 
         switch closeCode {
 
@@ -44,8 +44,8 @@ extension AssuranceSession: SocketDelegate {
         // notify plugin on normal closure
         case AssuranceConstants.SocketCloseCode.NORMAL_CLOSURE:
             Log.debug(label: AssuranceConstants.LOG_TAG, "Socket disconnected successfully with close code \(closeCode). Normal closure of websocket.")
-            pinCodeScreen?.connectionFinished()
-            statusUI.remove()
+            connectionDelegate.handleSessionDisconnect()
+            statusPresentation.sessionDisconnected()
             pluginHub.notifyPluginsOnDisconnect(withCloseCode: closeCode)
 
         // ORG Mismatch : Close code 4900
@@ -85,10 +85,11 @@ extension AssuranceSession: SocketDelegate {
         // For all other abnormal closures, display error back to UI and attempt to reconnect.
         default:
             Log.debug(label: AssuranceConstants.LOG_TAG, "Abnormal closure of webSocket. Reason - \(reason) and closeCode - \(closeCode)")
-            pinCodeScreen?.connectionFailedWithError(AssuranceConnectionError.genericError)
 
-            // do the reconnect logic only if session is already connected
-            guard let _ = assuranceExtension.connectedWebSocketURL else {
+            // do the reconnect logic only if session was already connected
+            guard let _ = stateManager.connectedWebSocketURL else {
+                statusPresentation.sessionConnectionError(error: AssuranceConnectionError.genericError)
+                connectionDelegate.handleConnectionError(error: AssuranceConnectionError.genericError)
                 return
             }
 
@@ -105,7 +106,7 @@ extension AssuranceSession: SocketDelegate {
             if !isAttemptingToReconnect {
                 isAttemptingToReconnect = true
                 canStartForwarding = false // set this to false so that all the events are held up until client event is sent after successful reconnect
-                statusUI.updateForSocketInActive()
+                statusPresentation.sessionReconnecting()
                 pluginHub.notifyPluginsOnDisconnect(withCloseCode: closeCode)
             }
 
@@ -143,7 +144,7 @@ extension AssuranceSession: SocketDelegate {
     func webSocket(_ socket: SocketConnectable, didChangeState state: SocketState) {
         Log.debug(label: AssuranceConstants.LOG_TAG, "AssuranceSession: Socket state changed \(socket.socketState)")
         if state == .open {
-            assuranceExtension.connectedWebSocketURL = socket.socketURL?.absoluteString
+            stateManager.connectedWebSocketURL = socket.socketURL?.absoluteString
         }
     }
 

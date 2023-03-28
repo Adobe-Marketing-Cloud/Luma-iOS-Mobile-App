@@ -15,7 +15,7 @@ import Foundation
 /// protocol that needs to be followed by the class that implements the socket connection
 protocol SocketConnectable {
     /// the web socket URL
-    var socketURL: URL? {get}
+    var socketURL: URL? { get }
 
     /// the delegate that gets notified on socket events.
     var delegate: SocketDelegate { get }

@@ -42,7 +42,10 @@ $ pod install
 
 To add the AEPEdgeIdentity Package to your application, from the Xcode menu select:
 
-`File > Swift Packages > Add Package Dependency...`
+`File > Add Packages...`
+
+> **Note** 
+>  The menu options may vary depending on the version of Xcode being used.
 
 Enter the URL for the AEPEdgeIdentity package repository: `https://github.com/adobe/aepsdk-edgeidentity-ios.git`.
 

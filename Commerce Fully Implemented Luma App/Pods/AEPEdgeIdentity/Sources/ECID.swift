@@ -22,6 +22,7 @@ struct ECID: Equatable, Codable, Hashable, CustomStringConvertible {
     let ecidString: String
 
     /// Generates a new ECID
+    // swiftlint:disable force_unwrapping
     init() {
         let uuidBytes = Mirror(reflecting: UUID().uuid).children.map { $0.value }
         let msb = uuidBytes[..<8].reduce(Int64(0)) { base, next in

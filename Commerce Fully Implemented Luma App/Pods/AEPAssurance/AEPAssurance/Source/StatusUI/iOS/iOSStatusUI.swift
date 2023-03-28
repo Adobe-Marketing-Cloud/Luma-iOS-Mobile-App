@@ -15,14 +15,15 @@ import Foundation
 import WebKit
 
 class iOSStatusUI {
-    var assuranceSession: AssuranceSession
+    var displayed: Bool = false
     var clientLogQueue: ThreadSafeQueue<AssuranceClientLogMessage>
     var floatingButton: FloatingButtonPresentable?
     var fullScreenMessage: FullscreenPresentable?
+    var presentationDelegate: AssurancePresentationDelegate
     var webView: WKWebView?
 
-    required init(withSession assuranceSession: AssuranceSession) {
-        self.assuranceSession = assuranceSession
+    required init(presentationDelegate: AssurancePresentationDelegate) {
+        self.presentationDelegate = presentationDelegate
         self.clientLogQueue = ThreadSafeQueue(withLimit: 100)
     }
 
@@ -30,7 +31,7 @@ class iOSStatusUI {
     /// This method will initialize the FloatingButton and the FullScreen webView required for the displaying Assurance status.
     /// On calling this method Floating button appears on the screen showing the current connection status.
     func display() {
-        if let _ = floatingButton {
+        if floatingButton != nil {
             return
         }
 
@@ -41,6 +42,7 @@ class iOSStatusUI {
         floatingButton = ServiceProvider.shared.uiService.createFloatingButton(listener: self)
         floatingButton?.setInitial(position: FloatingButtonPosition.topRight)
         floatingButton?.show()
+        displayed = true
     }
 
     ///
@@ -51,6 +53,7 @@ class iOSStatusUI {
         self.floatingButton = nil
         self.fullScreenMessage = nil
         self.webView = nil
+        displayed = false
     }
 
     ///

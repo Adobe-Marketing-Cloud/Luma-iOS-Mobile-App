@@ -3,7 +3,6 @@
  This file is licensed to you under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License. You may obtain a copy
  of the License at http://www.apache.org/licenses/LICENSE-2.0
-
  Unless required by applicable law or agreed to in writing, software distributed under
  the License is distributed on an "AS IS" BASIS, WITHOUT WARRANTIES OR REPRESENTATIONS
  OF ANY KIND, either express or implied. See the License for the specific language
@@ -53,7 +52,7 @@ extension AssuranceSession {
     /// Handles the queuing and receiving of inbound Assurance session events.
     ///
     func handleInBoundEvents() {
-        inboundSource.setEventHandler(handler: {
+        inboundSource.setEventHandler(handler: { [self] in
             while self.inboundQueue.size() > 0 {
                 guard let event = self.inboundQueue.dequeue() else {
                     Log.trace(label: AssuranceConstants.LOG_TAG, "Unable to read a valid event from inbound event queue. Ignoring to process the Inbound event from the Assurance Session.")
@@ -71,16 +70,15 @@ extension AssuranceSession {
                     // 1. Remove the WebView UI and display the floating button
                     // 2. Share the Assurance shared state
                     // 3. Notify the client plugins on successful connection
-                    self.pinCodeScreen?.connectionSucceeded()
-                    self.statusUI.display()
-                    self.statusUI.updateForSocketConnected()
+                    self.connectionDelegate.handleSuccessfulConnection()
+                    self.statusPresentation.sessionConnected()
                     self.pluginHub.notifyPluginsOnConnect()
                     self.outboundSource.add(data: 1)
 
                     // If the initial SDK events were cleared because of Assurance shutting down after 5 second timeout
                     // then populate the griffon session with all the available shared state details (Both XDM and Regular)
-                    if self.didClearBootEvent {
-                        let stateEvents = self.assuranceExtension.getAllExtensionStateData()
+                    if self.sessionOrchestrator.hasEverTerminated {
+                        let stateEvents = self.stateManager.getAllExtensionStateData()
                         Log.debug(label: AssuranceConstants.LOG_TAG, "Assurance extension cleared the initial queued events. Sharing the shared state data of \(stateEvents.count) registered extensions.")
                         for eachStateEvent in stateEvents {
                             self.outboundQueue.enqueue(newElement: eachStateEvent)

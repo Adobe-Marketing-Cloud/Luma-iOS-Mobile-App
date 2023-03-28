@@ -20,7 +20,7 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
     /// - Parameters:
     ///     - message: Fullscreen message which is currently shown
     func onShow(message: FullscreenMessage) {
-        isDisplayed = true
+        displayed = true
         fullscreenWebView = message.webView as? WKWebView
         Log.trace(label: AssuranceConstants.LOG_TAG, "PinCode Screen loaded and awaiting input from user.")
     }
@@ -29,7 +29,7 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
     /// - Parameters:
     ///     - message: Fullscreen message which is dismissed
     func onDismiss(message: FullscreenMessage) {
-        isDisplayed = false
+        displayed = false
         fullscreenWebView = nil
         fullscreenMessage = nil
     }
@@ -50,8 +50,7 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
         // when the user hits "Cancel" on the iOS pinpad screen. Dismiss the fullscreen message
         // return false, to indicate that the URL has been handled
         if host == AssuranceConstants.HTMLURLPath.CANCEL {
-            Log.trace(label: AssuranceConstants.LOG_TAG, "Cancel Button clicked. Dismissing the PinCode Screen.")
-            self.pinCodeCallback?(nil, AssuranceConnectionError.userCancelled)
+            self.presentationDelegate.pinScreenCancelClicked()
             message.dismiss()
             return false
         }
@@ -60,59 +59,19 @@ extension iOSPinCodeScreen: FullscreenMessageDelegate {
         // return false, to indicate that the URL has been handled
         if host == AssuranceConstants.HTMLURLPath.CONFIRM {
             // get the entered 4 digit code from url
-            guard let passcode = URL(string: url ?? "")?.params["code"] else {
-                self.pinCodeCallback?(nil, AssuranceConnectionError.noPincode)
-                return false
-            }
-
-            guard let sessionId = assuranceExtension.sessionId else {
-                self.pinCodeCallback?(nil, AssuranceConnectionError.noSessionID)
-                return false
-            }
-
-            guard let orgID = getURLEncodedOrgID() else {
-                self.pinCodeCallback?(nil, AssuranceConnectionError.noOrgId)
-                return false
-            }
-
-            // wss://connect%@.griffon.adobe.com/client/v1?sessionId=%@&token=%@&orgId=%@&clientId=%@
-            let socketURL = String(format: AssuranceConstants.BASE_SOCKET_URL,
-                                   assuranceExtension.environment.urlFormat,
-                                   sessionId,
-                                   passcode,
-                                   orgID,
-                                   assuranceExtension.clientID)
-
-            guard let url = URL(string: socketURL) else {
-                self.pinCodeCallback?(nil, AssuranceConnectionError.noURL)
-                return false
-            }
-
-            Log.trace(label: AssuranceConstants.LOG_TAG, "Connect Button clicked. Making a socket connection with url \(url).")
-            self.connectionInitialized()
-            self.pinCodeCallback?(url, nil)
+            let pin = URL(string: url ?? "")?.params["code"] ?? ""
+            self.presentationDelegate.pinScreenConnectClicked(pin)
             return false
         }
 
         return true
     }
+
     ///
     /// Invoked when the FullscreenMessage failed to be displayed
     ///
     func onShowFailure() {
         Log.warning(label: AssuranceConstants.LOG_TAG, "Unable to display the pincode screen, onShowFailure delegate method is invoked")
-    }
-
-    /// Getter to retrieve the url encoded experience cloud orgId  from configuration
-    /// Returns nil
-    ///  - if core is not configured and configuration shared state is not available.
-    ///  - if configuration shared state does not have value for `experienceCloud.org`
-    ///
-    /// - Returns: optional string representing the url coded experienceCloud Org Id to which the `MobileCore` is configured
-    func getURLEncodedOrgID() -> String? {
-        let configState = assuranceExtension.runtime.getSharedState(extensionName: AssuranceConstants.SharedStateName.CONFIGURATION, event: nil, barrier: false)
-        let orgID = configState?.value?[AssuranceConstants.EventDataKey.CONFIG_ORG_ID] as? String
-        return orgID?.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
     }
 
 }
