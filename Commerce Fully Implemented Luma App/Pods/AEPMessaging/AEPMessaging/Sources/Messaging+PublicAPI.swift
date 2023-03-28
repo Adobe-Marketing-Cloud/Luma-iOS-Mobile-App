@@ -15,7 +15,6 @@ import AEPServices
 import UserNotifications
 
 @objc public extension Messaging {
-
     /// Sends the push notification interactions as an experience event to Adobe Experience Edge.
     /// - Parameters:
     ///   - response: UNNotificationResponse object which contains the payload and xdm informations.
@@ -24,33 +23,45 @@ import UserNotifications
     @objc(handleNotificationResponse:applicationOpened:withCustomActionId:)
     static func handleNotificationResponse(_ response: UNNotificationResponse, applicationOpened: Bool, customActionId: String?) {
         let notificationRequest = response.notification.request
-        let xdm = notificationRequest.content.userInfo[MessagingConstants.AdobeTrackingKeys._XDM] as? [String: Any]
-        // Checking if the message has xdm key
+
+        // Checking if the message has the optional xdm key
+        let xdm = notificationRequest.content.userInfo[MessagingConstants.XDM.AdobeKeys._XDM] as? [String: Any]
         if xdm == nil {
-            Log.warning(label: MessagingConstants.LOG_TAG, "Failed to track push notification interaction. XDM specific fields are missing.")
+            Log.debug(label: MessagingConstants.LOG_TAG, "Optional XDM specific fields are missing from push notification interaction.")
         }
 
         let messageId = notificationRequest.identifier
         if messageId.isEmpty {
-            Log.warning(label: MessagingConstants.LOG_TAG, "Failed to track push notification interaction, Message Id is invalid in the response.")
+            Log.warning(label: MessagingConstants.LOG_TAG, "Failed to track push notification interaction, MessageId is empty in the response.")
             return
         }
 
         // Creating event data with tracking informations
-        var eventData: [String: Any] = [MessagingConstants.EventDataKeys.MESSAGE_ID: messageId,
-                                        MessagingConstants.EventDataKeys.APPLICATION_OPENED: applicationOpened,
-                                        MessagingConstants.EventDataKeys.ADOBE_XDM: xdm ?? [:]] // If xdm data is nil we use empty dictionary
+        var eventData: [String: Any] = [MessagingConstants.Event.Data.Key.MESSAGE_ID: messageId,
+                                        MessagingConstants.Event.Data.Key.APPLICATION_OPENED: applicationOpened,
+                                        MessagingConstants.XDM.Key.ADOBE_XDM: xdm ?? [:]] // If xdm data is nil we use empty dictionary
         if customActionId == nil {
-            eventData[MessagingConstants.EventDataKeys.EVENT_TYPE] = MessagingConstants.EventDataValue.PUSH_TRACKING_APPLICATION_OPENED
+            eventData[MessagingConstants.Event.Data.Key.EVENT_TYPE] = MessagingConstants.XDM.Push.EventType.APPLICATION_OPENED
         } else {
-            eventData[MessagingConstants.EventDataKeys.EVENT_TYPE] = MessagingConstants.EventDataValue.PUSH_TRACKING_CUSTOM_ACTION
-            eventData[MessagingConstants.EventDataKeys.ACTION_ID] = customActionId
+            eventData[MessagingConstants.Event.Data.Key.EVENT_TYPE] = MessagingConstants.XDM.Push.EventType.CUSTOM_ACTION
+            eventData[MessagingConstants.Event.Data.Key.ACTION_ID] = customActionId
         }
 
-        let event = Event(name: MessagingConstants.EventName.PUSH_NOTIFICATION_INTERACTION,
-                          type: MessagingConstants.EventType.messaging,
+        let event = Event(name: MessagingConstants.Event.Name.PUSH_NOTIFICATION_INTERACTION,
+                          type: MessagingConstants.Event.EventType.messaging,
                           source: EventSource.requestContent,
                           data: eventData)
+        MobileCore.dispatch(event: event)
+    }
+
+    /// Initiates a network call to retrieve remote In-App Message definitions.
+    static func refreshInAppMessages() {
+        let eventData: [String: Any] = [MessagingConstants.Event.Data.Key.REFRESH_MESSAGES: true]
+        let event = Event(name: MessagingConstants.Event.Name.REFRESH_MESSAGES,
+                          type: MessagingConstants.Event.EventType.messaging,
+                          source: EventSource.requestContent,
+                          data: eventData)
+
         MobileCore.dispatch(event: event)
     }
 }

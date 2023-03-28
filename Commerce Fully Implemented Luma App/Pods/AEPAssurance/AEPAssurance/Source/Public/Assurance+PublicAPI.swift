@@ -36,12 +36,26 @@ import Foundation
 
         Log.trace(label: AssuranceConstants.LOG_TAG, "Start Session API called with deeplink URL : \(urlString)")
         let eventData = [AssuranceConstants.EventDataKey.START_SESSION_URL: urlString]
-        let event = Event(name: "Assurance Start Session",
+        let event = Event(name: AssuranceConstants.AssuranceEvent.Name.DEEPLINK_START_SESSION,
                           type: AssuranceConstants.SDKEventType.ASSURANCE,
                           source: EventSource.requestContent,
                           data: eventData)
 
         MobileCore.dispatch(event: event)
     }
-
+    
+    #if DEBUG
+    /// Starts an AEPAssurance QuickConnect flow.
+    ///
+    /// Calling this method when a session has already been started results in a no-op, otherwise it initiates the quickConnect flow
+    ///
+    static func startSession() {
+        let eventData = [AssuranceConstants.EventDataKey.QUICK_CONNECT: true]
+        let event = Event(name: AssuranceConstants.AssuranceEvent.Name.QUICKCONNECT_START_SESSION,
+                          type: AssuranceConstants.SDKEventType.ASSURANCE,
+                          source: EventSource.requestContent,
+                          data: eventData)
+        MobileCore.dispatch(event: event)
+    }
+    #endif
 }

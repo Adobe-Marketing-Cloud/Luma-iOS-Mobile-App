@@ -13,31 +13,27 @@
 import Foundation
 
 protocol SessionAuthorizingUI {
-    /// Callback to be invoked after pinCode interaction
-    typealias PinCodeCallback = (URL?, AssuranceConnectionError?) -> Void
 
-    /// property that indicated if the pinCode screen is currently displayed
-    var isDisplayed: Bool { get }
+    /// property that indicated if the session authorizing ui screen is currently displayed
+    var displayed: Bool { get }
 
-    init(withExtension: Assurance)
+    init(withPresentationDelegate presentationDelegate: AssurancePresentationDelegate)
 
-    /// Invoke this during start session to display the pinCode screen
-    /// - Parameters
-    ///    - callback : callback that will be invoked with results on the pinCode interaction.
-    mutating func show(callback : @escaping PinCodeCallback)
+    /// Invoke this during start session to display the authorizing screen
+    func show()
 
-    /// Invoked when the a socket connection is initialized
-    func connectionInitialized()
+    /// Invoked when the a socket connection is initialized. Typically calling this method shows user the loading screen.
+    func sessionConnecting()
 
     /// Invoked when the a successful socket connection is established with a desired assurance session
-    func connectionSucceeded()
+    func sessionConnected()
 
     /// Invoked when the a successful socket connection is terminated
-    func connectionFinished()
+    func sessionDisconnected()
 
     /// Invoked when the a socket connection is failed
     /// - Parameters
     ///    - error - an `AssuranceSocketError` explaining the reason why the connection failed
     ///    - shouldShowRetry - boolean indication if the retry button on the pinpad button should still be shown
-    func connectionFailedWithError(_ error: AssuranceConnectionError)
+    func sessionConnectionFailed(withError error: AssuranceConnectionError)
 }

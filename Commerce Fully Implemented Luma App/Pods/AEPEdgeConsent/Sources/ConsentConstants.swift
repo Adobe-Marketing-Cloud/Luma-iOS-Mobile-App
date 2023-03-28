@@ -15,7 +15,7 @@ import Foundation
 enum ConsentConstants {
     static let EXTENSION_NAME = "com.adobe.edge.consent"
     static let FRIENDLY_NAME = "Consent"
-    static let EXTENSION_VERSION = "1.0.1"
+    static let EXTENSION_VERSION = "1.1.0"
     static let LOG_TAG = FRIENDLY_NAME
 
     enum EventDataKeys {

@@ -41,7 +41,7 @@ extension iOSStatusUI: FullscreenMessageDelegate {
             return true
         }
 
-        // when the user hits "Cancel" on statusUI screen. Dismiss the fullscreen message
+        // when the user hits "Cancel" on statusUI screen. Dismiss the fullscreen message and bring back the floating button
         // return false, to indicate that the URL has been handled
         if host == AssuranceConstants.HTMLURLPath.CANCEL {
             message.hide()
@@ -54,7 +54,7 @@ extension iOSStatusUI: FullscreenMessageDelegate {
         // return false, to indicate that the URL has been handled
         if host == AssuranceConstants.HTMLURLPath.DISCONNECT {
             message.dismiss()
-            assuranceSession.terminateSession()
+            presentationDelegate.disconnectClicked()
             return false
         }
 

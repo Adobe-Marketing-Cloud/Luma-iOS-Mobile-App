@@ -16,7 +16,7 @@ import Foundation
 enum IdentityConstants {
     static let EXTENSION_NAME = "com.adobe.edge.identity"
     static let FRIENDLY_NAME = "Edge Identity"
-    static let EXTENSION_VERSION = "1.1.0"
+    static let EXTENSION_VERSION = "1.2.0"
     static let DATASTORE_NAME = EXTENSION_NAME
     static let LOG_TAG = FRIENDLY_NAME
 

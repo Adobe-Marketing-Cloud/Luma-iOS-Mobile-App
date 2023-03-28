@@ -66,7 +66,9 @@ enum AssuranceClientInfo {
         deviceInfo[DEVICE_TYPE] = getDeviceType()
         deviceInfo[MODEL] = systemInfoService.getDeviceModelNumber()
         deviceInfo[SCREEN_SIZE] = "\(screenSize.width)x\(screenSize.height)"
-        deviceInfo[LOCATION_SERVICE_ENABLED] = Bool(CLLocationManager.locationServicesEnabled())
+        DispatchQueue.global().sync {
+            deviceInfo[LOCATION_SERVICE_ENABLED] = Bool(CLLocationManager.locationServicesEnabled())
+        }
         deviceInfo[LOCATION_AUTHORIZATION_STATUS] = getAuthStatusString(authStatus: CLLocationManager.authorizationStatus())
         deviceInfo[LOW_POWER_BATTERY_ENABLED] = ProcessInfo.processInfo.isLowPowerModeEnabled
         deviceInfo[BATTERY_LEVEL] = getBatteryLevel()

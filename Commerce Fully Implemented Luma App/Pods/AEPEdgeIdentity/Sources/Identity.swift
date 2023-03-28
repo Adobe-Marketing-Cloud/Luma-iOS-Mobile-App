@@ -86,7 +86,11 @@ import Foundation
                                                            source: EventSource.responseIdentity,
                                                            data: [IdentityConstants.EventDataKeys.URL_VARIABLES: ""])
 
-        guard let configurationSharedState = getSharedState(extensionName: IdentityConstants.SharedState.Configuration.SHARED_OWNER_NAME, event: event, resolution: .lastSet)?.value else {
+        guard let configurationSharedState = getSharedState(
+                extensionName: IdentityConstants.SharedState.Configuration.SHARED_OWNER_NAME,
+                event: event,
+                resolution: .lastSet)?.value
+        else {
             Log.warning(label: friendlyName, "\(#function) - Cannot process getUrlVariables request Identity event, configuration not found.")
             dispatch(event: emptyResponseEvent)
             return
@@ -105,7 +109,7 @@ import Foundation
             return
         }
         let tsString = String(Int(Date().timeIntervalSince1970))
-        let urlVariables = URLUtils.generateURLVariablesPayload(ts: tsString, ecid: ecid, orgId: orgId)
+        let urlVariables = URLUtils.generateURLVariablesPayload(timestamp: tsString, ecid: ecid, orgId: orgId)
 
         let responseEvent = event.createResponseEvent(name: IdentityConstants.EventNames.IDENTITY_RESPONSE_URL_VARIABLES,
                                                       type: EventType.edgeIdentity,
