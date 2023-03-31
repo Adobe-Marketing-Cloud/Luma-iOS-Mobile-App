@@ -14,7 +14,6 @@ target 'Luma' do
   pod 'AEPSignal', '~> 3'
   pod 'Alamofire'
   pod 'SwiftyJSON'
-  pod 'Apollo'
 end
 
 post_install do |installer|

@@ -2,9 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "group:POI-Testing.gpx">
-   </FileRef>
-   <FileRef
       location = "group:Luma.xcodeproj">
    </FileRef>
    <FileRef

@@ -24,6 +24,7 @@ import AEPEdgeIdentity
 import AEPEdgeConsent
 import Foundation
 import Apollo
+import MagentoAPI
 
 class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UITextFieldDelegate, CLLocationManagerDelegate
 {
@@ -37,7 +38,7 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
     
     
     /*--- VARIABLES ---*/
-    var categoriesArray = [PFObject]()
+    var categoriesArray = [CategoriesQuery.Data.CategoryList.Child]()
     var featuredArray = [PFObject]()
     var locationManager: CLLocationManager?
 
@@ -76,6 +77,9 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
     // ------------------------------------------------
     override func viewDidLoad() {
             super.viewDidLoad()
+        
+        print("Start");
+        
         
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -166,8 +170,57 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
                     print(object.objectId as Any)
 
                 }
-                self.categoriesArray = objects!
-                self.categoryTableView.reloadData()
+                let pfCategory = PFObject(className:"Categories")
+                pfCategory["category"] = "Woman closes"
+                pfCategory["image1"] = "https://parsefiles.back4app.com/tBhfIrZLASH0piZXPME9cP4COAu5jFBotHIrsBe5/6e1175e31b6490567d855cb45cc875bd_wh04-blue_main.jpg"
+
+                let pfCategory2 = PFObject(className:"Categories")
+                pfCategory2["category"] = "Woman closes2"
+                pfCategory2["image1"] = "https://images.unsplash.com/photo-1620646233562-f2a31ad24425?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0YXJzJTIwYmxhY2t8ZW58MHx8MHx8&w=1000&q=80"
+
+                let pfCategory3 = PFObject(className:"Categories")
+                pfCategory3["category"] = "Woman closes2"
+                pfCategory3["image1"] = "https://parsefiles.back4app.com/tBhfIrZLASH0piZXPME9cP4COAu5jFBotHIrsBe5/6e1175e31b6490567d855cb45cc875bd_wh04-blue_main.jpg"
+                
+                let pfCategory4 = PFObject(className:"Categories")
+                pfCategory4["category"] = "Woman closes2"
+                pfCategory4["image1"] = "https://images.unsplash.com/photo-1620646233562-f2a31ad24425?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0YXJzJTIwYmxhY2t8ZW58MHx8MHx8&w=1000&q=80"
+                
+                let pfCategory5 = PFObject(className:"Categories")
+                pfCategory5["category"] = "Woman closes2"
+                pfCategory5["image1"] = "https://parsefiles.back4app.com/tBhfIrZLASH0piZXPME9cP4COAu5jFBotHIrsBe5/6e1175e31b6490567d855cb45cc875bd_wh04-blue_main.jpg"
+                
+                Network.shared.apollo.fetch(query: CategoriesQuery()) { result in
+                    switch result {
+                    case .success(let response):
+                        if let categories = response.data?.categoryList {
+                            var flatCategories: [CategoriesQuery.Data.CategoryList.Child] = [];
+                            for child in categories[0]?.children ?? [] {
+                                if (child != nil) {
+                                    flatCategories.append(child!)
+                                    //let children = child?.children ?? []
+                                    //for child in children {
+                                        
+                                        //flatCategories.append((child as ))
+                                    //}
+                                }
+                            }
+                            self.categoriesArray = flatCategories;
+                            self.categoryTableView.reloadData()
+                            self.hideHUD()
+                        } else if let errors = response.errors {
+                            print("Errors", errors)
+                            print("Errors", errors)
+                        }
+                    case .failure(let error):
+                        print("Test Error",error)
+                    }
+                }
+                
+                //self.categoriesArray = [pfCategory, pfCategory2, pfCategory3, pfCategory4, pfCategory5]
+                
+                //self.categoriesArray = objects!
+                //self.categoryTableView.reloadData()
             // error
             } else {
                 self.hideHUD()
@@ -210,14 +263,13 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         let cell = tableView.dequeueReusableCell(withIdentifier: "CategoryCell", for: indexPath) as! CategoryCell
 
         // Parse Obj
-        var cObj = PFObject(className: CATEGORIES_CLASS_NAME)
-        cObj = categoriesArray[indexPath.row]
+        var cObj = categoriesArray[indexPath.row]
         
         // Name
-        cell.catName.text = "\(cObj[CATEGORIES_CATEGORY]!)"
+        cell.catName.text = cObj.name
         
         // Image
-        getParseImage(object: cObj, colName: CATEGORIES_IMAGE, imageView: cell.catImage)
+        //getParseImage(object: cObj, colName: CATEGORIES_IMAGE, imageView: cell.catImage)
         
     return cell
     }
@@ -232,21 +284,19 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
     // ------------------------------------------------
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         // Parse Obj
-        var cObj = PFObject(className: CATEGORIES_CLASS_NAME)
-        cObj = categoriesArray[indexPath.row]
+        //var cObj = PFObject(className: CATEGORIES_CLASS_NAME)
+        var cObj = categoriesArray[indexPath.row]
         
         // print
-        productCategory = cObj[CATEGORIES_CATEGORY]! as! String
+        productCategory = cObj.name!
         print ("Cateogry is --> \(productCategory)")
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "ProductsList") as! ProductsList
-        vc.categoryName = "\(cObj[CATEGORIES_CATEGORY]!)"
+        vc.categoryId = cObj.id!
+        vc.categoryName = cObj.name!
         navigationController?.pushViewController(vc, animated: true)
     }
 
-    
-    
-    
     
     // ------------------------------------------------
     // TEXTFIELD DELEGATES FOR SEARCH
