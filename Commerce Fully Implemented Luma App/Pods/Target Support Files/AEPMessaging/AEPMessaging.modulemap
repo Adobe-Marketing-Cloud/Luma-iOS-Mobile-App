@@ -1,6 +1,0 @@
-framework module AEPMessaging {
-  umbrella header "AEPMessaging-umbrella.h"
-
-  export *
-  module * { export * }
-}
