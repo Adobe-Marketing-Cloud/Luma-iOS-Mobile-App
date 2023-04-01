@@ -340,6 +340,9 @@ let STORES_STOREID = "storeId"
 var tempImageURL = ""
 var productCategory = "Women"
 
+/* CONFIGURATION VARIABLES */
+let GRAPHQL_ENDPOINT = "http://demo-fklvc3a-i3tfpiocmjlic.us-4.magentosite.cloud/graphql/"
+
 
 func string (_ dict:NSDictionary, _ key:String) -> String {
     if let title = dict[key] as? String {

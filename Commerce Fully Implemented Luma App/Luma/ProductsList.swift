@@ -14,6 +14,8 @@ import UserNotifications
 //Adobe AEP SDKs
 import AEPCore
 import AEPEdge
+import Apollo
+import MagentoAPI
 
 
 class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout
@@ -26,9 +28,10 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
     
         
     /*--- VARIABLES ---*/
+    var categoryId = 0
     var categoryName = ""
     var searchStr = ""
-    var productsArray = [PFObject]()
+    var productsArray = [ProductsQuery.Data.Products.Item?]()
         
     
     
@@ -38,6 +41,9 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
     // ------------------------------------------------
     override func viewDidLoad() {
             super.viewDidLoad()
+        
+        
+        print("Category Id", categoryId)
         
         // Layout
         if categoryName != "" {
@@ -91,9 +97,30 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
         query.fromLocalDatastore()
         query.findObjectsInBackground { (objects, error)-> Void in
             if error == nil {
-                self.productsArray = objects!
-                self.productsCollView.reloadData()
-                self.hideHUD()
+                let categoryId: FilterEqualTypeInput  = FilterEqualTypeInput(eq: .some("5"))
+                var filterByCategoryId = ProductAttributeFilterInput(category_id: .some(categoryId));
+                Network.shared.apollo.fetch(query: ProductsQuery(filter: .some(filterByCategoryId))) { result in
+                    switch result {
+                    case .success(let response):
+                        if let products = response.data?.products?.items {
+                            print("Categories", products)
+                            
+                            self.productsArray = products
+                            self.productsCollView.reloadData()
+                            self.hideHUD()
+                            
+                        } else if let errors = response.errors {
+                            print("Errors", errors)
+                            print("Errors", errors)
+                        }
+                    case .failure(let error):
+                        print("Test Error",error)
+                    }
+                }
+                
+                //self.productsArray = objects!
+                //self.productsCollView.reloadData()
+                //self.hideHUD()
             } else {
                 self.simpleAlert("\(error!.localizedDescription)")
                 self.hideHUD()
@@ -118,23 +145,24 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductCell", for: indexPath) as! ProductCell
         
         // Parse Obj
-        var pObj = PFObject(className: PRODUCTS_CLASS_NAME)
-        pObj = productsArray[indexPath.row]
+        //var pObj = PFObject(className: PRODUCTS_CLASS_NAME)
+        var pObj = productsArray[indexPath.row]
 
         // Name
-        cell.pNameLabel.text = "\(pObj[PRODUCTS_NAME]!)"
+        cell.pNameLabel.text = pObj?.name
         
         // Price
-        let fPrice = pObj[PRODUCTS_FINAL_PRICE] as! Double
-        cell.pPriceLabel.text = "\(pObj[PRODUCTS_CURRENCY]!) \(fPrice)"
-        
+        let fPrice = pObj?.price_range.minimum_price.regular_price.value as! Double
+        //let currency = pObj?.price_range.minimum_price.regular_price.currency as! String
+        //cell.pPriceLabel.text = "\(currency) \(fPrice)"
+        cell.pPriceLabel.text = "\(fPrice)"
         // Image 1
-        getParseImage(object: pObj, colName: PRODUCTS_IMAGE1, imageView: cell.pImage)
+        //getParseImage(object: pObj, colName: PRODUCTS_IMAGE1, imageView: cell.pImage)
 
         // Featured
-        let isfeatured = pObj[PRODUCTS_IS_FEATURED] as! Bool
-        if isfeatured { cell.featuredBadge.isHidden = false
-        } else { cell.featuredBadge.isHidden = true }
+        //let isfeatured = pObj[PRODUCTS_IS_FEATURED] as! Bool
+        //if isfeatured { cell.featuredBadge.isHidden = false
+        //} else { cell.featuredBadge.isHidden = true }
 
         
     return cell
@@ -150,11 +178,11 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
     // SELECT PRODUCT -> SHOW ITS INFO
     // ------------------------------------------------
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        var pObj = PFObject(className: PRODUCTS_CLASS_NAME)
-        pObj = productsArray[indexPath.row]
+        //var pObj = PFObject(className: PRODUCTS_CLASS_NAME)
+        var pObj = productsArray[indexPath.row]
         
         let vc = storyboard?.instantiateViewController(withIdentifier: "ProductInfo") as! ProductInfo
-        vc.pObj = pObj
+        //vc.pObj = pObj
         navigationController?.pushViewController(vc, animated: true)
     }
     
