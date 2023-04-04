@@ -53,7 +53,18 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         // Adobe Experience Platform - Send XDM Event
         //Prep Data
         let stateName = "luma: content: ios: us: en: home"
-        var xdmData: [String: Any] = [:]
+        var xdmData: [String: Any] = [
+            "eventType": "web.webpagedetails.pageViews",
+            "web": [
+                "webPageDetails": [
+                    "pageViews": [
+                        "value": 1
+                    ],
+                    "name": "Home page"
+                ]
+            ]
+        ]
+
         //Page View
         xdmData["_techmarketingdemos"] = [
             "appInformation": [
@@ -66,8 +77,16 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
                 ]
             ]
         ]
+        
         let experienceEvent = ExperienceEvent(xdm: xdmData)
         Edge.sendEvent(experienceEvent: experienceEvent)
+        
+        // Adobe Experience Platform - Update Identity
+        let emailLabel = "mobileuser@example.com"
+        
+        let identityMap: IdentityMap = IdentityMap()
+        identityMap.add(item: IdentityItem(id: emailLabel), withNamespace: "Email")
+        Identity.updateIdentities(with: identityMap)
     }
     
     
