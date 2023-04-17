@@ -70,9 +70,9 @@
 	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
 	<string>Using Location to show how Platform can ingest real-time lcoation data</string>
 	<key>NSLocationAlwaysUsageDescription</key>
-	<string>We'll show you cool things near you in the app. With the "always" option, we can also alert you via notifications if you don't have the app open.</string>
+	<string>We&apos;ll show you cool things near you in the app. With the &quot;always&quot; option, we can also alert you via notifications if you don&apos;t have the app open.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We'll show you cool things near you in the app. With the "always" option, we can also alert you via notifications if you don't have the app open.</string>
+	<string>We&apos;ll show you cool things near you in the app. With the &quot;always&quot; option, we can also alert you via notifications if you don&apos;t have the app open.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This app needs to access your Photo library to upload pictures</string>
 	<key>UIBackgroundModes</key>
@@ -111,5 +111,7 @@
 		<string>UIInterfaceOrientationPortrait</string>
 		<string>UIInterfaceOrientationPortraitUpsideDown</string>
 	</array>
+	<key>ServerURL</key>
+	<string>$(SERVER_URL)</string>
 </dict>
 </plist>

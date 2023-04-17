@@ -27,6 +27,11 @@ public class ProductsQuery: GraphQLQuery {
                 }
               }
             }
+            image {
+              __typename
+              url
+              label
+            }
           }
           page_info {
             __typename
@@ -91,6 +96,7 @@ public class ProductsQuery: GraphQLQuery {
           .field("name", String?.self),
           .field("sku", String?.self),
           .field("price_range", Price_range.self),
+          .field("image", Image?.self),
         ] }
 
         /// The product name. Customers use this name to identify the product.
@@ -99,6 +105,8 @@ public class ProductsQuery: GraphQLQuery {
         public var sku: String? { __data["sku"] }
         /// The range of prices for the product
         public var price_range: Price_range { __data["price_range"] }
+        /// The relative path to the main image on the product page.
+        public var image: Image? { __data["image"] }
 
         /// Products.Item.Price_range
         ///
@@ -149,6 +157,25 @@ public class ProductsQuery: GraphQLQuery {
               public var currency: GraphQLEnum<MagentoAPI.CurrencyEnum>? { __data["currency"] }
             }
           }
+        }
+
+        /// Products.Item.Image
+        ///
+        /// Parent Type: `ProductImage`
+        public struct Image: MagentoAPI.SelectionSet {
+          public let __data: DataDict
+          public init(data: DataDict) { __data = data }
+
+          public static var __parentType: ApolloAPI.ParentType { MagentoAPI.Objects.ProductImage }
+          public static var __selections: [ApolloAPI.Selection] { [
+            .field("url", String?.self),
+            .field("label", String?.self),
+          ] }
+
+          /// The URL of the product image or video.
+          public var url: String? { __data["url"] }
+          /// The label of the product image or video.
+          public var label: String? { __data["label"] }
         }
       }
 
