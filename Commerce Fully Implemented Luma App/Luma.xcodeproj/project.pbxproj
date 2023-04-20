@@ -546,7 +546,7 @@
 			);
 			mainGroup = 724B96F71C522DF100F7704D;
 			packageReferences = (
-				8B07868629D62C60007B4208 /* XCRemoteSwiftPackageReference "apollo-ios.git" */,
+				8B07868629D62C60007B4208 /* XCRemoteSwiftPackageReference "apollo-ios" */,
 			);
 			productRefGroup = 724B97011C522DF200F7704D /* Products */;
 			projectDirPath = "";
@@ -878,6 +878,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.luma.commerce2.tutorial;
 				PRODUCT_NAME = "Luma RTCDP";
+				SERVER_URL = "http://demo-fklvc3a-i3tfpiocmjlic.us-4.magentosite.cloud/graphql/";
 				SWIFT_OBJC_BRIDGING_HEADER = Luma/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -919,6 +920,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.adobe.luma.commerce2.tutorial;
 				PRODUCT_NAME = "Luma RTCDP";
+				SERVER_URL = "http://demo-fklvc3a-i3tfpiocmjlic.us-4.magentosite.cloud/graphql/";
 				SWIFT_OBJC_BRIDGING_HEADER = Luma/Header.h;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -949,7 +951,7 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
-		8B07868629D62C60007B4208 /* XCRemoteSwiftPackageReference "apollo-ios.git" */ = {
+		8B07868629D62C60007B4208 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/apollographql/apollo-ios.git";
 			requirement = {
@@ -962,7 +964,7 @@
 /* Begin XCSwiftPackageProductDependency section */
 		8B07868729D62C60007B4208 /* Apollo */ = {
 			isa = XCSwiftPackageProductDependency;
-			package = 8B07868629D62C60007B4208 /* XCRemoteSwiftPackageReference "apollo-ios.git" */;
+			package = 8B07868629D62C60007B4208 /* XCRemoteSwiftPackageReference "apollo-ios" */;
 			productName = Apollo;
 		};
 		8B23C7F729D60F09008933B7 /* MagentoAPI */ = {

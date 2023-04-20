@@ -97,7 +97,7 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
         query.fromLocalDatastore()
         query.findObjectsInBackground { (objects, error)-> Void in
             if error == nil {
-                let categoryId: FilterEqualTypeInput  = FilterEqualTypeInput(eq: .some("5"))
+                let categoryId: FilterEqualTypeInput  = FilterEqualTypeInput(eq: .some(String(self.categoryId)))
                 var filterByCategoryId = ProductAttributeFilterInput(category_id: .some(categoryId));
                 Network.shared.apollo.fetch(query: ProductsQuery(filter: .some(filterByCategoryId))) { result in
                     switch result {
@@ -157,7 +157,10 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
         //cell.pPriceLabel.text = "\(currency) \(fPrice)"
         cell.pPriceLabel.text = "\(fPrice)"
         // Image 1
-        //getParseImage(object: pObj, colName: PRODUCTS_IMAGE1, imageView: cell.pImage)
+        let pfProduct = PFObject(className:"Categories")
+        let image = pObj?.image?.url ?? "https://images.unsplash.com/photo-1620646233562-f2a31ad24425?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0YXJzJTIwYmxhY2t8ZW58MHx8MHx8&w=1000&q=80"
+    
+        getParseImage(location: image, colName: PRODUCTS_IMAGE1, imageView: cell.pImage)
 
         // Featured
         //let isfeatured = pObj[PRODUCTS_IS_FEATURED] as! Bool

@@ -36,6 +36,8 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "PriceRange": return MagentoAPI.Objects.PriceRange
     case "ProductPrice": return MagentoAPI.Objects.ProductPrice
     case "Money": return MagentoAPI.Objects.Money
+    case "ProductImage": return MagentoAPI.Objects.ProductImage
+    case "ProductVideo": return MagentoAPI.Objects.ProductVideo
     case "SearchResultPageInfo": return MagentoAPI.Objects.SearchResultPageInfo
     default: return nil
     }
