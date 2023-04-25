@@ -12,6 +12,10 @@ query products($filter: ProductAttributeFilterInput){
           }
         }
       }
+     image {
+       url
+       label
+     }
     }
     page_info {
       page_size

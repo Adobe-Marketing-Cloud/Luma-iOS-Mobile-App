@@ -154,11 +154,31 @@ extension UIViewController {
     // ------------------------------------------------
     func getParseImage(object:PFObject, colName:String, imageView:UIImageView) {
         let location = object["image1"] as! String
-        let image = UIImage(named: location)
-        imageView.image = image
-        //imageView.contentMode = .scaleAspectFit
+        
+        if let url = URL(string: location) {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+              // Error handling...
+              guard let imageData = data else { return }
+
+              DispatchQueue.main.async {
+                  imageView.image = UIImage(data: imageData)
+              }
+            }.resume()
+          }
     }
     
+    func getParseImage(location:String, colName:String, imageView:UIImageView) {
+        if let url = URL(string: location) {
+            URLSession.shared.dataTask(with: url) { (data, response, error) in
+              // Error handling...
+              guard let imageData = data else { return }
+
+              DispatchQueue.main.async {
+                  imageView.image = UIImage(data: imageData)
+              }
+            }.resume()
+          }
+    }
     
     // ------------------------------------------------
     // GET PARSE IMAGE - BUTTON
@@ -341,7 +361,7 @@ var tempImageURL = ""
 var productCategory = "Women"
 
 /* CONFIGURATION VARIABLES */
-let GRAPHQL_ENDPOINT = "http://demo-fklvc3a-i3tfpiocmjlic.us-4.magentosite.cloud/graphql/"
+let GRAPHQL_ENDPOINT = Bundle.main.object(forInfoDictionaryKey: "ServerURL") as! String
 
 
 func string (_ dict:NSDictionary, _ key:String) -> String {

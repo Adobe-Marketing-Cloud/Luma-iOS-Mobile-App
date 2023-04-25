@@ -70,7 +70,7 @@ class ProductInfo: UIViewController {
           ],
           "productListItems": [
             [
-              "name":  productName,
+              "name": productName,
               "SKU": sku,
               "priceTotal": priceString,
               "quantity": 1
