@@ -39,6 +39,9 @@ public enum SchemaMetadata: ApolloAPI.SchemaMetadata {
     case "ProductImage": return MagentoAPI.Objects.ProductImage
     case "ProductVideo": return MagentoAPI.Objects.ProductVideo
     case "SearchResultPageInfo": return MagentoAPI.Objects.SearchResultPageInfo
+    case "DynamicBlocks": return MagentoAPI.Objects.DynamicBlocks
+    case "DynamicBlock": return MagentoAPI.Objects.DynamicBlock
+    case "ComplexTextValue": return MagentoAPI.Objects.ComplexTextValue
     default: return nil
     }
   }

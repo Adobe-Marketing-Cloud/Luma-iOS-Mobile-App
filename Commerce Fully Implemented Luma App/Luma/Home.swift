@@ -11,6 +11,7 @@ import UIKit
 import Parse
 import CoreLocation
 import UserNotifications
+import WebKit
 
 import Alamofire
 import SwiftyJSON
@@ -33,6 +34,7 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
     @IBOutlet weak var categoryTableView: UITableView!
     @IBOutlet weak var searchTxt: UITextField!
     @IBOutlet weak var featuredScrollView: UIScrollView!
+    @IBOutlet weak var webContent: WKWebView!
     let refreshControl = UIRefreshControl()
     
     
@@ -80,13 +82,20 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         ]
         
         let experienceEvent = ExperienceEvent(xdm: xdmData)
-        Edge.sendEvent(experienceEvent: experienceEvent)
+        //Edge.sendEvent(experienceEvent: experienceEvent)
+        Edge.sendEvent(experienceEvent: experienceEvent) { (handles: [EdgeEventHandle]) in
+    
+            // Handle the Edge Network response
+        }
         
         // Adobe Experience Platform - Update Identity
         let emailLabel = "mobileuser@example.com"
+        //let identityMap: IdentityMap = IdentityMap()
+        //identityMap.add(item: IdentityItem(id: emailLabel), withNamespace: "Email")
+        //Identity.updateIdentities(with: identityMap)
         
         let identityMap: IdentityMap = IdentityMap()
-        identityMap.add(item: IdentityItem(id: emailLabel), withNamespace: "Email")
+        identityMap.add(item: IdentityItem(id: emailLabel, primary: true), withNamespace: "Email")
         Identity.updateIdentities(with: identityMap)
     }
     
@@ -99,6 +108,29 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         
         print("Start");
         
+        let audienceId: FilterEqualTypeInput = FilterEqualTypeInput(eq: .some(String("0f0aa8b5-afc9-4328-bc8c-2a811af8649f")))
+        var inputDynamicBlock = DynamicBlocksFilterInput(audience_id: .some(audienceId), type: GraphQLEnum(DynamicBlockTypeEnum.specified))
+        Network.shared.apollo.fetch(query: DynamicBlocksQuery(input: GraphQLNullable(inputDynamicBlock))) { result in
+            switch result {
+            case .success(let response):
+                if let banners = response.data?.dynamicBlocks.items {
+                    print("Banners", banners)
+                    
+                    var bannersHtml = "";
+                    
+                    for banner in banners {
+                        bannersHtml += banner?.content.html ??  ""
+                    }
+                    
+                    self.webContent.loadHTMLString(bannersHtml, baseURL: nil)
+                    
+                } else if let errors = response.errors {
+                    print("Errors", errors)
+                }
+            case .failure(let error):
+                print("Test Error",error)
+            }
+        }
         
         locationManager = CLLocationManager()
         locationManager?.delegate = self

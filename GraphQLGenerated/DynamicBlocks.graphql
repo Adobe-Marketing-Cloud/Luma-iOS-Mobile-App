@@ -1,0 +1,11 @@
+query dynamicBlocks($input: DynamicBlocksFilterInput){
+  dynamicBlocks(input: $input)
+  {
+    items {
+      content {
+        html
+      }
+    }
+  }
+}
+

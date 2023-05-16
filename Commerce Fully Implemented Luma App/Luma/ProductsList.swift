@@ -97,7 +97,7 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
         query.fromLocalDatastore()
         query.findObjectsInBackground { (objects, error)-> Void in
             if error == nil {
-                let categoryId: FilterEqualTypeInput  = FilterEqualTypeInput(eq: .some(String(self.categoryId)))
+                let categoryId: FilterEqualTypeInput = FilterEqualTypeInput(eq: .some(String(self.categoryId)))
                 var filterByCategoryId = ProductAttributeFilterInput(category_id: .some(categoryId));
                 Network.shared.apollo.fetch(query: ProductsQuery(filter: .some(filterByCategoryId))) { result in
                     switch result {
