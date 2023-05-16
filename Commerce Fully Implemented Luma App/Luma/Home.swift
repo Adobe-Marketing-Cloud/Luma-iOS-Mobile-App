@@ -82,11 +82,25 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         ]
         
         let experienceEvent = ExperienceEvent(xdm: xdmData)
-        //Edge.sendEvent(experienceEvent: experienceEvent)
+        
+        // Handle the Edge Network response
+        let storage: UserDefaults = UserDefaults.standard
+        
         Edge.sendEvent(experienceEvent: experienceEvent) { (handles: [EdgeEventHandle]) in
-    
-            // Handle the Edge Network response
+            let segments: Any = handles.first?.payload?.first?.first{$0.key == "segments"}?.value ?? nil
+
+            print("Saving segments ->  \(segments)")
+            storage.set(segments, forKey: "segments")
+            print("End saving segments")
+
+            // Show segments
+            let rSegments = storage.object(forKey: "segments") ?? nil;
+            print("Retrieving segments -> \(rSegments)")
         }
+        
+        // Show segments
+        let rSegments = storage.object(forKey: "segments") ?? nil;
+        print("Retrieving segments 2 -> \(rSegments)")
         
         // Adobe Experience Platform - Update Identity
         let emailLabel = "mobileuser@example.com"
