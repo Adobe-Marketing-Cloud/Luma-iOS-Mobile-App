@@ -87,15 +87,29 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         let storage: UserDefaults = UserDefaults.standard
         
         Edge.sendEvent(experienceEvent: experienceEvent) { (handles: [EdgeEventHandle]) in
-            let segments: Any = handles.first?.payload?.first?.first{$0.key == "segments"}?.value ?? nil
-
-            print("Saving segments ->  \(segments)")
-            storage.set(segments, forKey: "segments")
-            print("End saving segments")
-
-            // Show segments
-            let rSegments = storage.object(forKey: "segments") ?? nil;
-            print("Retrieving segments -> \(rSegments)")
+            
+            for handle in handles {
+                if handle.type == "activation:pull" {
+                let payloadItems = handle.payload ?? []
+                    for payloadItem in payloadItems {
+                        if let segments = payloadItem["segments"] as? any Sequence {
+                            var segmentsArr = [Any]()
+                            for segment in segments {
+                                let response = segment as AnyObject?
+                                segmentsArr.append(response?.object(forKey: "id")! ?? "")
+                            }
+                            print("Saving segments ->  \(segments)")
+                            storage.set(segmentsArr, forKey: "segments")
+                            print("End saving segments")
+                        }
+                        
+                
+                        // Show segments
+                        let rSegments = storage.object(forKey: "segments") ?? nil;
+                        print("Retrieving segments -> \(rSegments)")
+                    }
+                }
+            }
         }
         
         // Show segments
@@ -120,9 +134,9 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
     override func viewDidLoad() {
             super.viewDidLoad()
         
-        print("Start");
-        
-        let audienceId: FilterEqualTypeInput = FilterEqualTypeInput(eq: .some(String("0f0aa8b5-afc9-4328-bc8c-2a811af8649f")))
+        let storage: UserDefaults = UserDefaults.standard
+        let rSegments = storage.object(forKey: "segments")
+        let audienceId: FilterEqualTypeInput = FilterEqualTypeInput(in: .some(rSegments as! [String?]) )
         var inputDynamicBlock = DynamicBlocksFilterInput(audience_id: .some(audienceId), type: GraphQLEnum(DynamicBlockTypeEnum.specified))
         Network.shared.apollo.fetch(query: DynamicBlocksQuery(input: GraphQLNullable(inputDynamicBlock))) { result in
             switch result {
