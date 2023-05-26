@@ -187,9 +187,10 @@ extension UIViewController {
 
         let location = object["image1"] as! String
         let image = UIImage(named: location)
-        button.setImage(image, for: .normal)
+        button.setImage(image, for: UIControl.State.normal)
         button.contentMode = .center
         button.imageView?.contentMode = .scaleAspectFit
+        
     }
     
     

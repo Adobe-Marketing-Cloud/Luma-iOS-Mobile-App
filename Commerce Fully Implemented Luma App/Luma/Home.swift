@@ -53,6 +53,8 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
     // ------------------------------------------------
     override func viewDidAppear(_ animated: Bool) {
         
+        
+        
         // Adobe Experience Platform - Send XDM Event
         //Prep Data
         let stateName = "luma: content: ios: us: en: home"
@@ -83,11 +85,12 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         
         let experienceEvent = ExperienceEvent(xdm: xdmData)
         
+        
         // Handle the Edge Network response
         let storage: UserDefaults = UserDefaults.standard
+        storage.set([], forKey: "segments")
         
         Edge.sendEvent(experienceEvent: experienceEvent) { (handles: [EdgeEventHandle]) in
-            
             for handle in handles {
                 if handle.type == "activation:pull" {
                 let payloadItems = handle.payload ?? []
@@ -127,15 +130,9 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         Identity.updateIdentities(with: identityMap)
     }
     
-    
-    // ------------------------------------------------
-    // VIEW DID LOAD
-    // ------------------------------------------------
-    override func viewDidLoad() {
-            super.viewDidLoad()
-        
+    override func viewWillAppear(_ animated: Bool) {
         let storage: UserDefaults = UserDefaults.standard
-        let rSegments = storage.object(forKey: "segments")
+        let rSegments = storage.object(forKey: "segments");
         let audienceId: FilterEqualTypeInput = FilterEqualTypeInput(in: .some(rSegments as! [String?]) )
         var inputDynamicBlock = DynamicBlocksFilterInput(audience_id: .some(audienceId), type: GraphQLEnum(DynamicBlockTypeEnum.specified))
         Network.shared.apollo.fetch(query: DynamicBlocksQuery(input: GraphQLNullable(inputDynamicBlock))) { result in
@@ -159,6 +156,13 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
                 print("Test Error",error)
             }
         }
+    }
+    
+    // ------------------------------------------------
+    // VIEW DID LOAD
+    // ------------------------------------------------
+    override func viewDidLoad() {
+            super.viewDidLoad()
         
         locationManager = CLLocationManager()
         locationManager?.delegate = self
@@ -319,13 +323,14 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         
         // Name
         cell.catName.text = cObj.name
+        cell.catName.textColor = UIColor.systemPink
         
         let pfCategory = PFObject(className:"Categories")
+        /**
         let image = cObj.image ?? "https://images.unsplash.com/photo-1620646233562-f2a31ad24425?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTJ8fHN0YXJzJTIwYmxhY2t8ZW58MHx8MHx8&w=1000&q=80"
-        // Image
         getParseImage(location: image, colName: CATEGORIES_IMAGE, imageView: cell.catImage)
-        
-    return cell
+         **/
+        return cell
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
