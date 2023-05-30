@@ -105,7 +105,6 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
                             storage.set(segmentsArr, forKey: "segments")
                             print("End saving segments")
                         }
-                        
                 
                         // Show segments
                         let rSegments = storage.object(forKey: "segments") ?? nil;
