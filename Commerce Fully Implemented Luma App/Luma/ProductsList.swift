@@ -61,8 +61,19 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
     override func viewDidAppear(_ animated: Bool) {
         
         // Adobe Experience Platform - Send XDM Event
-        let stateName = "luma: content: ios: us: en: \(categoryName)"
-        var xdmData: [String: Any] = [:]
+        //Prep Data
+        let stateName = "luma: content: ios: us: en: home"
+        var xdmData: [String: Any] = [
+            "eventType": "web.webpagedetails.pageViews",
+            "web": [
+                "webPageDetails": [
+                    "pageViews": [
+                        "value": 1
+                    ],
+                    "name": categoryName
+                ]
+            ]
+        ]
 
         //Page View
         xdmData["_techmarketingdemos"] = [
@@ -76,8 +87,37 @@ class ProductsList: UIViewController, UICollectionViewDataSource, UICollectionVi
                 ]
             ]
         ]
+        
         let experienceEvent = ExperienceEvent(xdm: xdmData)
-        Edge.sendEvent(experienceEvent: experienceEvent)
+        
+        // Handle the Edge Network response
+        let storage: UserDefaults = UserDefaults.standard
+        
+        Edge.sendEvent(experienceEvent: experienceEvent) { (handles: [EdgeEventHandle]) in
+            
+            for handle in handles {
+                if handle.type == "activation:pull" {
+                let payloadItems = handle.payload ?? []
+                    for payloadItem in payloadItems {
+                        if let segments = payloadItem["segments"] as? any Sequence {
+                            var segmentsArr = [Any]()
+                            for segment in segments {
+                                let response = segment as AnyObject?
+                                segmentsArr.append(response?.object(forKey: "id")! ?? "")
+                            }
+                            print("Saving segments ->  \(segments)")
+                            storage.set(segmentsArr, forKey: "segments")
+                            print("End saving segments")
+                        }
+                        
+                
+                        // Show segments
+                        let rSegments = storage.object(forKey: "segments") ?? nil;
+                        print("Retrieving segments -> \(rSegments)")
+                    }
+                }
+            }
+        }
     }
     
 
