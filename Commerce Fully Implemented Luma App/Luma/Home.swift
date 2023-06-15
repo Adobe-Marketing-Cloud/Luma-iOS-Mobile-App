@@ -88,7 +88,7 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
         
         // Handle the Edge Network response
         let storage: UserDefaults = UserDefaults.standard
-        storage.set([], forKey: "segments")
+        storage.removeObject(forKey: "segments")
         
         Edge.sendEvent(experienceEvent: experienceEvent) { (handles: [EdgeEventHandle]) in
             for handle in handles {
@@ -132,6 +132,9 @@ class Home: UIViewController, UITableViewDelegate, UITableViewDataSource, UIText
     override func viewWillAppear(_ animated: Bool) {
         let storage: UserDefaults = UserDefaults.standard
         let rSegments = storage.object(forKey: "segments");
+        if (rSegments ==  nil) {
+            return;
+        }
         let audienceId: FilterEqualTypeInput = FilterEqualTypeInput(in: .some(rSegments as! [String?]) )
         var inputDynamicBlock = DynamicBlocksFilterInput(audience_id: .some(audienceId), type: GraphQLEnum(DynamicBlockTypeEnum.specified))
         Network.shared.apollo.fetch(query: DynamicBlocksQuery(input: GraphQLNullable(inputDynamicBlock))) { result in
