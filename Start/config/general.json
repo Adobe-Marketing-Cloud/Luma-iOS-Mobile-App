@@ -1,0 +1,47 @@
+{
+    "config": {
+        "tenant": "_adobeamericaspot4",
+        "sandbox": "sandbox05",
+        "datasetId": "6295c532bf09111b9be0fa63",
+        "datastreamId": "5a36a806-43b0-48d9-bbf0-e2e86a40a107:dev",
+        "showProducts": true,
+        "showPersonalisation": true,
+        "showGeofences": true,
+        "showBeacons": true,
+        "ldap": "rmaur",
+        "tms": "AEP Data Collection"
+    },
+    "customer": {
+        "name": "Center Parcs",
+        "logo": "https://brandslogos.com/wp-content/uploads/images/center-parcs-logo.png",
+        "productsType": "Accomodations",
+        "productsSystemImage": "leaf"
+    },
+    "login": {
+        "name": "Mobile App Login",
+        "eventType": "mobileapp.login",
+        "orchestration": {
+            "eventID": "21f837820c3108aa6edf6f87cf1b9784812b572b754c6443d404c4cc8d795d46"
+        }
+    },
+    "testPush": {
+        "name": "Mobile App Test Push",
+        "eventType": "mobileapp.testpush",
+        "orchestration": {
+            "eventID": "2ae6cac80685722986379ebba8d8e14dce437876b3348cb9ab8f8f35b50cbe88"
+        }
+    },
+    "decision": {
+        "activityId": "xcore:offer-activity:15e3d28ae52a8730",
+        "placementId": "xcore:offer-placement:15412001ce8214a8",
+        "itemCount": 2
+    },
+    "target": {
+        "location": "amsiossa-centerparcs"
+    },
+    "map": {
+        "latitude": 54.64069,
+        "longitude": -2.65631,
+        "zoom": 5
+    }
+}

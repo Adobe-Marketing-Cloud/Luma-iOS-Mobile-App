@@ -1,0 +1,40 @@
+{
+    "beacons": [
+        {
+            "id": "bootcamp.screen",
+            "name": "beacon.bootcamp.screen",
+            "title": "Bootcamp Screen Beacon",
+            "location": "bootcamp.screen",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        },
+        {
+            "id": "bootcamp.meetingroom",
+            "name": "beacon.bootcamp.meeting.room",
+            "title": "Bootcamp Meeting Room Beacon",
+            "location": "bootcamp.meetingroom",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        },
+        {
+            "id": "bootcamp.receptiondesk",
+            "name": "beacon.bootcamp.receptiondesk",
+            "title": "Bootcamp Reception Desk Beacon",
+            "location": "bootcamp.receptiondesk",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        },
+        {
+            "id": "bootcamp.testbeacon",
+            "name": "beacon.bootcamp.testbeacon",
+            "title": "Bootcamp Test Beacon",
+            "location": "bootcamp.testbeacon",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        }
+    ]
+}

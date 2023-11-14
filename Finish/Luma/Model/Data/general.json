@@ -1,0 +1,34 @@
+{
+    "config": {
+        "tenant": "_techmarketingdemos",
+        "sandbox": "mobile-and-web-sdk-courses",
+        "showProducts": true,
+        "showPersonalisation": true,
+        "showPersonalisationDirect": false,
+        "showGeofences": true,
+        "showBeacons": false,
+        "ldap": "testUser",
+        "emailDomain": "gmail.com",
+        "tms": "AEP Data Collection"
+    },
+    "customer": {
+        "name": "Luma",
+        "logo": "https://luma.enablementadobe.com/content/dam/luma/en/logos/Luma_Logo.png",
+        "productsType": "Products",
+        "productsSystemImage": "cart",
+        "currency": "€"
+    },
+    "testPush": {
+        "name": "Mobile App Test Push",
+        "eventType": "application.test"
+    },
+    "target": {
+        "location": "luma-mobileapp-abtest"
+    },
+    "map": {
+        "latitude": 52.37109,
+        "longitude": 4.8919,
+        "zoom": 2
+    }
+}
+

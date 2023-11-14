@@ -1,0 +1,19 @@
+{
+    "_experience": {
+        "campaign": {
+            "orchestration": {
+                "eventID": "282e4ef104bcb613dde67fa1f04826a66b160d6900da8e9b07e0e9e6ae09401e"
+            }
+        }
+    },
+    "_adobeamericaspot4": {
+        "identification": {
+            "core": {
+                "email": "rmaur+20221123-75@adobetest.com",
+                "ecid": "30430301127982902626335679454522780367"
+            }
+        }
+    },
+    "timestamp": "2022-11-23T10:10:50.435Z",
+    "eventType": "mobileapp.login"
+}

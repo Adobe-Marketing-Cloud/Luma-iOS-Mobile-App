@@ -1,0 +1,45 @@
+{
+    "eventType": "commerce.purchases",
+    "web": {
+        "webPageDetails": {
+            "name": "Beats Pulse",
+            "siteSection": "Betaalrekeningen"
+        }
+    },
+    "_experience": {
+        "campaign": {
+            "orchestration": {
+                "eventID": ""
+            }
+        }
+    },
+    "commerce": {
+        "purchases": {
+            "value": 1
+        }
+    },
+    "productListItems": [
+        {
+            "productAddMethod": "mobile",
+            "quantity": 1,
+            "product": "https://www.belfius.be/retail/nl/producten/betalen/zichtrekeningen/beats-pulse/index.aspx",
+            "SKU": "beats-pulse",
+            "_adobeamericaspot4": {
+                "core": {
+                    "description": "Een gratis digitale rekening die u beheert via uw Belfius-app",
+                    "mainCategory": "Betaalrekeningen",
+                    "imageURL": "https://www.belfius.be/retail/nl/Media/Group%201910_tcm_86-241395.png"
+                }
+            },
+            "name": "Beats Pulse",
+            "productImageUrl": "https://www.belfius.be/retail/nl/Media/Group%201910_tcm_86-241395.png"
+        }
+    ],
+    "_adobeamericaspot4": {
+        "identification": {
+            "core": {
+                "ecid": "81075856166131264136782699514466204997"
+            }
+        }
+    }
+}

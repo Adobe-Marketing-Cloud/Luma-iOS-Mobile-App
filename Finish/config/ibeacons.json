@@ -1,0 +1,57 @@
+{
+    "ibeacons": [
+        {
+            "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+            "major": 55975,
+            "minor": 31091,
+            "identifier": "beacon.ridm.coconut",
+            "title": "RIdM-Coconut-Beacon",
+            "location": "Office, Essenlaan 23, Woerden",
+            "status": "unknown",
+            "symbol": "circle.slash",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        },
+        {
+            "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+            "major": 56889,
+            "minor": 62409,
+            "identifier": "beacon.ridm.mint",
+            "title": "RIdM-Mint-Beacon",
+            "location": "Office, Essenlaan 23, Woerden",
+            "status": "unknown",
+            "symbol": "circle.slash",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        },
+        {
+            "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+            "major": 12367,
+            "minor": 31394,
+            "identifier": "beacon.ridm.ice",
+            "title": "RIdM-Ice-Beacon",
+            "location": "Office, Essenlaan 23, Woerden",
+            "status": "unknown",
+            "symbol": "circle.slash",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        },
+        {
+            "uuid": "B9407F30-F5F8-466E-AFF9-25556B57FE6D",
+            "major": 42489,
+            "minor": 65177,
+            "identifier": "beacon.ridm.blueberry",
+            "title": "RIdM-Blueberry-Beacon",
+            "location": "Office, Essenlaan 23, Woerden",
+            "status": "unknown",
+            "symbol": "circle.slash",
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        }
+
+    ]
+}

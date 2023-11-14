@@ -1,0 +1,197 @@
+{
+    "products": [
+        {
+            "category": "Woodland Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/woodland-2",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/wf/woodland-lodges/3-bed-new-woodland-lodge-terraced/jcr:content/root/responsivegrid/gallery_copy_copy_co/images/1.transform.1570186724324.jpg/optimal/image.webp",
+            "name": "2 BEDROOM NEW STYLE WOODLAND LODGE",
+            "description": "Our Two-Bedroom, Single-Storey Terraced New Style Woodland Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We have Refreshed The Interiors With More Than A Lick Of Paint. There is A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "woodland-2",
+            "channel": "mobile",
+            "price": 699.00,
+            "currency": "GBP",
+            "trackName": "woodland-2"
+        },
+        {
+            "category": "Woodland Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/woodland-3",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/wf/executive-lodges/2-bed-new-executive-lodge-two-storey/jcr:content/heroPreview.transform.1652949505250.jpg/optimal/image.webp",
+            "name": "3 BEDROOM NEW STYLE WOODLAND LODGE",
+            "description": "Our Three-Bedroom, Single-Storey Terraced New Style Woodland Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We have Refreshed The Interiors With More Than A Lick Of Paint. There is A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "woodland-3",
+            "channel": "mobile",
+            "price": 799.00,
+            "currency": "GBP",
+            "trackName": "woodland-3"
+        },
+        {
+            "category": "Woodland Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/woodland-4",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/wf/woodland-lodges/3-bed-new-woodland-lodge-terraced/jcr:content/heroPreview.transform.1649423595992.jpg/optimal/image.webp",
+            "name": "4 BEDROOM NEW STYLE WOODLAND LODGE",
+            "description": "Our Four-Bedroom, Single-Storey Terraced New Style Woodland Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We have Refreshed The Interiors With More Than A Lick Of Paint. There is A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "woodland-4",
+            "channel": "mobile",
+            "price": 899.00,
+            "currency": "GBP",
+            "trackName": "woodland-4"
+        },
+        {
+            "category": "Woodland Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/woodland-5",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/wf/executive-lodges/3-bed-new-executive-lodge-detached-two-storey/jcr:content/heroPreview.transform.1652951236731.jpg/optimal/image.webp",
+            "name": "5 BEDROOM NEW STYLE WOODLAND LODGE",
+            "description": "Our Five-Bedroom, Single-Storey Terraced New Style Woodland Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We have Refreshed The Interiors With More Than A Lick Of Paint. There is A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "woodland-5",
+            "channel": "mobile",
+            "price": 999.00,
+            "currency": "GBP",
+            "trackName": "woodland-5"
+        },
+        {
+            "category": "Exclusive Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/exclusive-2",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-exclusive-lodges/4-bed-exclusive-lodge-outdoor-spa/jcr:content/root/responsivegrid/gallery_copy/images/5.transform.1570186705852.jpg/optimal/image.webp",
+            "name": "2 BEDROOM NEW STYLE EXCLUSIVE LODGE",
+            "description": "Our Two-Bedroom, Single-Storey Terraced New Style Exclusive Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We’ve Refreshed The Interiors With More Than A Lick Of Paint – There’s A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "exclusive-2",
+            "channel": "mobile",
+            "price": 1399.00,
+            "currency": "GBP",
+            "trackName": "exclusive-2"
+        },
+        {
+            "category": "Exclusive Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/exclusive-3",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-exclusive-lodges/4-bed-exclusive-lodge-outdoor-spa/jcr:content/root/responsivegrid/gallery_copy/images/4.transform.1570186697955.jpg/optimal/image.webp",
+            "name": "3 BEDROOM NEW STYLE EXCLUSIVE LODGE",
+            "description": "Our Three-Bedroom, Single-Storey Terraced New Style Exclusive Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We’ve Refreshed The Interiors With More Than A Lick Of Paint – There’s A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "exclusive-3",
+            "channel": "mobile",
+            "price": 1499.00,
+            "currency": "GBP",
+            "trackName": "exclusive-5"
+        },
+        {
+            "category": "Exclusive Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/exclusive-4",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-exclusive-lodges/4-bed-exclusive-lodge-outdoor-spa/jcr:content/root/responsivegrid/gallery_copy/images/2.transform.1570186691320.jpg/optimal/image.webp",
+            "name": "4 BEDROOM NEW STYLE EXCLUSIVE LODGE",
+            "description": "Our Four-Bedroom, Single-Storey Terraced New Style Exclusive Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We’ve Refreshed The Interiors With More Than A Lick Of Paint – There’s A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "exclusive-4",
+            "channel": "mobile",
+            "price": 1599.00,
+            "currency": "GBP",
+            "trackName": "exclusive-4"
+        },
+        {
+            "category": "Exclusive Lodges",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/exclusive-5",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-exclusive-lodges/4-bed-exclusive-lodge-outdoor-spa/jcr:content/root/responsivegrid/gallery_copy/images/1.transform.1570186698371.jpg/optimal/image.webp",
+            "name": "5 BEDROOM NEW STYLE EXCLUSIVE LODGE",
+            "description": "Our Five-Bedroom, Single-Storey Terraced New Style Exclusive Lodges Have All The Lovely Touches Of A Woodland Lodge, Plus A Few Extras. We’ve Refreshed The Interiors With More Than A Lick Of Paint – There’s A 40” Inch Flatscreen TV In The Living Room.",
+            "sku": "exclusive-5",
+            "channel": "mobile",
+            "price": 1699.00,
+            "currency": "GBP",
+            "trackName": "exclusive-5"
+        },
+        {
+            "category": "Hotels & Apartments",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/apartment-1",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/hotels-and-apartments/1-bed-new-style-executive-apartment/jcr:content/root/responsivegrid/gallery_copy_copy/images/4.transform.1570186724451.jpg/optimal/image.webp",
+            "name": "1 BEDROOM NEW STYLE EXECUTIVE APARTMENT",
+            "description": "With Refreshed, Modern Interior Our New Style One Bedroom Clumber And Rufford Executive Apartments Are The Perfect Base For Couples Or Friends To Escape To The Forest.",
+            "sku": "apartment-1",
+            "channel": "mobile",
+            "price": 679.00,
+            "currency": "GBP",
+            "trackName": "apartment-1"
+        },
+        {
+            "category": "Hotels & Apartments",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/apartment-2",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/hotels-and-apartments/1-bed-new-style-executive-apartment/jcr:content/root/responsivegrid/gallery_copy_copy/images/2.transform.1570186741303.jpg/optimal/image.webp",
+            "name": "2 BEDROOM NEW STYLE EXECUTIVE APARTMENT",
+            "description": "With Refreshed, Modern Interior Our New Style One Bedroom Clumber And Rufford Executive Apartments Are The Perfect Base For Couples Or Friends To Escape To The Forest.",
+            "sku": "apartment-2",
+            "channel": "mobile",
+            "price": 679.00,
+            "currency": "GBP",
+            "trackName": "apartment-2"
+        },
+        {
+            "category": "Hotels & Apartments",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/apartment-3",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/hotels-and-apartments/1-bed-new-style-executive-apartment/jcr:content/root/responsivegrid/gallery_copy_copy/images/1.transform.1570186778906.jpg/optimal/image.webp",
+            "name": "3 BEDROOM NEW STYLE EXECUTIVE APARTMENT",
+            "description": "With Refreshed, Modern Interior Our New Style One Bedroom Clumber And Rufford Executive Apartments Are The Perfect Base For Couples Or Friends To Escape To The Forest.",
+            "sku": "apartment-3",
+            "channel": "mobile",
+            "price": 679.00,
+            "currency": "GBP",
+            "trackName": "apartment-3"
+        },
+        {
+            "category": "Hotels & Apartments",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/apartment-4",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/hotels-and-apartments/1-bed-new-style-executive-apartment/jcr:content/root/responsivegrid/gallery_copy_copy/images/3.transform.1570186745313.jpg/optimal/image.webp",
+            "name": "1 BEDROOM NEW STYLE EXECUTIVE APARTMENT",
+            "description": "With Refreshed, Modern Interior Our New Style One Bedroom Clumber And Rufford Executive Apartments Are The Perfect Base For Couples Or Friends To Escape To The Forest.",
+            "sku": "apartment-4",
+            "channel": "mobile",
+            "price": 679.00,
+            "currency": "GBP",
+            "trackName": "apartment-4"
+        },
+        {
+            "category": "Treehouses",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/treehouse-4",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-treehouse-holidays/4-bed-treehouse/jcr:content/root/responsivegrid/gallery_copy_4346212/images/3.transform.1570186743224.jpg/optimal/image.webp",
+            "name": "TREEHOUSE 4 GUESTS",
+            "description": "Our Two-Storey, Detached Treehouses Are Our Most Spectacular Accommodation Yet. Our Treehouses Are Designed So You Can Enjoy Shared Moments Together, Whether You Are Cooking Up Something Special In The Fully Equipped Kitchen Or Relaxing Together In The Living Area, Which Is Fitted With A Plasma TV With Sky, Blu-Ray DVD Player And Portable Docking Station.",
+            "sku": "treehouse-4",
+            "channel": "mobile",
+            "price": 3299.00,
+            "currency": "GBP",
+            "trackName": "treehouse-4"
+        },
+        {
+            "category": "Treehouses",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/treehouse-5",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-treehouse-holidays/4-bed-treehouse/jcr:content/root/responsivegrid/gallery_copy_4346212/images/5.transform.1570186733418.jpg/optimal/image.webp",
+            "name": "TREEHOUSE 5 GUESTS",
+            "description": "Our Two-Storey, Detached Treehouses Are Our Most Spectacular Accommodation Yet. Our Treehouses Are Designed So You Can Enjoy Shared Moments Together, Whether You Are Cooking Up Something Special In The Fully Equipped Kitchen Or Relaxing Together In The Living Area, Which Is Fitted With A Plasma TV With Sky, Blu-Ray DVD Player And Portable Docking Station.",
+            "sku": "treehouse-5",
+            "channel": "mobile",
+            "price": 3599.00,
+            "currency": "GBP",
+            "trackName": "treehouse-4"
+        },
+        {
+            "category": "Treehouses",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/treehouse-6",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-treehouse-holidays/4-bed-treehouse/jcr:content/root/responsivegrid/gallery_copy_4346212/images/4.transform.1570186734748.jpg/optimal/image.webp",
+            "name": "TREEHOUSE 6 GUESTS",
+            "description": "Our Two-Storey, Detached Treehouses Are Our Most Spectacular Accommodation Yet. Our Treehouses Are Designed So You Can Enjoy Shared Moments Together, Whether You Are Cooking Up Something Special In The Fully Equipped Kitchen Or Relaxing Together In The Living Area, Which Is Fitted With A Plasma TV With Sky, Blu-Ray DVD Player And Portable Docking Station.",
+            "sku": "treehouse-6",
+            "channel": "mobile",
+            "price": 3899.00,
+            "currency": "GBP",
+            "trackName": "treehouse-6"
+        },
+        {
+            "category": "Treehouses",
+            "url": "https://builder.adobedemo.com/run/rmaur-DIHT/treehouse-8",
+            "imageUrl": "https://www.centerparcs.co.uk/content/centerparcs/uk/en/discover-center-parcs/lodge-holidays/sf/luxury-treehouse-holidays/4-bed-treehouse/jcr:content/root/responsivegrid/gallery_copy_4346212/images/1.transform.1570186777171.jpg/optimal/image.webp",
+            "name": "TREEHOUSE 8 GUESTS",
+            "description": "Our Two-Storey, Detached Treehouses Are Our Most Spectacular Accommodation Yet. Our Treehouses Are Designed So You Can Enjoy Shared Moments Together, Whether You Are Cooking Up Something Special In The Fully Equipped Kitchen Or Relaxing Together In The Living Area, Which Is Fitted With A Plasma TV With Sky, Blu-Ray DVD Player And Portable Docking Station.",
+            "sku": "treehouse-8",
+            "channel": "mobile",
+            "price": 4299.00,
+            "currency": "GBP",
+            "trackName": "treehouse-8"
+        }
+
+    ]
+}

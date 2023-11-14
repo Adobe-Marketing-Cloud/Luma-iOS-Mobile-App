@@ -1,0 +1,82 @@
+{
+    "geofences": [
+        {
+            "id": "longford",
+            "name": "Center Parcs Longford Forest",
+            "regionMetadata": {
+                "category": "Center Parcs",
+                "city": "Ballymahon",
+                "country": "Ireland",
+                "countryCode": "IE"
+            },
+            "orchestration": {
+                "eventID": "b487a9c0d5adade5e19923e869ed57ef3ff8cf9679c07e7f208f98de3070a937"
+            }
+        },
+        {
+            "id": "woburn",
+            "name": "Center Parcs Woburn Forest",
+            "regionMetadata": {
+                "category": "Center Parcs",
+                "city": "Bedford",
+                "country": "United Kingdom",
+                "countryCode": "UK"
+            },
+            "orchestration": {
+                "eventID": "b487a9c0d5adade5e19923e869ed57ef3ff8cf9679c07e7f208f98de3070a937"
+            }
+        },
+        {
+            "id": "elveden",
+            "name": "Center Parcs Elveden Forest",
+            "regionMetadata": {
+                "category": "Center Parcs",
+                "city": "Thetford",
+                "country": "United Kingdom",
+                "countryCode": "UK"
+            },
+            "orchestration": {
+                "eventID": "b487a9c0d5adade5e19923e869ed57ef3ff8cf9679c07e7f208f98de3070a937"
+            }
+        },
+        {
+            "id": "longleat",
+            "name": "Center Parcs Longleat Forest",
+            "regionMetadata": {
+                "category": "Center Parcs",
+                "city": "Wilthshire",
+                "country": "United Kingdom",
+                "countryCode": "UK"
+            },
+            "orchestration": {
+                "eventID": "b487a9c0d5adade5e19923e869ed57ef3ff8cf9679c07e7f208f98de3070a937"
+            }
+        },
+        {
+            "id": "sherwood",
+            "name": "Center Parcs Sherwood Forest",
+            "regionMetadata": {
+                "category": "Center Parcs",
+                "city": "Newark",
+                "country": "United Kingdom",
+                "countryCode": "UK"
+            },
+            "orchestration": {
+                "eventID": "b487a9c0d5adade5e19923e869ed57ef3ff8cf9679c07e7f208f98de3070a937"
+            }
+        },
+        {
+            "id": "whinfell",
+            "name": "Center Parcs Whinfell Forest",
+            "regionMetadata": {
+                "category": "Center Parcs",
+                "city": "Penrith",
+                "country": "United Kingdom",
+                "countryCode": "UK"
+            },
+            "orchestration": {
+                "eventID": "b487a9c0d5adade5e19923e869ed57ef3ff8cf9679c07e7f208f98de3070a937"
+            }
+        }
+    ]
+}
