@@ -1,0 +1,18 @@
+{
+    "_adobeamericaspot4": {
+        "identification": {
+            "core": {
+                "email": "rmaur+20221123-75@adobetest.com",
+                "ecid": "30430301127982902626335679454522780367"
+            }
+        }
+    },
+    "_experience": {
+        "campaign": {
+            "orchestration": {
+                "eventID": "10fec8f239d7469ce73e6f9bbc45d235b62811ab9ff51f44fbcb2d864a808ac6"
+            }
+        }
+    },
+    "eventType": "mobileapp.testpush"
+}

@@ -1,0 +1,19 @@
+{
+    
+    "apiKey": "9efb3375a9ac485db347ba6315877e88",
+    "clientSecret": "p8e-Wa3MyxPjSnUcif3ElbTl43wZsJ5Ulpen",
+    "scopes": "openid,session,cjm.suppression_service.client.delete,AdobeID,read_organizations,cjm.suppression_service.client.all,additional_info.projectedProductContext",
+    "orgId": "6BB915785DE67ED10A495E68@AdobeOrg",
+    "containerId": "4fcd6362-1132-32e5-b895-1a11cead8d0f",
+    "allowDuplicatesAcrossActivities": true,
+    "allowDuplicatesAcrossPlacements": true,
+    "dryRun": true,
+    "decisionScopes": [
+        {
+            "name": "luma - Mobile App Decision",
+            "activityId": "xcore:offer-activity:177cdaa5e1fd589d",
+            "placementId": "xcore:offer-placement:13a3b264ce69bb14",
+            "itemCount": 2
+        }
+    ]
+}

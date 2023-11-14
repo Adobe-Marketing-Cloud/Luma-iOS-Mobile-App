@@ -1,0 +1,46 @@
+{
+    "placeContext": {
+        "POIinteraction": {
+            "poiDetail": {
+                "poiID": "1eb39168-88e0-49f8-a922-f3cd9e137e78",
+                "locatingType": "gps",
+                "name": "Belfius - Flagey"
+            },
+            "poiEntries": {
+                "value": 1
+            },
+            "poiExits": {
+                "value": 0
+            }
+        },
+        "geo": {
+            "countryCode": "BE",
+            "city": "Brussels",
+            "_schema": {
+                "longitude": 4.3810915000000001,
+                "latitude": 50.878841100000002
+            }
+        }
+    },
+    "_experience": {
+        "campaign": {
+            "orchestration": {
+                "eventID": "a587395b891e676f3c7465dc892cab22c5ef8a331b0bc4f5b0a4dbee147d4203"
+            }
+        }
+    },
+    "web": {
+        "webPageDetails": {
+            "name": "1eb39168-88e0-49f8-a922-f3cd9e137e78",
+            "siteSection": ""
+        }
+    },
+    "eventType": "geofence.entry",
+    "_adobeamericaspot4": {
+        "identification": {
+            "core": {
+                "ecid": "81075856166131264136782699514466204997"
+            }
+        }
+    }
+}

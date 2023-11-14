@@ -1,0 +1,1621 @@
+[
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/34932a5288f47f3e4092bf3a7255ad4dfd6cd75753325268",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.34932a5288f47f3e4092bf3a7255ad4dfd6cd75753325268",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "demoEnvironment",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "brandIndustry": {
+                        "title": "brandIndustry",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.brandIndustry",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "brandLogo": {
+                        "title": "brandLogo",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.brandLogo",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "brandName": {
+                        "title": "brandName",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.brandName",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "ldap": {
+                        "title": "ldap",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.ldap",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "tms": {
+                        "title": "tms",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.tms",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/1681a2fe0141b791fc844ba2cbfcd540b6d18efe1b7ebd9a",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.1681a2fe0141b791fc844ba2cbfcd540b6d18efe1b7ebd9a",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "profile_characteristics_core_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "age": {
+                        "title": "age",
+                        "description": "",
+                        "type": "integer",
+                        "meta:xdmType": "int",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.age",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    },
+                    "childrenInHouseHold": {
+                        "title": "childrenInHouseHold",
+                        "description": "",
+                        "type": "boolean",
+                        "meta:xdmType": "boolean",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.childrenInHouseHold",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "creditScore": {
+                        "title": "creditScore",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.creditScore",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    },
+                    "numberChildreninHouseHold": {
+                        "title": "numberChildreninHouseHold",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.numberChildreninHouseHold",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    },
+                    "incomeClass": {
+                        "title": "incomeClass",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.incomeClass",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    },
+                    "employer": {
+                        "title": "employer",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.employer",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    },
+                    "occupation": {
+                        "title": "occupation",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.occupation",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    },
+                    "favouriteCategory": {
+                        "title": "favouriteCategory",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.favouriteCategory",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    },
+                    "favouriteSubCategory": {
+                        "title": "favouriteSubCategory",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.core{}.favouriteSubCategory",
+                            "editable": true,
+                            "generateDate": 1605102971119
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/af627a1b5ee3c2949cfd7b30eda6549977f17a53c2d19927",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.af627a1b5ee3c2949cfd7b30eda6549977f17a53c2d19927",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "profile_scoring_product_core_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "affinity": {
+                        "title": "affinity",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualScoring{}.product{}.affinity",
+                            "editable": true,
+                            "generateDate": 1605103062814
+                        }
+                    },
+                    "recommendations": {
+                        "title": "recommendations",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualScoring{}.product{}.recommendations",
+                            "editable": true,
+                            "generateDate": 1605103062814
+                        }
+                    },
+                    "usage": {
+                        "title": "usage",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualScoring{}.product{}.usage",
+                            "editable": true,
+                            "generateDate": 1605103062814
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/f73d4083368035765071e5df86bfb92a994818ed564d6ad6",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.f73d4083368035765071e5df86bfb92a994818ed564d6ad6",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "core",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "biometricId": {
+                        "title": "biometricId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.biometricId",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "crmId": {
+                        "title": "crmId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.crmId",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "d365": {
+                        "title": "d365",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.d365",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "ecid": {
+                        "title": "ecid",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.ecid",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.email",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "emailIdSha256": {
+                        "title": "emailIdSha256",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.emailIdSha256",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "loyaltyId": {
+                        "title": "loyaltyId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.loyaltyId",
+                            "editable": true
+                        }
+                    },
+                    "passportId": {
+                        "title": "passportId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.passportId",
+                            "editable": true
+                        }
+                    },
+                    "phoneNumber": {
+                        "title": "phoneNumber",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.phoneNumber",
+                            "editable": true
+                        }
+                    },
+                    "pushTokens": {
+                        "title": "pushTokens",
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "meta:xdmType": "string"
+                        },
+                        "meta:xdmType": "array",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.pushTokens[]{}",
+                            "editable": true
+                        }
+                    },
+                    "stackchatId": {
+                        "title": "stackchatId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.stackchatId",
+                            "editable": true
+                        }
+                    },
+                    "gaid": {
+                        "title": "gaid",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.gaid",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/fe47b37664c4716fa68f439fc9b6ea85b485ce2231534bcc",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.fe47b37664c4716fa68f439fc9b6ea85b485ce2231534bcc",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "profile_loyalty_core_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "level": {
+                        "title": "level",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.loyaltyDetails{}.level",
+                            "editable": true,
+                            "generateDate": 1605102898157
+                        }
+                    },
+                    "points": {
+                        "title": "points",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.loyaltyDetails{}.points",
+                            "editable": true,
+                            "generateDate": 1605102898157
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/fe754e1ed896fa8da7d8553a87d19d75",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.fe754e1ed896fa8da7d8553a87d19d75",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "profile_order_core_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "avgOrderSize": {
+                        "title": "avgOrderSize",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.avgOrderSize",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lastOrderDate": {
+                        "title": "lastOrderDate",
+                        "description": "",
+                        "type": "string",
+                        "format": "date",
+                        "meta:xdmType": "date",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lastOrderDate",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lastOrderSize": {
+                        "title": "lastOrderSize",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lastOrderSize",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lastOrderSku": {
+                        "title": "lastOrderSku",
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "meta:xdmType": "string"
+                        },
+                        "meta:xdmType": "array",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lastOrderSku[]{}",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lastOrderPaymentMethod": {
+                        "title": "lastOrderPaymentMethod",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lastOrderPaymentMethod{}",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lastOrderStore": {
+                        "title": "lastOrderStore",
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "meta:xdmType": "string"
+                        },
+                        "meta:xdmType": "array",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lastOrderStore[]{}",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lastOrderType": {
+                        "title": "lastOrderType",
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "meta:xdmType": "string"
+                        },
+                        "meta:xdmType": "array",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lastOrderType[]{}",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lastOrderValue": {
+                        "title": "lastOrderValue",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lastOrderValue",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "ordersYTD": {
+                        "title": "ordersYTD",
+                        "description": "",
+                        "type": "integer",
+                        "meta:xdmType": "int",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.ordersYTD",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    },
+                    "lifetimeValue": {
+                        "title": "lifetimeValue",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.orderProfile{}.lifetimeValue",
+                            "editable": true,
+                            "generateDate": 1605102924791
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/499fddee52a8773ed9fad8a4cfdeafb8cef0de4d87d30070",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.499fddee52a8773ed9fad8a4cfdeafb8cef0de4d87d30070",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "profile_characteristics_retail_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "cobrandedCreditCardHolder": {
+                        "title": "cobrandedCreditCardHolder",
+                        "description": "",
+                        "type": "boolean",
+                        "meta:xdmType": "boolean",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.cobrandedCreditCardHolder",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "favoriteStore": {
+                        "title": "favoriteStore",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.favoriteStore",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "favoriteColor": {
+                        "title": "favoriteColor",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.favoriteColor",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "favoriteDesigner": {
+                        "title": "favoriteDesigner",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.favoriteDesigner",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "favoriteFashionBrand": {
+                        "title": "favoriteFashionBrand",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.favoriteFashionBrand",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "linkedStore": {
+                        "title": "linkedStore",
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "meta:xdmType": "string"
+                        },
+                        "meta:xdmType": "array",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.linkedStore[]{}",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "pantsSize": {
+                        "title": "pantsSize",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.pantsSize",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "shirtSize": {
+                        "title": "shirtSize",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.shirtSize",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    },
+                    "shoeSize": {
+                        "title": "shoeSize",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.individualCharacteristics{}.retail{}.shoeSize",
+                            "editable": true,
+                            "generateDate": 1605103001691
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.mixins.f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+        "meta:resourceType": "mixins",
+        "version": "1.0",
+        "title": "Profile Core v2",
+        "type": "object",
+        "description": "Profile Core v2",
+        "definitions": {
+            "customFields": {
+                "type": "object",
+                "properties": {
+                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                        "type": "object",
+                        "properties": {
+                            "identification": {
+                                "title": "identification",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "properties": {
+                                    "core": {
+                                        "title": "core",
+                                        "description": "",
+                                        "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/f73d4083368035765071e5df86bfb92a994818ed564d6ad6",
+                                        "type": "object",
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            },
+                            "individualCharacteristics": {
+                                "title": "individualCharacteristics",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "properties": {
+                                    "core": {
+                                        "title": "core",
+                                        "description": "",
+                                        "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/1681a2fe0141b791fc844ba2cbfcd540b6d18efe1b7ebd9a",
+                                        "type": "object",
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            },
+                            "scoring": {
+                                "title": "scoring",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "properties": {
+                                    "churn": {
+                                        "title": "churn",
+                                        "description": "",
+                                        "type": "object",
+                                        "isRequired": false,
+                                        "properties": {
+                                            "churnPrediction": {
+                                                "title": "churnPrediction",
+                                                "description": "",
+                                                "type": "number",
+                                                "meta:xdmType": "number"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    },
+                                    "sentiment": {
+                                        "title": "sentiment",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    },
+                                    "core": {
+                                        "title": "core",
+                                        "description": "",
+                                        "type": "object",
+                                        "isRequired": false,
+                                        "properties": {
+                                            "category": {
+                                                "title": "category",
+                                                "description": "",
+                                                "type": "string",
+                                                "meta:xdmType": "string"
+                                            },
+                                            "propensityScore": {
+                                                "title": "propensityScore",
+                                                "description": "",
+                                                "type": "number",
+                                                "meta:xdmType": "number"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    },
+                                    "product": {
+                                        "title": "product",
+                                        "description": "",
+                                        "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/af627a1b5ee3c2949cfd7b30eda6549977f17a53c2d19927",
+                                        "type": "object",
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            },
+                            "demoEnvironment": {
+                                "title": "demoEnvironment",
+                                "description": "",
+                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/34932a5288f47f3e4092bf3a7255ad4dfd6cd75753325268",
+                                "type": "object",
+                                "meta:xdmType": "object"
+                            },
+                            "loyaltyDetails": {
+                                "title": "loyaltyDetails",
+                                "description": "",
+                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/fe47b37664c4716fa68f439fc9b6ea85b485ce2231534bcc",
+                                "type": "object",
+                                "meta:xdmType": "object"
+                            },
+                            "orderProfile": {
+                                "title": "orderProfile",
+                                "description": "",
+                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/fe754e1ed896fa8da7d8553a87d19d75",
+                                "type": "object",
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    }
+                },
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:intendedToExtend": [],
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/4eaec7fa6484250b430d079f3a99b48630e5d36ae6923f0a",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.mixins.4eaec7fa6484250b430d079f3a99b48630e5d36ae6923f0a",
+        "meta:resourceType": "mixins",
+        "version": "1.0",
+        "title": "Profile - Proposition Interactions",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "type": "object",
+                "properties": {
+                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                        "type": "object",
+                        "properties": {
+                            "experience": {
+                                "title": "experience",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "required": [],
+                                "properties": {
+                                    "decisioning": {
+                                        "title": "decisioning",
+                                        "description": "",
+                                        "type": "object",
+                                        "isRequired": false,
+                                        "required": [],
+                                        "properties": {
+                                            "propositions": {
+                                                "title": "propositions",
+                                                "description": "",
+                                                "type": "array",
+                                                "required": [],
+                                                "items": {
+                                                    "type": "object",
+                                                    "properties": {
+                                                        "item": {
+                                                            "title": "item",
+                                                            "description": "",
+                                                            "type": "object",
+                                                            "isRequired": false,
+                                                            "required": [],
+                                                            "properties": {
+                                                                "description": {
+                                                                    "title": "description",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "image": {
+                                                                    "title": "image",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "link": {
+                                                                    "title": "link",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "name": {
+                                                                    "title": "name",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "score": {
+                                                                    "title": "score",
+                                                                    "description": "",
+                                                                    "type": "number",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "number"
+                                                                },
+                                                                "response": {
+                                                                    "title": "response",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "activityId": {
+                                                                    "title": "activityId",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "offerId": {
+                                                                    "title": "offerId",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "offerPropositionId": {
+                                                                    "title": "offerPropositionId",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                }
+                                                            },
+                                                            "meta:xdmType": "object"
+                                                        },
+                                                        "placement": {
+                                                            "title": "placement",
+                                                            "description": "",
+                                                            "type": "object",
+                                                            "isRequired": false,
+                                                            "required": [],
+                                                            "properties": {
+                                                                "channel": {
+                                                                    "title": "channel",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                },
+                                                                "id": {
+                                                                    "title": "id",
+                                                                    "description": "",
+                                                                    "type": "string",
+                                                                    "required": [],
+                                                                    "meta:xdmType": "string"
+                                                                }
+                                                            },
+                                                            "meta:xdmType": "object"
+                                                        }
+                                                    },
+                                                    "required": [],
+                                                    "meta:xdmType": "object"
+                                                },
+                                                "meta:xdmType": "array"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    }
+                },
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:intendedToExtend": [],
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.mixins.1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+        "meta:resourceType": "mixins",
+        "version": "1.0",
+        "title": "Profile Retail v2",
+        "type": "object",
+        "description": "Profile Retail v2",
+        "definitions": {
+            "customFields": {
+                "type": "object",
+                "properties": {
+                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                        "type": "object",
+                        "properties": {
+                            "individualCharacteristics": {
+                                "type": "object",
+                                "properties": {
+                                    "retail": {
+                                        "title": "retail",
+                                        "description": "",
+                                        "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/499fddee52a8773ed9fad8a4cfdeafb8cef0de4d87d30070",
+                                        "type": "object",
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            },
+                            "scoring": {
+                                "type": "object",
+                                "properties": {
+                                    "retail": {
+                                        "title": "retail",
+                                        "description": "",
+                                        "type": "object",
+                                        "isRequired": false,
+                                        "properties": {
+                                            "cobrandedCreditCardSignUp": {
+                                                "title": "cobrandedCreditCardSignUp",
+                                                "description": "",
+                                                "type": "number",
+                                                "meta:xdmType": "number"
+                                            },
+                                            "loyaltyProgramSignUp": {
+                                                "title": "loyaltyProgramSignUp",
+                                                "description": "",
+                                                "type": "number",
+                                                "meta:xdmType": "number"
+                                            },
+                                            "loyaltyStatusUpgrade": {
+                                                "title": "loyaltyStatusUpgrade",
+                                                "description": "",
+                                                "type": "number",
+                                                "meta:xdmType": "number"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    }
+                },
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:intendedToExtend": [],
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/d8b1e330eb302547ab9f342f7963da74037393f7c51ff98f",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.mixins.d8b1e330eb302547ab9f342f7963da74037393f7c51ff98f",
+        "meta:resourceType": "mixins",
+        "version": "1.0",
+        "title": "Profile Grocery v1",
+        "type": "object",
+        "description": "Profile Grocery v1",
+        "definitions": {
+            "customFields": {
+                "type": "object",
+                "properties": {
+                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                        "type": "object",
+                        "properties": {
+                            "individualCharacteristics": {
+                                "type": "object",
+                                "properties": {
+                                    "grocery": {
+                                        "title": "grocery",
+                                        "description": "",
+                                        "type": "object",
+                                        "isRequired": false,
+                                        "properties": {
+                                            "allergies": {
+                                                "title": "allergies",
+                                                "description": "",
+                                                "type": "object",
+                                                "isRequired": false,
+                                                "properties": {
+                                                    "dairy": {
+                                                        "title": "dairy",
+                                                        "description": "",
+                                                        "type": "boolean",
+                                                        "meta:xdmType": "boolean"
+                                                    },
+                                                    "gluten": {
+                                                        "title": "gluten",
+                                                        "description": "",
+                                                        "type": "boolean",
+                                                        "meta:xdmType": "boolean"
+                                                    },
+                                                    "nuts": {
+                                                        "title": "nuts",
+                                                        "description": "",
+                                                        "type": "boolean",
+                                                        "meta:xdmType": "boolean"
+                                                    },
+                                                    "shellfish": {
+                                                        "title": "shellfish",
+                                                        "description": "",
+                                                        "type": "boolean",
+                                                        "meta:xdmType": "boolean"
+                                                    },
+                                                    "soy": {
+                                                        "title": "soy",
+                                                        "description": "",
+                                                        "type": "boolean",
+                                                        "meta:xdmType": "boolean"
+                                                    }
+                                                },
+                                                "meta:xdmType": "object"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    }
+                },
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:intendedToExtend": [],
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/5c5cad7dfb3242cbd7c12bda7f4790bcf4660881e235dfb7",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.schemas.5c5cad7dfb3242cbd7c12bda7f4790bcf4660881e235dfb7",
+        "meta:resourceType": "schemas",
+        "version": "1.2",
+        "title": "Demo System - Profile Schema for Mobile App (Global v1.1)",
+        "type": "object",
+        "description": "Demo System - Profile Schema for Mobile App (Global v1.1)",
+        "allOf": [
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/identitymap",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-person-details",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-personal-details",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-segmentation",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-preferences-details",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-work-details",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-directmarketing",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-subscriptions",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-test-profile",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/experience/profile-edgeregion",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/4eaec7fa6484250b430d079f3a99b48630e5d36ae6923f0a",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/profile-push-notification-details",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/mixins/profile-consents",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/mixins/profile/profile-user-account-details",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/d8b1e330eb302547ab9f342f7963da74037393f7c51ff98f",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": false,
+        "meta:abstract": false,
+        "meta:extends": [
+            "https://ns.adobe.com/xdm/context/profile-directmarketing",
+            "https://ns.adobe.com/xdm/context/profile-test-profile",
+            "https://ns.adobe.com/xdm/common/auditable",
+            "https://ns.adobe.com/xdm/mixins/profile/profile-user-account-details",
+            "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+            "https://ns.adobe.com/xdm/mixins/profile-consents",
+            "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/4eaec7fa6484250b430d079f3a99b48630e5d36ae6923f0a",
+            "https://ns.adobe.com/xdm/context/profile-person-details",
+            "https://ns.adobe.com/xdm/context/profile-personal-details",
+            "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/1d7388661a2f1689fba78b452491bb31ebac23349fff916d",
+            "https://ns.adobe.com/xdm/data/record",
+            "https://ns.adobe.com/experience/profile-edgeregion",
+            "https://ns.adobe.com/xdm/context/profile",
+            "https://ns.adobe.com/xdm/context/identitymap",
+            "https://ns.adobe.com/xdm/context/profile-subscriptions",
+            "https://ns.adobe.com/xdm/context/profile-segmentation",
+            "https://ns.adobe.com/xdm/context/profile-preferences-details",
+            "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/d8b1e330eb302547ab9f342f7963da74037393f7c51ff98f",
+            "https://ns.adobe.com/xdm/context/profile-work-details",
+            "https://ns.adobe.com/xdm/context/profile-push-notification-details"
+        ],
+        "meta:xdmType": "object",
+        "meta:class": "https://ns.adobe.com/xdm/context/profile",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:immutableTags": []
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/5c5cad7dfb3242cbd7c12bda7f4790bcf4660881e235dfb7",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/userAccount/ID",
+        "xdm:namespace": "userId",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/5c5cad7dfb3242cbd7c12bda7f4790bcf4660881e235dfb7",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/ecid",
+        "xdm:namespace": "ECID",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": true,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/5c5cad7dfb3242cbd7c12bda7f4790bcf4660881e235dfb7",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/phoneNumber",
+        "xdm:namespace": "Phone",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/5c5cad7dfb3242cbd7c12bda7f4790bcf4660881e235dfb7",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/email",
+        "xdm:namespace": "Email",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    }
+]

@@ -1,0 +1,45 @@
+{
+    "productListItems": [
+        {
+            "productAddMethod": "$productChannel$",
+            "quantity": 1,
+            "product": "$productURL",
+            "SKU": "$productSKU",
+            "$tenant$": {
+                "core": {
+                    "description": "$productDescription$",
+                    "mainCategory": "$productCategory$",
+                    "imageURL": "$productImageURL$"
+                }
+            },
+            "name": "$productName$",
+            "productImageUrl": "$productImageURL$"
+        }
+    ],
+    "commerce": {
+        "productViews": {
+            "value": 1
+        }
+    },
+    "eventType": "commerce.productViews",
+    "_experience": {
+        "campaign": {
+            "orchestration": {
+                "eventID": "$orchestrationID$"
+            }
+        }
+    },
+    "web": {
+        "webPageDetails": {
+            "name": "$productName$",
+            "siteSection": "$productCategory$"
+        }
+    },
+    "$tenant$": {
+        "identification": {
+            "core": {
+                "ecid": "$ecid$"
+            }
+        }
+    }
+}

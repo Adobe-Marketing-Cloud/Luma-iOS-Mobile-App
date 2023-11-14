@@ -1,0 +1,1972 @@
+[
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/62d76a6fa0ae9572e27b46f87442a63c",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.62d76a6fa0ae9572e27b46f87442a63c",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_call_center_core_v1",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "callReason": {
+                        "title": "Call Reason",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callReason",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callResolutionFlag": {
+                        "title": "Call Resolution Flag",
+                        "description": "",
+                        "type": "boolean",
+                        "meta:xdmType": "boolean",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callResolutionFlag",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callSatisfaction": {
+                        "title": "Call Satisfaction",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callSatisfaction",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callStartTime": {
+                        "title": "Call Start Time",
+                        "description": "",
+                        "type": "string",
+                        "format": "date-time",
+                        "meta:xdmType": "date-time",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callStartTime",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callTicketID": {
+                        "title": "Call Ticket ID",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callTicketID",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callTimeElapsed": {
+                        "title": "Call Time Elapsed",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callTimeElapsed",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callTopic": {
+                        "title": "Call Topic",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callTopic",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callTransferID": {
+                        "title": "Call Transfer ID",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callTransferID",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callEndTime": {
+                        "title": "Call End TIme",
+                        "description": "",
+                        "type": "string",
+                        "format": "date-time",
+                        "meta:xdmType": "date-time",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callEndTime",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callCenterID": {
+                        "title": "Call Center ID",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callCenterID",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callAgentID": {
+                        "title": "Call Agent ID",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callAgentID",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callAgentComments": {
+                        "title": "Call Agent Comments",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callAgentComments",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callANI": {
+                        "title": "Call ANI",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callANI",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callID": {
+                        "title": "Call ID",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callID",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callChannel": {
+                        "title": "callChannel",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callChannel",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callPriority": {
+                        "title": "callPriority",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callPriority",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callFeeling": {
+                        "title": "callFeeling",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.callCenterAgent{}.callFeeling",
+                            "editable": true,
+                            "generateDate": 1604735123232
+                        }
+                    },
+                    "callContractCancelled": {
+                        "title": "callContractCancelled",
+                        "description": "",
+                        "type": "boolean",
+                        "meta:xdmType": "boolean"
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/34932a5288f47f3e4092bf3a7255ad4dfd6cd75753325268",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.34932a5288f47f3e4092bf3a7255ad4dfd6cd75753325268",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "demoEnvironment",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "brandIndustry": {
+                        "title": "brandIndustry",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.brandIndustry",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "brandLogo": {
+                        "title": "brandLogo",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.brandLogo",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "brandName": {
+                        "title": "brandName",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.brandName",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "ldap": {
+                        "title": "ldap",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.ldap",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    },
+                    "tms": {
+                        "title": "tms",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.demoEnvironment{}.tms",
+                            "editable": true,
+                            "generateDate": 1604733659114
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/f73d4083368035765071e5df86bfb92a994818ed564d6ad6",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.f73d4083368035765071e5df86bfb92a994818ed564d6ad6",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "core",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "biometricId": {
+                        "title": "biometricId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.biometricId",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "crmId": {
+                        "title": "crmId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.crmId",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "d365": {
+                        "title": "d365",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.d365",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "ecid": {
+                        "title": "ecid",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.ecid",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "email": {
+                        "title": "email",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.email",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "emailIdSha256": {
+                        "title": "emailIdSha256",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.emailIdSha256",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    },
+                    "loyaltyId": {
+                        "title": "loyaltyId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.loyaltyId",
+                            "editable": true
+                        }
+                    },
+                    "passportId": {
+                        "title": "passportId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.passportId",
+                            "editable": true
+                        }
+                    },
+                    "phoneNumber": {
+                        "title": "phoneNumber",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.phoneNumber",
+                            "editable": true
+                        }
+                    },
+                    "pushTokens": {
+                        "title": "pushTokens",
+                        "description": "",
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "meta:xdmType": "string"
+                        },
+                        "meta:xdmType": "array",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.pushTokens[]{}",
+                            "editable": true
+                        }
+                    },
+                    "stackchatId": {
+                        "title": "stackchatId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.stackchatId",
+                            "editable": true
+                        }
+                    },
+                    "gaid": {
+                        "title": "gaid",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/f7fc5d501b121ab095f81e00bec15e1b55a4c3a0ae084f04",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.identification{}.core{}.gaid",
+                            "editable": true,
+                            "generateDate": 1604733774765
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/000d4c195f109aee69c3bc483869e908",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.000d4c195f109aee69c3bc483869e908",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_product_details_core_v1",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "description": {
+                        "title": "description",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}.productListItems[]{}._<XDM_TENANTID_PLACEHOLDER>{}.core{}.description",
+                            "editable": true,
+                            "generateDate": 1604734812709
+                        }
+                    },
+                    "imageURL": {
+                        "title": "imageURL",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}.productListItems[]{}._<XDM_TENANTID_PLACEHOLDER>{}.core{}.imageURL",
+                            "editable": true,
+                            "generateDate": 1604734812709
+                        }
+                    },
+                    "mainCategory": {
+                        "title": "mainCategory",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}.productListItems[]{}._<XDM_TENANTID_PLACEHOLDER>{}.core{}.mainCategory",
+                            "editable": true,
+                            "generateDate": 1604734812709
+                        }
+                    },
+                    "productURL": {
+                        "title": "productURL",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}.productListItems[]{}._<XDM_TENANTID_PLACEHOLDER>{}.core{}.productURL",
+                            "editable": true,
+                            "generateDate": 1604734812709
+                        }
+                    },
+                    "subCategory": {
+                        "title": "subCategory",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}.productListItems[]{}._<XDM_TENANTID_PLACEHOLDER>{}.core{}.subCategory",
+                            "editable": true,
+                            "generateDate": 1604734812709
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/c13b3f72ef7265867115526d85fa7d40ed531ac8673e7251",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.c13b3f72ef7265867115526d85fa7d40ed531ac8673e7251",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_bot_core_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "botTopic": {
+                        "title": "botTopic",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.bot{}.botTopic",
+                            "editable": true,
+                            "generateDate": 1604735224712
+                        }
+                    },
+                    "botSatisfaction": {
+                        "title": "botSatisfaction",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.bot{}.botSatisfaction",
+                            "editable": true,
+                            "generateDate": 1604735224712
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/d402cbe5b484f7c0154f049c806b7b37715f8e1d8db2b29b",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.d402cbe5b484f7c0154f049c806b7b37715f8e1d8db2b29b",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_form_core_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "category": {
+                        "title": "Category",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.form{}.category",
+                            "editable": true,
+                            "generateDate": 1604735224712
+                        }
+                    },
+                    "name": {
+                        "title": "Name",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.form{}.name",
+                            "editable": true,
+                            "generateDate": 1604735224712
+                        }
+                    },
+                    "action": {
+                        "title": "Action",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.form{}.action",
+                            "editable": true,
+                            "generateDate": 1604735224712
+                        }
+                    }
+                },
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/c13b3f72ef7265867115526d85fa7d40ed531ac8673e7252",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.c13b3f72ef7265867115526d85fa7d40ed531ac8673e7252",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_video_core_v2",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "videoTitle": {
+                        "title": "videoTitle",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.video{}.videoTitle",
+                            "editable": true,
+                            "generateDate": 1604735224712
+                        }
+                    },
+                    "videoSource": {
+                        "title": "videoSource",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.core{}.video{}.videoSource",
+                            "editable": true,
+                            "generateDate": 1604735224712
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/55d77e6a3831fbb5b4cbcc2fed12e784b012d3ee6190112a",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.55d77e6a3831fbb5b4cbcc2fed12e784b012d3ee6190112a",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "coupon",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "couponID": {
+                        "title": "couponID",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.promotion{}.coupon{}.couponID",
+                            "editable": true,
+                            "generateDate": 1604743579523
+                        }
+                    },
+                    "couponSavingsAmt": {
+                        "title": "couponSavingsAmt",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.promotion{}.coupon{}.couponSavingsAmt",
+                            "editable": true,
+                            "generateDate": 1604743579523
+                        }
+                    },
+                    "couponUseApplied": {
+                        "title": "couponUseApplied",
+                        "description": "",
+                        "type": "boolean",
+                        "meta:xdmType": "boolean",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.promotion{}.coupon{}.couponUseApplied",
+                            "editable": true,
+                            "generateDate": 1604743579523
+                        }
+                    },
+                    "couponUseAttempt": {
+                        "title": "couponUseAttempt",
+                        "description": "",
+                        "type": "boolean",
+                        "meta:xdmType": "boolean",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.promotion{}.coupon{}.couponUseAttempt",
+                            "editable": true,
+                            "generateDate": 1604743579523
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/6225d397de89ead4e324367b190ab438",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.6225d397de89ead4e324367b190ab438",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_product_specs_retail_v1",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "allergens": {
+                        "description": "",
+                        "items": {
+                            "meta:xdmType": "string",
+                            "type": "string"
+                        },
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_product_details_retail_v1{}.allergens[]{}",
+                            "ref": [
+                                "schema://5e3c8f98f6ca600000403e81",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "array",
+                        "title": "Allergens",
+                        "type": "array"
+                    },
+                    "color": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_product_details_retail_v1{}.color",
+                            "ref": [
+                                "schema://5e3c8f98f6ca600000403e81",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "Color",
+                        "type": "string"
+                    },
+                    "fabric": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_product_details_retail_v1{}.fabric",
+                            "ref": [
+                                "schema://5e3c8f98f6ca600000403e81",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "Fabric",
+                        "type": "string"
+                    },
+                    "ingredients": {
+                        "description": "",
+                        "items": {
+                            "meta:xdmType": "string",
+                            "type": "string"
+                        },
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_product_details_retail_v1{}.ingredients[]{}",
+                            "ref": [
+                                "schema://5e3c8f98f6ca600000403e81",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "array",
+                        "title": "Ingredients",
+                        "type": "array"
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "meta:xdmType": "object",
+                "type": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/79bb283c66ebefaca504e621627762c10ebe82da93196a5f",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.79bb283c66ebefaca504e621627762c10ebe82da93196a5f",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_store_return_utilization_retail_v1",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "returnAmount": {
+                        "title": "returnAmount",
+                        "description": "",
+                        "type": "number",
+                        "meta:xdmType": "number",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.return{}.returnAmount",
+                            "editable": true,
+                            "generateDate": 1604743832506
+                        }
+                    },
+                    "returnId": {
+                        "title": "returnId",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.return{}.returnId",
+                            "editable": true,
+                            "generateDate": 1604743832506
+                        }
+                    },
+                    "returnOriginalOrderID": {
+                        "title": "returnOriginalOrderID",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.return{}.returnOriginalOrderID",
+                            "editable": true,
+                            "generateDate": 1604743832506
+                        }
+                    },
+                    "returnSku": {
+                        "title": "returnSku",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.return{}.returnSku",
+                            "editable": true,
+                            "generateDate": 1604743832506
+                        }
+                    },
+                    "returnType": {
+                        "title": "returnType",
+                        "description": "",
+                        "type": "string",
+                        "meta:xdmType": "string",
+                        "meta:ui": {
+                            "ref": [
+                                "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                                "#/definitions/customFields"
+                            ],
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.interactionDetails{}.retail{}.return{}.returnType",
+                            "editable": true,
+                            "generateDate": 1604743832506
+                        }
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/3733bff0459e4e70aea877cccb811f8c",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.3733bff0459e4e70aea877cccb811f8c",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_order_utilization_retail_v1",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "orderDeviceID": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.orderDeviceID",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "orderDeviceID",
+                        "type": "string"
+                    },
+                    "orderItemNumber": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.orderItemNumber",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "int",
+                        "title": "orderItemNumber",
+                        "type": "integer"
+                    },
+                    "orderType": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.orderType",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "orderType",
+                        "type": "string"
+                    },
+                    "sku": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.sku",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "sku",
+                        "type": "string"
+                    },
+                    "skuAmount": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.skuAmount",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "number",
+                        "title": "sku Amount",
+                        "type": "number"
+                    },
+                    "skuOriginalPrice": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.skuOriginalPrice",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "number",
+                        "title": "skuOriginalPrice",
+                        "type": "number"
+                    },
+                    "skuSaleAmount": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.skuSaleAmount",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "number",
+                        "title": "sku Sale Amount",
+                        "type": "number"
+                    },
+                    "skuUnits": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_order_utilization_retail_v1{}.skuUnits",
+                            "ref": [
+                                "schema://5e45938a2a3f170000f6de9b",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "int",
+                        "title": "sku Units",
+                        "type": "integer"
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "meta:xdmType": "object",
+                "type": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/0630ec4c7798f502827c06d949a6e07c",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.datatypes.0630ec4c7798f502827c06d949a6e07c",
+        "meta:resourceType": "datatypes",
+        "version": "1.0",
+        "title": "ee_product_details_retail_v1.0",
+        "type": "object",
+        "description": "",
+        "definitions": {
+            "customFields": {
+                "properties": {
+                    "color": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_product_utilization_retail_v1{}.color",
+                            "ref": [
+                                "schema://5e45709fb6f14a0000eb060e",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "Color",
+                        "type": "string"
+                    },
+                    "size": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_product_utilization_retail_v1{}.size",
+                            "ref": [
+                                "schema://5e45709fb6f14a0000eb060e",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "Size",
+                        "type": "string"
+                    },
+                    "targetGender": {
+                        "description": "",
+                        "meta:ui": {
+                            "editable": true,
+                            "path": "{}._<XDM_TENANTID_PLACEHOLDER>{}.ee_product_utilization_retail_v1{}.targetGender",
+                            "ref": [
+                                "schema://5e45709fb6f14a0000eb060e",
+                                "#/definitions/customFields"
+                            ]
+                        },
+                        "meta:xdmType": "string",
+                        "title": "Target Gender",
+                        "type": "string"
+                    }
+                }
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "meta:xdmType": "object",
+                "type": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.mixins.98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+        "meta:resourceType": "mixins",
+        "version": "1.0",
+        "title": "ExperienceEvent Core v2.1",
+        "type": "object",
+        "description": "ExperienceEvent Core v2.1",
+        "definitions": {
+            "customFields": {
+                "type": "object",
+                "properties": {
+                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                        "type": "object",
+                        "properties": {
+                            "interactionDetails": {
+                                "title": "interactionDetails",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "properties": {
+                                    "core": {
+                                        "title": "core",
+                                        "description": "",
+                                        "type": "object",
+                                        "isRequired": false,
+                                        "properties": {
+                                            "callCenterAgent": {
+                                                "title": "callCenterAgent",
+                                                "description": "",
+                                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/62d76a6fa0ae9572e27b46f87442a63c",
+                                                "type": "object",
+                                                "meta:xdmType": "object"
+                                            },
+                                            "bot": {
+                                                "title": "bot",
+                                                "description": "",
+                                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/c13b3f72ef7265867115526d85fa7d40ed531ac8673e7251",
+                                                "type": "object",
+                                                "meta:xdmType": "object"
+                                            },
+                                            "form": {
+                                                "title": "Form",
+                                                "description": "",
+                                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/d402cbe5b484f7c0154f049c806b7b37715f8e1d8db2b29b",
+                                                "type": "object",
+                                                "meta:xdmType": "object"
+                                            },
+                                            "video": {
+                                                "title": "video",
+                                                "description": "",
+                                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/c13b3f72ef7265867115526d85fa7d40ed531ac8673e7252",
+                                                "type": "object",
+                                                "meta:xdmType": "object"
+                                            },
+                                            "channel": {
+                                                "title": "Channel",
+                                                "description": "",
+                                                "type": "string",
+                                                "meta:xdmType": "string"
+                                            },
+                                            "campaignChannel": {
+                                                "title": "Campaign channel",
+                                                "description": "",
+                                                "type": "string",
+                                                "meta:xdmType": "string"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            },
+                            "demoEnvironment": {
+                                "title": "demoEnvironment",
+                                "description": "",
+                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/34932a5288f47f3e4092bf3a7255ad4dfd6cd75753325268",
+                                "type": "object",
+                                "meta:xdmType": "object"
+                            },
+                            "identification": {
+                                "title": "identification",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "properties": {
+                                    "core": {
+                                        "title": "core",
+                                        "description": "",
+                                        "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/f73d4083368035765071e5df86bfb92a994818ed564d6ad6",
+                                        "type": "object",
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    },
+                    "commerce": {
+                        "type": "object",
+                        "properties": {
+                            "order": {
+                                "type": "object",
+                                "properties": {},
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    },
+                    "productListItems": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "_<XDM_TENANTID_PLACEHOLDER>": {
+                                    "type": "object",
+                                    "properties": {
+                                        "core": {
+                                            "title": "core",
+                                            "description": "",
+                                            "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/000d4c195f109aee69c3bc483869e908",
+                                            "type": "object",
+                                            "meta:xdmType": "object"
+                                        }
+                                    },
+                                    "meta:xdmType": "object"
+                                },
+                                "SKU": {
+                                    "title": "SKU",
+                                    "description": "Stock keeping unit (SKU), the unique identifier for a product defined by the vendor.",
+                                    "type": "string",
+                                    "meta:xdmType": "string"
+                                }
+                            },
+                            "meta:xdmType": "object"
+                        },
+                        "meta:xdmType": "array"
+                    }
+                },
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/experienceevent-commerce",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:extends": [
+            "https://ns.adobe.com/xdm/context/experienceevent-commerce"
+        ],
+        "meta:intendedToExtend": [],
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/2469c444b281cb17d1f1a908a238fb1c6ba07e2c17849366",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.mixins.2469c444b281cb17d1f1a908a238fb1c6ba07e2c17849366",
+        "meta:resourceType": "mixins",
+        "version": "1.0",
+        "title": "ExperienceEvent Demo System Proposition v1.0",
+        "type": "object",
+        "description": "ExperienceEvent Proposition v1.0",
+        "definitions": {
+            "customFields": {
+                "type": "object",
+                "properties": {
+                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                        "type": "object",
+                        "properties": {
+                            "proposition": {
+                                "title": "proposition",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "properties": {
+                                    "description": {
+                                        "title": "description",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    },
+                                    "id": {
+                                        "title": "id",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    },
+                                    "image": {
+                                        "title": "image",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    },
+                                    "link": {
+                                        "title": "link",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    },
+                                    "name": {
+                                        "title": "name",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    },
+                                    "offerId": {
+                                        "title": "offerId",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    }
+                },
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:intendedToExtend": [],
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.mixins.e46e3fbaeaa2e805ab9186c0e4adbc36",
+        "meta:resourceType": "mixins",
+        "version": "1.0",
+        "title": "ExperienceEvent Retail v2",
+        "type": "object",
+        "description": "ExperienceEvent Retail v2",
+        "definitions": {
+            "customFields": {
+                "type": "object",
+                "properties": {
+                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                        "type": "object",
+                        "properties": {
+                            "storeIdentification": {
+                                "title": "Store Identification",
+                                "description": "",
+                                "type": "object",
+                                "isRequired": false,
+                                "properties": {
+                                    "id": {
+                                        "title": "Store Id",
+                                        "description": "",
+                                        "type": "string",
+                                        "meta:xdmType": "string"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            },
+                            "interactionDetails": {
+                                "type": "object",
+                                "properties": {
+                                    "retail": {
+                                        "title": "retail",
+                                        "description": "",
+                                        "type": "object",
+                                        "isRequired": false,
+                                        "properties": {
+                                            "promotion": {
+                                                "title": "promotion",
+                                                "description": "",
+                                                "type": "object",
+                                                "isRequired": false,
+                                                "properties": {
+                                                    "coupon": {
+                                                        "title": "coupon",
+                                                        "description": "",
+                                                        "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/55d77e6a3831fbb5b4cbcc2fed12e784b012d3ee6190112a",
+                                                        "type": "object",
+                                                        "meta:xdmType": "object"
+                                                    }
+                                                },
+                                                "meta:xdmType": "object"
+                                            },
+                                            "return": {
+                                                "title": "return",
+                                                "description": "",
+                                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/79bb283c66ebefaca504e621627762c10ebe82da93196a5f",
+                                                "type": "object",
+                                                "meta:xdmType": "object"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    },
+                    "commerce": {
+                        "type": "object",
+                        "properties": {
+                            "order": {
+                                "type": "object",
+                                "properties": {
+                                    "_<XDM_TENANTID_PLACEHOLDER>": {
+                                        "type": "object",
+                                        "properties": {
+                                            "orderDetails": {
+                                                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/3733bff0459e4e70aea877cccb811f8c",
+                                                "description": "",
+                                                "meta:xdmType": "object",
+                                                "title": "Order Details",
+                                                "type": "object"
+                                            }
+                                        },
+                                        "meta:xdmType": "object"
+                                    }
+                                },
+                                "meta:xdmType": "object"
+                            }
+                        },
+                        "meta:xdmType": "object"
+                    },
+                    "productListItems": {
+                        "items": {
+                            "meta:xdmType": "object",
+                            "properties": {
+                                "_<XDM_TENANTID_PLACEHOLDER>": {
+                                    "meta:xdmType": "object",
+                                    "properties": {
+                                        "retail": {
+                                            "meta:xdmType": "object",
+                                            "properties": {
+                                                "productDetails": {
+                                                    "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/0630ec4c7798f502827c06d949a6e07c",
+                                                    "description": "",
+                                                    "meta:xdmType": "object",
+                                                    "title": "Product Details",
+                                                    "type": "object"
+                                                },
+                                                "productSpecs": {
+                                                    "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/datatypes/6225d397de89ead4e324367b190ab438",
+                                                    "description": "",
+                                                    "meta:xdmType": "object",
+                                                    "title": "Product Specifications",
+                                                    "type": "object"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            },
+                            "type": "object"
+                        },
+                        "meta:xdmType": "array",
+                        "type": "array"
+                    }
+                },
+                "meta:xdmType": "object"
+            }
+        },
+        "allOf": [
+            {
+                "$ref": "#/definitions/customFields",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/experienceevent-commerce",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "meta:extensible": true,
+        "meta:abstract": true,
+        "meta:extends": [
+            "https://ns.adobe.com/xdm/context/experienceevent-commerce"
+        ],
+        "meta:intendedToExtend": [],
+        "meta:xdmType": "object",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development"
+    },
+    {
+        "$id": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "meta:altId": "_<XDM_TENANTID_PLACEHOLDER>.schemas.abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "meta:resourceType": "schemas",
+        "version": "1.1",
+        "title": "Demo System - Event Schema for Mobile App (Global v1.1)",
+        "type": "object",
+        "description": "Demo System - Event Schema for Mobile App (Global v1.1)",
+        "allOf": [
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/experienceevent",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/identitymap",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/experience/campaign/orchestration/eventid",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/experience/aep-web-sdk-experienceevent",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/experience/decisioning/proposition",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/experience/decisioning/proposition-interaction",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/2469c444b281cb17d1f1a908a238fb1c6ba07e2c17849366",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/experience/experienceevent-edgeregion",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/experience/campaign/experienceevent-profile-push-details",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/experienceevent-marketing",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/xdm/context/experienceevent-search",
+                "type": "object",
+                "meta:xdmType": "object"
+            },
+            {
+                "$ref": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+                "type": "object",
+                "meta:xdmType": "object"
+            }
+        ],
+        "required": [
+            "@id",
+            "xdm:timestamp"
+        ],
+        "meta:extensible": false,
+        "meta:abstract": false,
+        "meta:extends": [
+            "https://ns.adobe.com/xdm/data/time-series",
+            "https://ns.adobe.com/experience/experienceevent-edgeregion",
+            "https://ns.adobe.com/xdm/context/experienceevent-commerce",
+            "https://ns.adobe.com/xdm/context/experienceevent-marketing",
+            "https://ns.adobe.com/xdm/context/experienceevent-web",
+            "https://ns.adobe.com/experience/decisioning/proposition-interaction",
+            "https://ns.adobe.com/xdm/context/experienceevent-environment-details",
+            "https://ns.adobe.com/xdm/context/experienceevent",
+            "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/98d36bc5ec09e3d9e6ad4fb4ceed0227f4b6df35703e3612",
+            "https://ns.adobe.com/experience/decisioning/proposition",
+            "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/2469c444b281cb17d1f1a908a238fb1c6ba07e2c17849366",
+            "https://ns.adobe.com/xdm/context/experienceevent-implementation-details",
+            "https://ns.adobe.com/xdm/context/experienceevent-search",
+            "https://ns.adobe.com/xdm/context/identitymap",
+            "https://ns.adobe.com/experience/aep-web-sdk-experienceevent",
+            "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/mixins/e46e3fbaeaa2e805ab9186c0e4adbc36",
+            "https://ns.adobe.com/experience/campaign/experienceevent-profile-push-details",
+            "https://ns.adobe.com/experience/campaign/orchestration/eventid"
+        ],
+        "meta:xdmType": "object",
+        "meta:class": "https://ns.adobe.com/xdm/context/experienceevent",
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:immutableTags": []
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/email",
+        "xdm:namespace": "Email",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/crmId",
+        "xdm:namespace": "crmId",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/loyaltyId",
+        "xdm:namespace": "loyaltyId",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/emailIdSha256",
+        "xdm:namespace": "Email_LC_SHA256",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/phoneNumber",
+        "xdm:namespace": "Phone",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/ecid",
+        "xdm:namespace": "ECID",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": true,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    },
+    {
+        "@type": "xdm:descriptorIdentity",
+        "xdm:sourceSchema": "https://ns.adobe.com/<XDM_TENANTID_PLACEHOLDER>/schemas/abc9fcaca10e897c71a41b6c37a70cca815b64dd4ec53c3a",
+        "xdm:sourceVersion": 1,
+        "xdm:sourceProperty": "/_<XDM_TENANTID_PLACEHOLDER>/identification/core/stackchatId",
+        "xdm:namespace": "stackchatId",
+        "xdm:property": "xdm:code",
+        "xdm:isPrimary": false,
+        "meta:sandboxId": "4449060c-1956-4ba4-8906-0c1956fba4c3",
+        "meta:sandboxType": "development",
+        "meta:resourceType": "descriptors"
+    }
+]

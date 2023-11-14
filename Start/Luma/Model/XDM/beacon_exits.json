@@ -1,0 +1,44 @@
+{
+    "eventType": "beacon.exit",
+    "placeContext": {
+        "geo": {
+            "_schema": {
+                "longitude": 0,
+                "latitude": 0
+            }
+        },
+        "POIinteraction": {
+            "poiDetail": {
+                "name": "RIdM-Ice-Beacon",
+                "locatingType": "beacon",
+                "poiID": "beacon.ridm.ice"
+            },
+            "poiEntries": {
+                "value": 0
+            },
+            "poiExits": {
+                "value": 1
+            }
+        }
+    },
+    "web": {
+        "webPageDetails": {
+            "name": "beacon.ridm.ice",
+            "siteSection": ""
+        }
+    },
+    "_experience": {
+        "campaign": {
+            "orchestration": {
+                "eventID": "9fa190c20368bdf8c9ca9623bfb5ccdea62f1dadfad7dc71659aaae176c57cc8"
+            }
+        }
+    },
+    "_adobeamericaspot4": {
+        "identification": {
+            "core": {
+                "ecid": "81075856166131264136782699514466204997"
+            }
+        }
+    }
+}
