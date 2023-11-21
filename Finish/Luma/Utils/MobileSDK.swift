@@ -182,10 +182,9 @@ struct MobileSDK {
         let identityMap: IdentityMap = IdentityMap()
         
         let emailIdentity = IdentityItem(id: emailAddress, authenticatedState: AuthenticatedState.authenticated)
-        let crmIdentity = IdentityItem(id: crmId, authenticatedState: AuthenticatedState.authenticated)
+        let crmIdentity = IdentityItem(id: crmId, authenticatedState: AuthenticatedState.authenticated, primary: true)
         identityMap.add(item:emailIdentity, withNamespace: "Email")
         identityMap.add(item: crmIdentity, withNamespace: "lumaCRMId")
-        
         Identity.updateIdentities(with: identityMap)
     }
     
