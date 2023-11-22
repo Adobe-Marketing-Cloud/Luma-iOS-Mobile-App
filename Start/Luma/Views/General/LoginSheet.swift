@@ -100,7 +100,7 @@ struct LoginSheet: View {
                             Spacer()
                             
                             Button("Login") {
-                                // Call updateIdentities
+                                // Update identities
                                 
                                 
                                 // Send app interaction event
