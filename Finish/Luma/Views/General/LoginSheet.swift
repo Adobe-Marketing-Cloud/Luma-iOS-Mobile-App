@@ -101,7 +101,7 @@ struct LoginSheet: View {
                             Spacer()
                             
                             Button("Login") {
-                                // Call updateIdentities
+                                // Update identities
                                 MobileSDK.shared.updateIdentities(emailAddress: currentEmailId, crmId: currentCRMId)
                                 
                                 // Send app interaction event

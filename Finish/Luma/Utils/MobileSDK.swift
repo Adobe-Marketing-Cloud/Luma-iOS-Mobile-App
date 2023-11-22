@@ -311,7 +311,7 @@ struct MobileSDK {
         }
     }
     
-    /// Request offers directly from AJO - OD, not though edge
+    /// Request offers directly from AJO - OD, not through edge
     /// - Parameters:
     ///   - ecid: ECID
     ///   - containerId: id identifiying  container
