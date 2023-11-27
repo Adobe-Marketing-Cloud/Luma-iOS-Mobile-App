@@ -17,26 +17,28 @@ struct EdgePersonalisationView: View {
     @State private var decisionScopes =  [Decision]()
     
     var body: some View {
-        VStack {
-            Form {
-                ForEach(decisionScopes, id: \.activityId) { decision in
-                    EdgeOffersView(decision: decision)
+        NavigationView {
+            VStack {
+                Form {
+                    ForEach(decisionScopes, id: \.activityId) { decision in
+                        EdgeOffersView(decision: decision)
+                    }
+                    TargetOffersView(location: targetLocation)
                 }
-                TargetOffersView(location: targetLocation)
+                .refreshable {
+                    await loadDecisions(configLocation: configLocation)
+                }
             }
-            .refreshable {
+            .task {
                 await loadDecisions(configLocation: configLocation)
             }
+            .onAppear {
+                // Track view screen
+                
+            }
+            .navigationTitle("Personalisation")
+            .navigationBarTitleDisplayMode(.automatic)
         }
-        .task {
-            await loadDecisions(configLocation: configLocation)
-        }
-        .onAppear {
-            // Track view screen
-            
-        }
-        .navigationTitle("Edge")
-        .navigationBarTitleDisplayMode(.automatic)
     }
     
     @MainActor

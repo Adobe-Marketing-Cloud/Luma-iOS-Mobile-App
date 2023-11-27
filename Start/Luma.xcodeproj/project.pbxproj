@@ -49,9 +49,7 @@
 		8BDB09422953550D00D3E1A0 /* EdgePersonalisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB09412953550D00D3E1A0 /* EdgePersonalisationView.swift */; };
 		8BDB0944295359FA00D3E1A0 /* EdgeOffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB0943295359FA00D3E1A0 /* EdgeOffersView.swift */; };
 		8BDB094B29536D7800D3E1A0 /* TargetOffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB094A29536D7800D3E1A0 /* TargetOffersView.swift */; };
-		8BDB094D295374DE00D3E1A0 /* DirectPersonalisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB094C295374DE00D3E1A0 /* DirectPersonalisationView.swift */; };
 		8BDB09512956033F00D3E1A0 /* DecisionResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BDB09502956033F00D3E1A0 /* DecisionResponse.swift */; };
-		8BE491752AA231E400C0BCB0 /* PersonalisationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BE491742AA231E400C0BCB0 /* PersonalisationView.swift */; };
 		8BEEA3C42A7BAABA007881F6 /* AEPAssurance in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEEA3C32A7BAABA007881F6 /* AEPAssurance */; };
 		8BEEA3C82A7BABDC007881F6 /* AEPEdge in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEEA3C72A7BABDC007881F6 /* AEPEdge */; };
 		8BEEA3CB2A7BAC11007881F6 /* AEPEdgeIdentity in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEEA3CA2A7BAC11007881F6 /* AEPEdgeIdentity */; };
@@ -66,7 +64,6 @@
 		8BEEA3E32A7BE430007881F6 /* AEPServices in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEEA3E22A7BE430007881F6 /* AEPServices */; };
 		8BEEA3E52A7BE430007881F6 /* AEPSignal in Frameworks */ = {isa = PBXBuildFile; productRef = 8BEEA3E42A7BE430007881F6 /* AEPSignal */; };
 		8BF58AFD29671E9B00B1B95D /* DecisionRequestPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF58AFC29671E9B00B1B95D /* DecisionRequestPayload.swift */; };
-		8BF58AFF2967531400B1B95D /* DirectOffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF58AFE2967531400B1B95D /* DirectOffersView.swift */; };
 		8BF58B02296855D800B1B95D /* InfoSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF58B01296855D800B1B95D /* InfoSheet.swift */; };
 		8BF694072902D5DA00090182 /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 8BF694062902D5DA00090182 /* Settings.bundle */; };
 		8BF694092902D79500090182 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF694082902D79500090182 /* SettingsBundleHelper.swift */; };
@@ -134,11 +131,8 @@
 		8BDB09412953550D00D3E1A0 /* EdgePersonalisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgePersonalisationView.swift; sourceTree = "<group>"; };
 		8BDB0943295359FA00D3E1A0 /* EdgeOffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeOffersView.swift; sourceTree = "<group>"; };
 		8BDB094A29536D7800D3E1A0 /* TargetOffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetOffersView.swift; sourceTree = "<group>"; };
-		8BDB094C295374DE00D3E1A0 /* DirectPersonalisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectPersonalisationView.swift; sourceTree = "<group>"; };
 		8BDB09502956033F00D3E1A0 /* DecisionResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionResponse.swift; sourceTree = "<group>"; };
-		8BE491742AA231E400C0BCB0 /* PersonalisationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonalisationView.swift; sourceTree = "<group>"; };
 		8BF58AFC29671E9B00B1B95D /* DecisionRequestPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DecisionRequestPayload.swift; sourceTree = "<group>"; };
-		8BF58AFE2967531400B1B95D /* DirectOffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectOffersView.swift; sourceTree = "<group>"; };
 		8BF58B01296855D800B1B95D /* InfoSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoSheet.swift; sourceTree = "<group>"; };
 		8BF694062902D5DA00090182 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8BF694082902D79500090182 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
@@ -290,12 +284,9 @@
 		8BDB09452953610900D3E1A0 /* Personalisation */ = {
 			isa = PBXGroup;
 			children = (
-				8BE491742AA231E400C0BCB0 /* PersonalisationView.swift */,
 				8BDB09412953550D00D3E1A0 /* EdgePersonalisationView.swift */,
 				8BDB0943295359FA00D3E1A0 /* EdgeOffersView.swift */,
 				8BDB094A29536D7800D3E1A0 /* TargetOffersView.swift */,
-				8BDB094C295374DE00D3E1A0 /* DirectPersonalisationView.swift */,
-				8BF58AFE2967531400B1B95D /* DirectOffersView.swift */,
 			);
 			path = Personalisation;
 			sourceTree = "<group>";
@@ -477,7 +468,6 @@
 				8B73BBA228AFFCC1000B5D25 /* ProductView.swift in Sources */,
 				8BA7619E2A966DB000F54A25 /* TestPushPayload.swift in Sources */,
 				8B85427828DCA140004FE90E /* BeaconInteractionPayload.swift in Sources */,
-				8BE491752AA231E400C0BCB0 /* PersonalisationView.swift in Sources */,
 				8B73BB8828AFFCC1000B5D25 /* LumaApp.swift in Sources */,
 				8B73BBAB28AFFCC1000B5D25 /* ContentView.swift in Sources */,
 				8BDB09512956033F00D3E1A0 /* DecisionResponse.swift in Sources */,
@@ -485,12 +475,10 @@
 				8BAC6F5C2AAB10F300F8072A /* OfferItem.swift in Sources */,
 				8B023E802A6149EC00CF5C8F /* MobileSDK.swift in Sources */,
 				8BF6940B29091D7100090182 /* Logger.swift in Sources */,
-				8BF58AFF2967531400B1B95D /* DirectOffersView.swift in Sources */,
 				8B73BBAD28AFFCC1000B5D25 /* BeaconsView.swift in Sources */,
 				8BF694092902D79500090182 /* SettingsBundleHelper.swift in Sources */,
 				8B73BB9028AFFCC1000B5D25 /* Location.swift in Sources */,
 				8B73BB9228AFFCC1000B5D25 /* General.swift in Sources */,
-				8BDB094D295374DE00D3E1A0 /* DirectPersonalisationView.swift in Sources */,
 				8B73BB9D28AFFCC1000B5D25 /* LocationManager.swift in Sources */,
 				8B73BBA928AFFCC1000B5D25 /* LocationView.swift in Sources */,
 				8B023E822A6159DE00CF5C8F /* TermsOfServiceSheet.swift in Sources */,

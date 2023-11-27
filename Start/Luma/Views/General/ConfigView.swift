@@ -150,6 +150,7 @@ struct ConfigView: View {
                                         }
                                         .padding(0)
                                     }
+                                    /*
                                     HStack(alignment: .top) {
                                         Text("Access Token:")
                                             .monospaced()
@@ -163,6 +164,7 @@ struct ConfigView: View {
                                         }
                                         .padding(0)
                                     }
+                                    */
                                     
                                 }
                             },
@@ -220,8 +222,6 @@ struct ConfigView: View {
                         }
                     } header: {
                         Text("Test")
-                    } footer: {
-                        Text("Toggle Test Profile on to allow to test with this profile in Adobe Journey Optimizer.")
                     }
                 }
                 

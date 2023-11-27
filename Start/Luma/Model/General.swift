@@ -16,7 +16,7 @@ struct General: Codable {
     let map: AppMap
     
     static let example = General(
-        config: Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showPersonalisationDirect: true, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: ""),
+        config: Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: ""),
         customer: Customer(name: "", logo: "", productsType: "", productsSystemImage: "", currency: "$"),
         testPush: TestPush(name: "", eventType: ""),
         target: Target(location: ""),
@@ -29,14 +29,13 @@ struct Config: Codable {
     let sandbox: String
     let showProducts: Bool
     let showPersonalisation: Bool
-    let showPersonalisationDirect: Bool?
     let showGeofences: Bool
     let showBeacons: Bool
     let ldap: String
     let tms: String
     let emailDomain: String?
     
-    static let example = Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showPersonalisationDirect: true, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: "adobetest.com")
+    static let example = Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: "adobetest.com")
 }
 
 struct Customer: Codable {
