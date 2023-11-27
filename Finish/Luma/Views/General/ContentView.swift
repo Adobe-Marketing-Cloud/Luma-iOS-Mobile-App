@@ -20,7 +20,6 @@ struct ContentView: View {
     @AppStorage("productsSystemImage") private var productsSystemImage = "cart"
     @AppStorage("showProducts") private var showProducts: Bool = true
     @AppStorage("showPersonalisation") private var showPersonalisation:Bool = true
-    @AppStorage("showPersonalisationDirect") private var showPersonalisationDirect: Bool = true
     @AppStorage("showGeofences") private var showGeofences: Bool = true
     @AppStorage("showBeacons") private var showBeacons: Bool = true
     
@@ -53,16 +52,8 @@ struct ContentView: View {
                 }
                 
                 
-                if showPersonalisation == true && showPersonalisationDirect == false {
+                if showPersonalisation == true {
                     EdgePersonalisationView()
-                        .tabItem {
-                            Image(systemName: "target")
-                            Text("Personalisation")
-                        }
-                        .tag("Personalisation")
-                }
-                if showPersonalisation == true && showPersonalisationDirect == true {
-                    PersonalisationView()
                         .tabItem {
                             Image(systemName: "target")
                             Text("Personalisation")

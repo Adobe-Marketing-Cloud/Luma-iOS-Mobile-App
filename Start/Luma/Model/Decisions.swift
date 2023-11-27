@@ -10,25 +10,9 @@ import Foundation
 
 // MARK: - Products
 struct Decisions: Codable {
-    let apiKey: String
-    let clientSecret: String
-    let scopes: String
-    let orgId: String
-    let containerId: String
-    let allowDuplicatesAcrossActivities: Bool
-    let allowDuplicatesAcrossPlacements: Bool
-    let dryRun: Bool
     let decisionScopes: [Decision]
     
     static let example = Decisions(
-        apiKey: "",
-        clientSecret: "",
-        scopes: "",
-        orgId: "",
-        containerId: "",
-        allowDuplicatesAcrossActivities: false,
-        allowDuplicatesAcrossPlacements:false,
-        dryRun: false,
         decisionScopes: [Decision(name: "", activityId: "", placementId: "", itemCount: 0)]
     )
 }

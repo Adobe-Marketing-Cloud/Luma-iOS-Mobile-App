@@ -36,7 +36,6 @@ struct MobileSDK {
     @AppStorage("sandbox") private var sandbox = ""
     @AppStorage("showProducts") private var showProducts: Bool = true
     @AppStorage("showPersonalisation") private var showPersonalisation: Bool = true
-    @AppStorage("showPersonalisationDirect") private var showPersonalisationDirect: Bool = true
     @AppStorage("showGeofences") private var showGeofences:Bool = true
     @AppStorage("showBeacons") private var showBeacons: Bool = true
     @AppStorage("testPushEventType") private var testPushEventType = "application.test"
@@ -64,7 +63,6 @@ struct MobileSDK {
         sandbox = general.config.sandbox
         showProducts = general.config.showProducts
         showPersonalisation = general.config.showPersonalisation
-        showPersonalisationDirect = general.config.showPersonalisationDirect ?? true
         showBeacons = general.config.showBeacons
         showGeofences = general.config.showGeofences
         brandName = general.customer.name
@@ -220,102 +218,6 @@ struct MobileSDK {
         
     }
     
-    /// Request offers directly from AJO - OD, not through edge
-    /// - Parameters:
-    ///   - ecid: ECID
-    ///   - containerId: id identifiying  container
-    ///   - accessToken: access token from configuration
-    ///   - apiKey: api key from configuration
-    ///   - orgId: org id from configuration
-    ///   - allowDuplicatesAcrossActivities: flag to allow duplicates across activities
-    ///   - allowDuplicatesAcrossPlacements: flag to allow duplicates across placements
-    ///   - dryRun: flag to toggle dryRun or not
-    ///   - decisionScopes: decision scopes
-    /// - Returns: proposition array
-    func requestDirectOffers(
-        ecid: String,
-        containerId: String,
-        accessToken: String,
-        apiKey: String,
-        orgId: String,
-        allowDuplicatesAcrossActivities: Bool,
-        allowDuplicatesAcrossPlacements: Bool,
-        dryRun: Bool,
-        decisionScopes: [Decision]
-    ) async -> [Proposition] {
-        var propositionRequests: [XDMPropositionRequest] = []
-        var jsonString = ""
-        
-        // set up proposition requests based on content of decisions from json config file
-        for decisionScope in decisionScopes {
-            let propositionRequest = XDMPropositionRequest(
-                xdmPlacementID: decisionScope.placementId,
-                xdmActivityID: decisionScope.activityId,
-                xdmItemCount: decisionScope.itemCount
-            )
-            propositionRequests.append(propositionRequest)
-        }
-        
-        // complete the payload with other parameters required for request
-        let decisionRequestPayload = DecisionRequestPayload(
-            xdmPropositionRequests: propositionRequests,
-            xdmProfiles: [XDMProfile(xdmIdentityMap: XDMIdentityMap(ecid: [Ecid(xdmID: currentEcid)]))],
-            xdmAllowDuplicatePropositions: XDMAllowDuplicatePropositions(
-                xdmAcrossActivities: allowDuplicatesAcrossActivities,
-                xdmAcrossPlacements: allowDuplicatesAcrossPlacements
-            ),
-            xdmResponseFormat: XDMResponseFormat(xdmIncludeContent: true),
-            xdmIncludeMetadata: XDMIncludeMetadata(xdmActivity: ["name"], xdmOption: ["name"], xdmPlacement: ["name"]),
-            xdmDryRun: dryRun
-        )
-        
-        do {
-            let jsonData = try JSONEncoder().encode(decisionRequestPayload)
-            jsonString = String(data: jsonData, encoding: .utf8)!
-        }
-        catch {
-            Logger.aepDirectAPI.error("MobileSDK - requestDirectOffers: Error getting struct encoded to JSON: \(error.localizedDescription)…")
-            return [Proposition]()
-        }
-        
-        let postData = jsonString.data(using: .utf8)
-        
-        // build up the request
-        var request = URLRequest(url: URL(string: "https://platform.adobe.io/data/core/ode/\(containerId)/decisions")!, timeoutInterval: Double.infinity)
-        request.addValue("Bearer \(accessToken)", forHTTPHeaderField: "Authorization")
-        request.addValue(apiKey, forHTTPHeaderField: "x-api-key")
-        request.addValue(orgId, forHTTPHeaderField: "x-gw-ims-org-id")
-        request.addValue("unique-requestid-\(apiKey)", forHTTPHeaderField: "x-request-id")
-        request.addValue("application/vnd.adobe.xdm+json; schema=\"https://ns.adobe.com/experience/offer-management/decision-request;version=1.0\"", forHTTPHeaderField: "Content-Type")
-        request.addValue("application/vnd.adobe.xdm+json; schema=\"https://ns.adobe.com/experience/offer-management/decision-response;version=1.0\"", forHTTPHeaderField: "Accept")
-        request.addValue(sandbox, forHTTPHeaderField: "x-sandbox-name")
-        request.httpMethod = "POST"
-        request.httpBody = postData
-        
-        // ensure we do not do any caching
-        let config = URLSessionConfiguration.ephemeral
-        config.requestCachePolicy = .reloadIgnoringLocalAndRemoteCacheData
-        let session = URLSession(configuration: config)
-        
-        // send and handle the decision request
-        if let (data, _) = try? await session.data(for: request) {
-            do {
-                let decisionResponse = try JSONDecoder().decode(DecisionResponse.self, from: data)
-                Logger.aepDirectAPI.info("MobileSDK - requestDirectOffers: DecisionResponse propositionId: \(decisionResponse.propositionId)")
-                Logger.aepDirectAPI.info("MobileSDK - requestDirectOffers: DecisionResponse prositions \(decisionResponse.propositions.count)")
-                return decisionResponse.propositions
-                
-            }
-            catch {
-                Logger.aepDirectAPI.error("MobileSDK - requestDirectOffers: DecisionResponse: \(error.localizedDescription)…")
-                return [Proposition]()
-            }
-        }
-        else {
-            return [Proposition]()
-        }
-    }
-    
     @MainActor
     /// Process region event
     /// - Parameters:
@@ -338,11 +240,14 @@ struct MobileSDK {
         
     }
     
+    
+    /// Sample implementation to get access token
+    /// - Returns: access token
     func getAccessToken() async -> String {
         let data = NSMutableData(data: "grant_type=client_credentials".data(using: .utf8)!)
-        data.append("&client_id=9efb3375a9ac485db347ba6315877e88".data(using: .utf8)!)
-        data.append("&client_secret=p8e-Wa3MyxPjSnUcif3ElbTl43wZsJ5Ulpen".data(using: .utf8)!)
-        data.append("&scope=openid,session,cjm.suppression_service.client.delete,AdobeID,read_organizations,cjm.suppression_service.client.all,additional_info.projectedProductContext".data(using: .utf8)!)
+        data.append("&client_id=<clientid>".data(using: .utf8)!)
+        data.append("&client_secret=<clientsecret>".data(using: .utf8)!)
+        data.append("&scope=<scopes>".data(using: .utf8)!)
 
         let url = URL(string: "https://ims-na1.adobelogin.com/ims/token/v3")!
         let headers = [

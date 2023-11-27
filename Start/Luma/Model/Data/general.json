@@ -4,7 +4,6 @@
         "sandbox": "mobile-and-web-sdk-courses",
         "showProducts": true,
         "showPersonalisation": true,
-        "showPersonalisationDirect": false,
         "showGeofences": true,
         "showBeacons": false,
         "ldap": "testUser",
@@ -13,7 +12,7 @@
     },
     "customer": {
         "name": "Luma",
-        "logo": "https://luma.enablementadobe.com/content/dam/luma/en/logos/Luma_Logo.png",
+        "logo": "https://ridmaur.github.io/tutorial/luma/images/luma-logo01.png",
         "productsType": "Products",
         "productsSystemImage": "cart",
         "currency": "€"
