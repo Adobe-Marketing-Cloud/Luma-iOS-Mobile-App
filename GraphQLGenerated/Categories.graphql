@@ -1,0 +1,15 @@
+query Categories {
+  categoryList{
+    children_count
+    children {
+      id
+      name
+      image
+      children {
+        id
+        name
+        image
+      }
+    }
+  }
+}
