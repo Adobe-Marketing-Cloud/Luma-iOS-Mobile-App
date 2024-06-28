@@ -17,6 +17,18 @@ import UserNotifications
 import Alamofire
 import SwiftyJSON
 
+import AEPCore
+import AEPEdge
+import AEPEdgeConsent
+import AEPAssurance
+import AEPEdgeIdentity
+import AEPIdentity
+import AEPLifecycle
+import AEPSignal
+import AEPServices
+import AEPUserProfile
+
+@AppStorage("environmentFileId") private var environmentFileId = "666644a00be2/1652228d142c/launch-b2835312c7d3-development"
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -26,6 +38,25 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         loadProducts()
+        MobileCore.setLogLevel(.debug)
+        let appState = application.applicationState
+        let extensions = [
+                          Edge.self,
+                          Consent.self,
+                          Assurance.self,
+                          AEPEdgeIdentity.Identity.self,
+                          AEPIdentity.Identity.self,
+                          Lifecycle.self,
+                          Signal.self,
+                          UserProfile.self
+                        ]
+        MobileCore.registerExtensions(extensions, {
+            MobileCore.configureWith(appId: "666644a00be2/1652228d142c/launch-b2835312c7d3-development")
+            if appState != .background {
+                MobileCore.lifecycleStart(additionalContextData: ["contextDataKey": "contextDataVal"])
+            }
+        })
+
         
         return true
     }
