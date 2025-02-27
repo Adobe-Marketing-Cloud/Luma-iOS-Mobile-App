@@ -205,17 +205,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                                 withCompletionHandler completionHandler: @escaping () -> Void) {
         // Perform the task associated with the action.
         Logger.notifications.info("AppDelegate - userNotificationCenter")
-        switch response.actionIdentifier {
-        case "ACCEPT_ACTION":
-            Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: "ACCEPT_ACTION")
-
-        case "DECLINE_ACTION":
-            Messaging.handleNotificationResponse(response, applicationOpened: false, customActionId: "DECLINE_ACTION")
-
-        // Handle other actions…
-        default:
-            Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
-        }
+        
+        Messaging.handleNotificationResponse(response, urlHandler: { url in
+                /// return `true` if the app is handling the url or `false` if the Adobe SDK should handle it
+                let appHandlesUrl = false
+                return appHandlesUrl
+        }, closure: { pushTrackingStatus in
+            if pushTrackingStatus == .trackingInitiated {
+                // tracking was successful
+                Logger.notifications.info("AppDelegate - handleNotificationResponse closure - tracking successful")
+            } else {
+                // tracking failed, view the status for more information
+                Logger.notifications.info("AppDelegate - handleNotificationResponse closure - tracking failed with status \(pushTrackingStatus.rawValue)")
+            }
+        })
 
         let userInfo = response.notification.request.content.userInfo
         Logger.notifications.info("AppDelegate - userNotificationCenter - userInfo: \(userInfo.description)")
