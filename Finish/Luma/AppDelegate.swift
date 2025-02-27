@@ -206,15 +206,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Perform the task associated with the action.
         Logger.notifications.info("AppDelegate - userNotificationCenter")
         switch response.actionIdentifier {
-        case "ACCEPT_ACTION":
-            Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: "ACCEPT_ACTION")
+           case "ACCEPT_ACTION":
+                // If using AEP Messaging version 5 or later, remove the following parameters: 
+                // ", applicationOpened: true, customActionId: "ACCEPT_ACTION"" 
+                Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: "ACCEPT_ACTION")
 
-        case "DECLINE_ACTION":
-            Messaging.handleNotificationResponse(response, applicationOpened: false, customActionId: "DECLINE_ACTION")
+            case "DECLINE_ACTION":
+                // If using AEP Messaging version 5 or later, remove the following parameters: 
+                // ", applicationOpened: false, customActionId: "DECLINE_ACTION"" 
+                Messaging.handleNotificationResponse(response, applicationOpened: false, customActionId: "DECLINE_ACTION")
 
-        // Handle other actions…
-        default:
-            Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
+            // Handle other actions…
+            default:
+                // If using AEP Messaging version 5 or later, remove the following parameters: 
+                // ", applicationOpened: true, customActionId: nil"" 
+                Messaging.handleNotificationResponse(response, applicationOpened: true, customActionId: nil)
+            }
         }
 
         let userInfo = response.notification.request.content.userInfo
