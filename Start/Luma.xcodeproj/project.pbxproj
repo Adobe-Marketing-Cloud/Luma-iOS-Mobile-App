@@ -730,72 +730,72 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-assurance-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3C52A7BABA1007881F6 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-core-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3C62A7BABDC007881F6 /* XCRemoteSwiftPackageReference "aepsdk-edge-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-edge-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3C92A7BAC11007881F6 /* XCRemoteSwiftPackageReference "aepsdk-edgeidentity-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-edgeidentity-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3CC2A7BAC25007881F6 /* XCRemoteSwiftPackageReference "aepsdk-edgeconsent-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-edgeconsent-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3CF2A7BAC3F007881F6 /* XCRemoteSwiftPackageReference "aepsdk-userprofile-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-userprofile-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3D22A7BAC6A007881F6 /* XCRemoteSwiftPackageReference "aepsdk-places-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-places-ios";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3D52A7BAC82007881F6 /* XCRemoteSwiftPackageReference "aepsdk-messaging-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-messaging-ios.git";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 		8BEEA3D82A7BAC9C007881F6 /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/adobe/aepsdk-optimize-ios";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
