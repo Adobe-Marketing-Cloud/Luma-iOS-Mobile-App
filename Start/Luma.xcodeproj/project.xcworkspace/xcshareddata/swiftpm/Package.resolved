@@ -5,8 +5,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-assurance-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "dc78d1cb42181ae59740eee9e51df6b75a32a5b9"
+        "revision" : "7cae37abe8a878b24aaaddfb10427908ea9ffa0e",
+        "version" : "5.0.1"
       }
     },
     {
@@ -14,8 +14,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-core-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "3bf920dde9e4f97fa4da8a5204f73f8773fd5953"
+        "revision" : "c3727f6b2a25a8e395ee71d42d1671e12851db84",
+        "version" : "5.4.0"
       }
     },
     {
@@ -23,8 +23,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-edge-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "9aef3e61587b746a87a5599e8e1068fac87d3325"
+        "revision" : "d0d3e0d74ff8999ab8d6bbd30f921610ee1e6dd1",
+        "version" : "5.0.3"
       }
     },
     {
@@ -32,8 +32,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-edgeconsent-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "87dd0c4995f0a3ec734814eaa863febc00598608"
+        "revision" : "595c1b8f912f69655dbf047d4b3a1a63364d12fe",
+        "version" : "5.0.0"
       }
     },
     {
@@ -41,8 +41,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-edgeidentity-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "9a03480accb02473829591cb89d7a6de11587a8d"
+        "revision" : "25fab07d344981afc768b99a550c63ed032ae3ad",
+        "version" : "5.0.0"
       }
     },
     {
@@ -50,8 +50,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-messaging-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "da23275cd7891f6f304670c1cd5dee8d6f421768"
+        "revision" : "5b913c46b0026b25bccd873a4407715280642ee7",
+        "version" : "5.6.0"
       }
     },
     {
@@ -59,8 +59,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-optimize-ios",
       "state" : {
-        "branch" : "main",
-        "revision" : "ed7219f2d608e8854db6f82ab8bcb5afaab548d7"
+        "revision" : "e48fdf76907c8894d89b6cb3e96cbc0d303bd5a7",
+        "version" : "5.2.1"
       }
     },
     {
@@ -68,8 +68,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-places-ios",
       "state" : {
-        "branch" : "main",
-        "revision" : "4c6b9116d9fe9d622a56471d95fea15c95bd8fac"
+        "revision" : "ccb3b7e4d37351b19a9f3e8d9f92d21c3cc5df58",
+        "version" : "5.0.0"
       }
     },
     {
@@ -77,8 +77,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-rulesengine-ios.git",
       "state" : {
-        "revision" : "0923ec707340874000e06ad2926c5006ddfbc4c9",
-        "version" : "4.0.0"
+        "revision" : "514d2b3787c545bfa6749ffce5dd3e6f560c9319",
+        "version" : "5.0.0"
       }
     },
     {
@@ -86,8 +86,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-userprofile-ios.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "873cfdebc1a53702d7d4f373e9b5d8d05d2fe556"
+        "revision" : "8a9d7e9da0e1c1afe19d6c4865bf7dd3abbfdccf",
+        "version" : "5.0.0"
       }
     }
   ],
