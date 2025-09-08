@@ -66,3 +66,18 @@ struct DisclaimerView_Previews: PreviewProvider {
         DisclaimerView()
     }
 }
+
+
+// workaround for a serious bug in 17.4 not waiting for user input on ATTTrackingRequestManager.requestTrackingAuthorization
+final class BugFixingATTrackingRequestManager {
+    class func requestTrackingAuthorization() async -> ATTrackingManager.AuthorizationStatus {
+        let status = await ATTrackingManager.requestTrackingAuthorization()
+        if status == .denied, ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+            debugPrint("iOS 17.4 ATT bug detected")
+            for await _ in NotificationCenter.default.notifications(named: UIApplication.didBecomeActiveNotification) {
+                return await requestTrackingAuthorization()
+            }
+        }
+        return status
+    }
+}
