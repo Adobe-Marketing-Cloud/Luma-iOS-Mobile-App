@@ -40,17 +40,37 @@ struct DisclaimerView: View {
                     .multilineTextAlignment(.center)
                 
                 Button("Continue…") {
-                    ATTrackingManager.requestTrackingAuthorization { status in
-                        // Add consent based on authorization
-                        if status == .authorized {
-                            // Set consent to yes
-                            MobileSDK.shared.updateConsent(value: "y")
+                    if #available(iOS 17.4, *) {
+                        Task {
+                            let status = await BugFixingATTrackingRequestManager.requestTrackingAuthorization()
+                            if status == .authorized {
+                                // Set consent to yes
+                                Logger.viewCycle.info("Setting consent to y…")
+                                MobileSDK.shared.updateConsent(value: "y")
+                            }
+                            else {
+                                // set consent to no
+                                Logger.viewCycle.info("Setting consent to n…")
+                                MobileSDK.shared.updateConsent(value: "n")
+                            }
+                            Logger.aepMobileSDK.info("Luma - BugFixingATTrackingRequestManager status: \(status.self.rawValue)")
                         }
-                        else {
-                            // set consent to no
-                            MobileSDK.shared.updateConsent(value: "n")
+                    }
+                    else {
+                        ATTrackingManager.requestTrackingAuthorization { status in
+                            // Add consent based on authorization
+                            if status == .authorized {
+                                // Set consent to yes
+                                Logger.viewCycle.info("Setting consent to y…")
+                                MobileSDK.shared.updateConsent(value: "y")
+                            }
+                            else {
+                                // set consent to no
+                                Logger.viewCycle.info("Setting consent to n…")
+                                MobileSDK.shared.updateConsent(value: "n")
+                            }
+                            Logger.aepMobileSDK.info("Luma - ATTrackingManager status: \(status.self.rawValue)")
                         }
-                        Logger.aepMobileSDK.info("Luma - ATTrackingManager status: \(status.self.rawValue)")
                     }
                 }
                 .buttonStyle(.borderedProminent)
@@ -71,5 +91,19 @@ struct DisclaimerView: View {
 struct DisclaimerView_Previews: PreviewProvider {
     static var previews: some View {
         DisclaimerView()
+    }
+}
+
+// workaround for a serious bug in 17.4 not waiting for user input on ATTTrackingRequestManager.requestTrackingAuthorization
+final class BugFixingATTrackingRequestManager {
+    class func requestTrackingAuthorization() async -> ATTrackingManager.AuthorizationStatus {
+        let status = await ATTrackingManager.requestTrackingAuthorization()
+        if status == .denied, ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
+            debugPrint("iOS 17.4 ATT bug detected")
+            for await _ in await NotificationCenter.default.notifications(named: UIApplication.didBecomeActiveNotification) {
+                return await requestTrackingAuthorization()
+            }
+        }
+        return status
     }
 }

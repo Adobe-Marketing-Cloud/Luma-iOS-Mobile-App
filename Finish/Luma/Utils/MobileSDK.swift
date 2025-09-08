@@ -289,7 +289,11 @@ struct MobileSDK {
             let xdmData = ["xdm" : identityMap]
             let decisionScope = DecisionScope(name: location)
             Optimize.clearCachedPropositions()
-            Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData)
+            Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData) { data, error in
+                if let error = error {
+                    Logger.aepMobileSDK.error("MobileSDK - updatePropositionsAT: Error updating propositions: \(error.localizedDescription)")
+                }
+            }
         }
     }
     
@@ -305,7 +309,11 @@ struct MobileSDK {
             let xdmData = ["xdm" : identityMap]
             let decisionScope = DecisionScope(activityId: activityId, placementId: placementId, itemCount: UInt(itemCount))
             Optimize.clearCachedPropositions()
-            Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData)
+            Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData) { data, error in
+                if let error = error {
+                    Logger.aepMobileSDK.error("MobileSDK - updatePropositionsAT: Error updating propositions: \(error.localizedDescription)")
+                }
+            }
         }
     }
 
@@ -317,6 +325,7 @@ struct MobileSDK {
     ///   - region: CLRegion
     func processRegionEvent(regionEvent: PlacesRegionEvent, forRegion region: CLRegion) async {
         // Process geolocation event
+        Logger.aepMobileSDK.info("MobileSDK - send processRegionEvent...")
         Places.processRegionEvent(regionEvent, forRegion: region)
     }
     
@@ -355,6 +364,7 @@ struct MobileSDK {
             )
             
             // send the final experience event
+            Logger.aepMobileSDK.info("MobileSDK - send sendBeaconEvent...")
             await sendExperienceEvent(
                 xdm: beaconEventPayload.asDictionary() ?? [:]
             )
