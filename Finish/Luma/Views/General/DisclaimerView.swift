@@ -100,7 +100,7 @@ final class BugFixingATTrackingRequestManager {
         let status = await ATTrackingManager.requestTrackingAuthorization()
         if status == .denied, ATTrackingManager.trackingAuthorizationStatus == .notDetermined {
             debugPrint("iOS 17.4 ATT bug detected")
-            for await _ in await NotificationCenter.default.notifications(named: UIApplication.didBecomeActiveNotification) {
+            for await _ in NotificationCenter.default.notifications(named: UIApplication.didBecomeActiveNotification) {
                 return await requestTrackingAuthorization()
             }
         }
