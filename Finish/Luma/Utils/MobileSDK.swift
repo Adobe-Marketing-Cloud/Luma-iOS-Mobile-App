@@ -290,8 +290,9 @@ struct MobileSDK {
             let decisionScope = DecisionScope(name: location)
             Optimize.clearCachedPropositions()
             Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData) { data, error in
-                if let error = error {
-                    Logger.aepMobileSDK.error("MobileSDK - updatePropositionsAT: Error updating propositions: \(error.localizedDescription)")
+                if let error = error as? AEPOptimizeError {
+                    // handle error
+                    Logger.aepMobileSDK.info("MobileSDK - updatePropositionsAT: encountered error \(error.type ?? "unknown")")
                 }
             }
         }
@@ -310,8 +311,9 @@ struct MobileSDK {
             let decisionScope = DecisionScope(activityId: activityId, placementId: placementId, itemCount: UInt(itemCount))
             Optimize.clearCachedPropositions()
             Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData) { data, error in
-                if let error = error {
-                    Logger.aepMobileSDK.error("MobileSDK - updatePropositionsAT: Error updating propositions: \(error.localizedDescription)")
+                if let error = error as? AEPOptimizeError {
+                    // handle error
+                    Logger.aepMobileSDK.info("MobileSDK - updatePropositionsOD: encountered error \(error.type ?? "unknown")")
                 }
             }
         }
