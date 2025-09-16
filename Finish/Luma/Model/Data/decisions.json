@@ -1,0 +1,10 @@
+{
+    "decisionScopes": [
+        {
+            "name": "luma - Mobile App Decision",
+            "activityId": "xcore:offer-activity:177cdaa5e1fd589d",
+            "placementId": "xcore:offer-placement:13a3b264ce69bb14",
+            "itemCount": 2
+        }
+    ]
+}
