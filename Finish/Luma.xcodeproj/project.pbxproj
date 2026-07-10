@@ -932,7 +932,7 @@
 			repositoryURL = "https://github.com/adobe/aepsdk-core-ios.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 5.9.0;
+				minimumVersion = 5.10.0;
 			};
 		};
 		8BEEA3C62A7BABDC007881F6 /* XCRemoteSwiftPackageReference "aepsdk-edge-ios" */ = {
@@ -948,7 +948,7 @@
 			repositoryURL = "https://github.com/adobe/aepsdk-edgeidentity-ios.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.1.0;
 			};
 		};
 		8BEEA3CC2A7BAC25007881F6 /* XCRemoteSwiftPackageReference "aepsdk-edgeconsent-ios" */ = {

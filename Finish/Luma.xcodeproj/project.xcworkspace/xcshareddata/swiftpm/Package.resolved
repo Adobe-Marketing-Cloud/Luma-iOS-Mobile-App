@@ -15,8 +15,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-core-ios.git",
       "state" : {
-        "revision" : "73079674d25c717a671ee4fbe6498f018234597a",
-        "version" : "5.9.0"
+        "revision" : "5dc47fa8aeb661b9083f8b62237311dc758955ba",
+        "version" : "5.10.0"
       }
     },
     {
@@ -42,8 +42,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/adobe/aepsdk-edgeidentity-ios.git",
       "state" : {
-        "revision" : "25fab07d344981afc768b99a550c63ed032ae3ad",
-        "version" : "5.0.0"
+        "revision" : "58a195da219be3dab74824954e56d09dabaa8085",
+        "version" : "5.1.0"
       }
     },
     {

@@ -12,14 +12,15 @@ import os.log
 
 struct EdgeDecisioningView: View {
     @AppStorage("configLocation") private var configLocation = ""
-    @AppStorage("surfaceLocation") private var surfaceLocation = ""
+    @AppStorage("decisioningSurface") private var decisioningSurface = ""
     @AppStorage("targetLocation") private var targetLocation = ""
     
     // Define your surfaces here
     // Add more surfaces as needed for different decisioning placements
     private var surfaces: [(surface: Surface, name: String)] {
         [
-            (Surface(path: "offersLocation"), "Offers Location")
+            //(Surface(path: "offersLocation"), "Offers Location")
+            (Surface(path: decisioningSurface), "Offers Location")
             // Add more surfaces here as needed:
             // (Surface(path: "homepage"), "Homepage Offers"),
             // (Surface(path: "checkout"), "Checkout Offers")
