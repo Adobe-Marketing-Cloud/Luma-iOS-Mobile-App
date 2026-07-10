@@ -36,6 +36,7 @@ struct MobileSDK {
     @AppStorage("sandbox") private var sandbox = ""
     @AppStorage("showProducts") private var showProducts: Bool = true
     @AppStorage("showPersonalisation") private var showPersonalisation: Bool = true
+    @AppStorage("showDecisioning") private var showDecisioning: Bool = true
     @AppStorage("showGeofences") private var showGeofences:Bool = true
     @AppStorage("showBeacons") private var showBeacons: Bool = true
     @AppStorage("testPushEventType") private var testPushEventType = "application.test"
@@ -46,6 +47,7 @@ struct MobileSDK {
     @AppStorage("productsSystemImage") private var productsSystemImage = "cart"
     @AppStorage("currency") private var currency = "$"
     @AppStorage("targetLocation") private var targetLocation = ""
+    @AppStorage("decisioningSurface") private var decisioningSurface = ""
     @AppStorage("ldap") private var ldap = ""
     @AppStorage("emailDomain") private var emailDomain = "adobetest.com"
     @AppStorage("tms") private var tms = ""
@@ -63,6 +65,7 @@ struct MobileSDK {
         sandbox = general.config.sandbox
         showProducts = general.config.showProducts
         showPersonalisation = general.config.showPersonalisation
+        showDecisioning = general.config.showDecisioning
         showBeacons = general.config.showBeacons
         showGeofences = general.config.showGeofences
         brandName = general.customer.name
@@ -72,6 +75,7 @@ struct MobileSDK {
         currency = general.customer.currency
         testPushEventType = general.testPush.eventType
         targetLocation = general.target.location
+        decisioningSurface = general.decisioning.surface
         ldap = general.config.ldap
         emailDomain = general.config.emailDomain ?? "adobetest.com"
         tms = general.config.tms
@@ -317,6 +321,21 @@ struct MobileSDK {
                 }
             }
         }
+    }
+    
+    @MainActor
+    /// Update propositions for Messaging decisioning surfaces
+    /// - Parameter surfaces: Array of Surface objects to fetch propositions for
+    func updatePropositionsForSurfaces(surfaces: [Surface]) async {
+        Logger.aepMobileSDK.info("MobileSDK - updatePropositionsForSurfaces: Updating \(surfaces.count) surface(s)")
+        for surface in surfaces {
+            Logger.aepMobileSDK.info("MobileSDK - updatePropositionsForSurfaces: Surface URI: \(surface.uri)")
+        }
+        
+        // Call the Messaging extension API to fetch propositions
+        Messaging.updatePropositionsForSurfaces(surfaces)
+        
+        Logger.aepMobileSDK.info("MobileSDK - updatePropositionsForSurfaces: Update triggered successfully")
     }
 
     

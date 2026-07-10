@@ -40,6 +40,7 @@
 		8B73BBAF28AFFCC1000B5D25 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B73BB8728AFFCC1000B5D25 /* SceneDelegate.swift */; };
 		8B772BA72B8F7C3500C71FAD /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 8B772BA62B8F7C3500C71FAD /* PrivacyInfo.xcprivacy */; };
 		8B85427828DCA140004FE90E /* BeaconInteractionPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B85427728DCA140004FE90E /* BeaconInteractionPayload.swift */; };
+		8B89329F2FFFC6C700794841 /* EdgeDecisioningOffersView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8B89329E2FFFC6C700794841 /* EdgeDecisioningOffersView.swift */; };
 		8BA7619E2A966DB000F54A25 /* TestPushPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA7619D2A966DB000F54A25 /* TestPushPayload.swift */; };
 		8BAC6F5C2AAB10F300F8072A /* OfferItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAC6F5B2AAB10F300F8072A /* OfferItem.swift */; };
 		8BAF59E72AC1F0790004271D /* AccessTokenResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BAF59E62AC1F0790004271D /* AccessTokenResponse.swift */; };
@@ -72,6 +73,8 @@
 		8BF694092902D79500090182 /* SettingsBundleHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF694082902D79500090182 /* SettingsBundleHelper.swift */; };
 		8BF6940B29091D7100090182 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6940A29091D7100090182 /* Logger.swift */; };
 		8BF6940C29092DE300090182 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF6940A29091D7100090182 /* Logger.swift */; };
+		8BF8AC222FF5778900314FAD /* EdgeDecisioningView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF8AC212FF5778900314FAD /* EdgeDecisioningView.swift */; };
+		8BF8AC242FF794C000314FAD /* CodeBasedOffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BF8AC232FF794C000314FAD /* CodeBasedOffer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -136,6 +139,7 @@
 		8B73BB8728AFFCC1000B5D25 /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		8B772BA62B8F7C3500C71FAD /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
 		8B85427728DCA140004FE90E /* BeaconInteractionPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeaconInteractionPayload.swift; sourceTree = "<group>"; };
+		8B89329E2FFFC6C700794841 /* EdgeDecisioningOffersView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeDecisioningOffersView.swift; sourceTree = "<group>"; };
 		8BA7619D2A966DB000F54A25 /* TestPushPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestPushPayload.swift; sourceTree = "<group>"; };
 		8BAC6F5B2AAB10F300F8072A /* OfferItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OfferItem.swift; sourceTree = "<group>"; };
 		8BAF59E62AC1F0790004271D /* AccessTokenResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccessTokenResponse.swift; sourceTree = "<group>"; };
@@ -154,6 +158,8 @@
 		8BF694062902D5DA00090182 /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 		8BF694082902D79500090182 /* SettingsBundleHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsBundleHelper.swift; sourceTree = "<group>"; };
 		8BF6940A29091D7100090182 /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		8BF8AC212FF5778900314FAD /* EdgeDecisioningView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EdgeDecisioningView.swift; sourceTree = "<group>"; };
+		8BF8AC232FF794C000314FAD /* CodeBasedOffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeBasedOffer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -269,6 +275,7 @@
 				8BDB093D29534C2800D3E1A0 /* Decisions.swift */,
 				8BAC6F5B2AAB10F300F8072A /* OfferItem.swift */,
 				8BAF59E62AC1F0790004271D /* AccessTokenResponse.swift */,
+				8BF8AC232FF794C000314FAD /* CodeBasedOffer.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -313,6 +320,8 @@
 				8BDB09412953550D00D3E1A0 /* EdgePersonalisationView.swift */,
 				8BDB0943295359FA00D3E1A0 /* EdgeOffersView.swift */,
 				8BDB094A29536D7800D3E1A0 /* TargetOffersView.swift */,
+				8BF8AC212FF5778900314FAD /* EdgeDecisioningView.swift */,
+				8B89329E2FFFC6C700794841 /* EdgeDecisioningOffersView.swift */,
 			);
 			path = Personalisation;
 			sourceTree = "<group>";
@@ -432,7 +441,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1400;
-				LastUpgradeCheck = 1530;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					8B23B9F82840E0D5004A9C58 = {
 						CreatedOnToolsVersion = 13.4;
@@ -546,9 +555,12 @@
 			files = (
 				8B73BBAC28AFFCC1000B5D25 /* GeofencesView.swift in Sources */,
 				8B73BBA328AFFCC1000B5D25 /* HomeView.swift in Sources */,
+				8BF8AC222FF5778900314FAD /* EdgeDecisioningView.swift in Sources */,
 				8B73BBA628AFFCC1000B5D25 /* ProductRow.swift in Sources */,
 				8B73BBA528AFFCC1000B5D25 /* GeofenceSheet.swift in Sources */,
+				8BF8AC242FF794C000314FAD /* CodeBasedOffer.swift in Sources */,
 				8BAF59E72AC1F0790004271D /* AccessTokenResponse.swift in Sources */,
+				8B89329F2FFFC6C700794841 /* EdgeDecisioningOffersView.swift in Sources */,
 				8B73BBA128AFFCC1000B5D25 /* ConfigView.swift in Sources */,
 				8B023E862A61834100CF5C8F /* Content.swift in Sources */,
 				8B73BBA728AFFCC1000B5D25 /* DisclaimerView.swift in Sources */,
@@ -641,6 +653,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = 563ET6NSAW;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -665,6 +678,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME}";
 				PRODUCT_NAME = Luma;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VALIDATE_WORKSPACE = YES;
@@ -705,6 +719,7 @@
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = 563ET6NSAW;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_USER_SCRIPT_SANDBOXING = YES;
@@ -722,6 +737,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "${PRODUCT_NAME}";
 				PRODUCT_NAME = Luma;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
@@ -732,7 +748,6 @@
 		8B23BA082840E0D7004A9C58 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -741,7 +756,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Luma/Preview Content\"";
-				DEVELOPMENT_TEAM = 563ET6NSAW;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -777,7 +791,6 @@
 		8B23BA092840E0D7004A9C58 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
@@ -786,7 +799,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
 				DEVELOPMENT_ASSET_PATHS = "\"Luma/Preview Content\"";
-				DEVELOPMENT_TEAM = 563ET6NSAW;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				GENERATE_INFOPLIST_FILE = YES;
@@ -827,7 +839,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
-				DEVELOPMENT_TEAM = 563ET6NSAW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationExtension;
@@ -855,7 +866,6 @@
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 16;
-				DEVELOPMENT_TEAM = 563ET6NSAW;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = NotificationExtension/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = NotificationExtension;
@@ -914,7 +924,7 @@
 			repositoryURL = "https://github.com/adobe/aepsdk-assurance-ios.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 5.0.1;
+				minimumVersion = 5.0.3;
 			};
 		};
 		8BEEA3C52A7BABA1007881F6 /* XCRemoteSwiftPackageReference "aepsdk-core-ios" */ = {
@@ -922,7 +932,7 @@
 			repositoryURL = "https://github.com/adobe/aepsdk-core-ios.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 5.6.0;
+				minimumVersion = 5.9.0;
 			};
 		};
 		8BEEA3C62A7BABDC007881F6 /* XCRemoteSwiftPackageReference "aepsdk-edge-ios" */ = {
@@ -946,7 +956,7 @@
 			repositoryURL = "https://github.com/adobe/aepsdk-edgeconsent-ios.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 5.0.0;
+				minimumVersion = 5.0.2;
 			};
 		};
 		8BEEA3CF2A7BAC3F007881F6 /* XCRemoteSwiftPackageReference "aepsdk-userprofile-ios" */ = {
@@ -970,7 +980,7 @@
 			repositoryURL = "https://github.com/adobe/aepsdk-messaging-ios.git";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 5.7.0;
+				minimumVersion = 5.14.0;
 			};
 		};
 		8BEEA3D82A7BAC9C007881F6 /* XCRemoteSwiftPackageReference "aepsdk-optimize-ios" */ = {
@@ -978,7 +988,7 @@
 			repositoryURL = "https://github.com/adobe/aepsdk-optimize-ios";
 			requirement = {
 				kind = upToNextMinorVersion;
-				minimumVersion = 5.6.0;
+				minimumVersion = 5.7.0;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */

@@ -13,13 +13,15 @@ struct General: Codable {
     let customer: Customer
     let testPush: TestPush
     let target: Target
+    let decisioning: Decisioning
     let map: AppMap
     
     static let example = General(
-        config: Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: ""),
-        customer: Customer(name: "", logo: "", productsType: "", productsSystemImage: "", currency: "$"),
+        config: Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showDecisioning: false, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: ""),
+        customer: Customer(name: "", logo: "", productsType: "Products", productsSystemImage: "cart", currency: "$"),
         testPush: TestPush(name: "", eventType: ""),
         target: Target(location: ""),
+        decisioning: Decisioning(surface: ""),
         map: AppMap(longitude: 0, latitude: 0, zoom: 0)
     )
 }
@@ -29,13 +31,14 @@ struct Config: Codable {
     let sandbox: String
     let showProducts: Bool
     let showPersonalisation: Bool
+    let showDecisioning: Bool
     let showGeofences: Bool
     let showBeacons: Bool
     let ldap: String
     let tms: String
     let emailDomain: String?
     
-    static let example = Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: "adobetest.com")
+    static let example = Config(tenant: "", sandbox: "", showProducts: true, showPersonalisation: true, showDecisioning: false, showGeofences: true, showBeacons: true, ldap: "", tms: "", emailDomain: "adobetest.com")
 }
 
 struct Customer: Codable {
@@ -46,6 +49,10 @@ struct Customer: Codable {
 
 struct Target: Codable {
     let location: String
+}
+
+struct Decisioning: Codable {
+    let surface: String
 }
 
 struct AppMap: Codable {

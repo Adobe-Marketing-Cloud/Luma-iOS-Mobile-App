@@ -12,6 +12,7 @@ import SwiftUI
 import os.log
 
 struct DisclaimerView: View {
+    @Binding var trackingStatus: ATTrackingManager.AuthorizationStatus
     @AppStorage("configLocation") private var configLocation = ""
     @AppStorage("brandName") private var brandName = "Luma"
     @AppStorage("brandLogo") private var brandLogo = "https://contentviewer.s3.amazonaws.com/helium/luma-logo01.png"
@@ -54,6 +55,8 @@ struct DisclaimerView: View {
                                 MobileSDK.shared.updateConsent(value: "n")
                             }
                             Logger.aepMobileSDK.info("Luma - BugFixingATTrackingRequestManager status: \(status.self.rawValue)")
+                            // Update the tracking status to trigger view update
+                            trackingStatus = status
                         }
                     }
                     else {
@@ -70,6 +73,8 @@ struct DisclaimerView: View {
                                 MobileSDK.shared.updateConsent(value: "n")
                             }
                             Logger.aepMobileSDK.info("Luma - ATTrackingManager status: \(status.self.rawValue)")
+                            // Update the tracking status to trigger view update
+                            trackingStatus = status
                         }
                     }
                 }
@@ -90,7 +95,7 @@ struct DisclaimerView: View {
 
 struct DisclaimerView_Previews: PreviewProvider {
     static var previews: some View {
-        DisclaimerView()
+        DisclaimerView(trackingStatus: .constant(.notDetermined))
     }
 }
 
