@@ -12,6 +12,7 @@ import SwiftUI
 import os.log
 
 struct DisclaimerView: View {
+    @Binding var trackingStatus: ATTrackingManager.AuthorizationStatus
     @AppStorage("configLocation") private var configLocation = ""
     @AppStorage("brandName") private var brandName = "Luma"
     @AppStorage("brandLogo") private var brandLogo = "https://contentviewer.s3.amazonaws.com/helium/luma-logo01.png"
@@ -40,10 +41,41 @@ struct DisclaimerView: View {
                     .multilineTextAlignment(.center)
                 
                 Button("Continue…") {
-                    ATTrackingManager.requestTrackingAuthorization { status in
-                        // Add consent based on authorization
-                        
-                        Logger.aepMobileSDK.info("Luma - ATTrackingManager status: \(status.self.rawValue)")
+                    if #available(iOS 17.4, *) {
+                        Task {
+                            let status = await BugFixingATTrackingRequestManager.requestTrackingAuthorization()
+                            if status == .authorized {
+                                // Set consent to yes
+                                Logger.viewCycle.info("Setting consent to y…")
+                                MobileSDK.shared.updateConsent(value: "y")
+                            }
+                            else {
+                                // set consent to no
+                                Logger.viewCycle.info("Setting consent to n…")
+                                MobileSDK.shared.updateConsent(value: "n")
+                            }
+                            Logger.aepMobileSDK.info("Luma - BugFixingATTrackingRequestManager status: \(status.self.rawValue)")
+                            // Update the tracking status to trigger view update
+                            trackingStatus = status
+                        }
+                    }
+                    else {
+                        ATTrackingManager.requestTrackingAuthorization { status in
+                            // Add consent based on authorization
+                            if status == .authorized {
+                                // Set consent to yes
+                                Logger.viewCycle.info("Setting consent to y…")
+                                MobileSDK.shared.updateConsent(value: "y")
+                            }
+                            else {
+                                // set consent to no
+                                Logger.viewCycle.info("Setting consent to n…")
+                                MobileSDK.shared.updateConsent(value: "n")
+                            }
+                            Logger.aepMobileSDK.info("Luma - ATTrackingManager status: \(status.self.rawValue)")
+                            // Update the tracking status to trigger view update
+                            trackingStatus = status
+                        }
                     }
                 }
                 .buttonStyle(.borderedProminent)
@@ -56,17 +88,16 @@ struct DisclaimerView: View {
         }
         .onAppear {
             // Track view screen
-            
+            MobileSDK.shared.sendTrackScreenEvent(stateName: "luma: content: ios: us: en: disclaimer")
         }
     }
 }
 
 struct DisclaimerView_Previews: PreviewProvider {
     static var previews: some View {
-        DisclaimerView()
+        DisclaimerView(trackingStatus: .constant(.notDetermined))
     }
 }
-
 
 // workaround for a serious bug in 17.4 not waiting for user input on ATTTrackingRequestManager.requestTrackingAuthorization
 final class BugFixingATTrackingRequestManager {

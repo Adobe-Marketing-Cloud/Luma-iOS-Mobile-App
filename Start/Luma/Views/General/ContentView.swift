@@ -19,7 +19,8 @@ struct ContentView: View {
     @AppStorage("productsType") private var productsType = "Products"
     @AppStorage("productsSystemImage") private var productsSystemImage = "cart"
     @AppStorage("showProducts") private var showProducts: Bool = true
-    @AppStorage("showPersonalisation") private var showPersonalisation:Bool = true
+    @AppStorage("showPersonalisation") private var showPersonalisation: Bool = true
+    @AppStorage("showDecisioning") private var showDecisioning: Bool = false
     @AppStorage("showGeofences") private var showGeofences: Bool = true
     @AppStorage("showBeacons") private var showBeacons: Bool = true
     
@@ -28,10 +29,11 @@ struct ContentView: View {
     
     @State private var showConsentAlert = false
     @State private var showConfigAlert = false
+    @State private var trackingStatus: ATTrackingManager.AuthorizationStatus = ATTrackingManager.trackingAuthorizationStatus
     
     var body: some View {
-        if ATTrackingManager.trackingAuthorizationStatus != .authorized {
-            DisclaimerView()
+        if trackingStatus != .authorized {
+            DisclaimerView(trackingStatus: $trackingStatus)
         }
         else {
             TabView {
@@ -52,13 +54,22 @@ struct ContentView: View {
                 }
                 
                 
-                if showPersonalisation == true {
+                if showPersonalisation == true && showDecisioning == false {
                     EdgePersonalisationView()
                         .tabItem {
                             Image(systemName: "target")
                             Text("Personalisation")
                         }
-                        .tag("Personalisation")
+                        .tag("Personalisation - Decision Management")
+                }
+                
+                if showDecisioning == true {
+                    EdgeDecisioningView()
+                        .tabItem {
+                            Image(systemName: "target")
+                            Text("Personalisation")
+                        }
+                        .tag("Personalisation - Decisioning")
                 }
                 
                 if showBeacons == true && showGeofences == true {
@@ -112,6 +123,9 @@ struct ContentView: View {
             .task {
                 // Load general configuration
                 await MobileSDK.shared.loadGeneral(configLocation: configLocation)
+            }
+            .onReceive(NotificationCenter.default.publisher(for: UIApplication.didBecomeActiveNotification)) { _ in
+                trackingStatus = ATTrackingManager.trackingAuthorizationStatus
             }
         }
     }

@@ -36,6 +36,7 @@ struct MobileSDK {
     @AppStorage("sandbox") private var sandbox = ""
     @AppStorage("showProducts") private var showProducts: Bool = true
     @AppStorage("showPersonalisation") private var showPersonalisation: Bool = true
+    @AppStorage("showDecisioning") private var showDecisioning: Bool = true
     @AppStorage("showGeofences") private var showGeofences:Bool = true
     @AppStorage("showBeacons") private var showBeacons: Bool = true
     @AppStorage("testPushEventType") private var testPushEventType = "application.test"
@@ -46,6 +47,7 @@ struct MobileSDK {
     @AppStorage("productsSystemImage") private var productsSystemImage = "cart"
     @AppStorage("currency") private var currency = "$"
     @AppStorage("targetLocation") private var targetLocation = ""
+    @AppStorage("decisioningSurface") private var decisioningSurface = ""
     @AppStorage("ldap") private var ldap = ""
     @AppStorage("emailDomain") private var emailDomain = "adobetest.com"
     @AppStorage("tms") private var tms = ""
@@ -63,6 +65,7 @@ struct MobileSDK {
         sandbox = general.config.sandbox
         showProducts = general.config.showProducts
         showPersonalisation = general.config.showPersonalisation
+        showDecisioning = general.config.showDecisioning
         showBeacons = general.config.showBeacons
         showGeofences = general.config.showGeofences
         brandName = general.customer.name
@@ -72,6 +75,7 @@ struct MobileSDK {
         currency = general.customer.currency
         testPushEventType = general.testPush.eventType
         targetLocation = general.target.location
+        decisioningSurface = general.decisioning.surface
         ldap = general.config.ldap
         emailDomain = general.config.emailDomain ?? "adobetest.com"
         tms = general.config.tms
@@ -84,27 +88,65 @@ struct MobileSDK {
     /// - Parameter value: "y" or "n"
     func updateConsent(value: String) {
         // Update consent
-        
+        let collectConsent = ["collect": ["val": value]]
+        let currentConsents = ["consents": collectConsent]
+        Consent.update(with: currentConsents)
+        MobileCore.updateConfigurationWith(configDict: currentConsents)
     }
     
     /// Get consents
     func getConsents() {
         // Get consents
-        
+        Consent.getConsents { consents, error in
+            guard error == nil, let consents = consents else { return }
+            guard let jsonData = try? JSONSerialization.data(withJSONObject: consents, options: .prettyPrinted) else { return }
+            guard let jsonStr = String(data: jsonData, encoding: .utf8) else { return }
+            Logger.aepMobileSDK.info("Consent getConsents: \(jsonStr)")
+        }
     }
     
     /// Send app interaction event
     /// - Parameter actionName: string identifying the action, e.g. "login"
     func sendAppInteractionEvent(actionName: String) {
         // Set up a data dictionary, create an experience event and send the event.
-        
+        let xdmData: [String: Any] = [
+            //Page View
+            "eventType": "application.interaction",
+            tenant : [
+                "appInformation": [
+                    "appInteraction": [
+                        "name": actionName,
+                        "appAction": [
+                            "value": 1
+                        ]
+                    ] as [String : Any]
+                ]
+            ]
+        ]
+        let appInteractionEvent = ExperienceEvent(xdm: xdmData)
+        Edge.sendEvent(experienceEvent: appInteractionEvent)
     }
     
     /// Send track screen experience event
     /// - Parameter stateName: a string identifying the screen, e.g. "luma: content: ios: us: en: login"
     func sendTrackScreenEvent(stateName: String) {
         // Set up a data dictionary, create an experience event and send the event.
-        
+        let xdmData: [String: Any] = [
+            "eventType": "application.scene",
+            tenant : [
+                "appInformation": [
+                    "appStateDetails": [
+                        "screenType": "App",
+                        "screenName": stateName,
+                        "screenView": [
+                            "value": 1
+                        ]
+                    ] as [String : Any]
+                ]
+            ]
+        ]
+        let trackScreenEvent = ExperienceEvent(xdm: xdmData)
+        Edge.sendEvent(experienceEvent: trackScreenEvent)
     }
     
     /// Sends an experienc event containing commerce and productListItems data
@@ -113,7 +155,24 @@ struct MobileSDK {
     ///   - product: product object containing  details of the product selected
     func sendCommerceExperienceEvent(commerceEventType: String, product: Product) {
         // Set up a data dictionary, create an experience event and send the event.
+        let xdmData: [String: Any] = [
+            "eventType": "commerce." + commerceEventType,
+            "commerce": [
+                commerceEventType: [
+                    "value": 1
+                ] as [String : Any]
+            ],
+            "productListItems": [
+                [
+                    "name": product.name,
+                    "priceTotal": product.price,
+                    "SKU": product.sku
+                ] as [String : Any]
+            ]
+        ]
         
+        let commerceExperienceEvent = ExperienceEvent(xdm: xdmData)
+        Edge.sendEvent(experienceEvent: commerceExperienceEvent)
     }
     
     /// Update identities wrapper function
@@ -122,7 +181,13 @@ struct MobileSDK {
     ///   - crmId: crmId
     func updateIdentities(emailAddress: String, crmId: String) {
         // Set up identity map, add identities to map and update identities
+        let identityMap: IdentityMap = IdentityMap()
         
+        let emailIdentity = IdentityItem(id: emailAddress, authenticatedState: AuthenticatedState.authenticated)
+        let crmIdentity = IdentityItem(id: crmId, authenticatedState: AuthenticatedState.authenticated, primary: true)
+        identityMap.add(item:emailIdentity, withNamespace: "Email")
+        identityMap.add(item: crmIdentity, withNamespace: "lumaCRMId")
+        Identity.updateIdentities(with: identityMap)
     }
     
     /// Remove identities wrapper function
@@ -131,7 +196,10 @@ struct MobileSDK {
     ///   - crmId: crmID
     func removeIdentities(emailAddress: String, crmId: String) {
         // Remove identities and reset email and CRM Id to their defaults
-        
+        Identity.removeIdentity(item: IdentityItem(id: emailAddress), withNamespace: "Email")
+        Identity.removeIdentity(item: IdentityItem(id: crmId), withNamespace: "lumaCRMId")
+        currentEmailId = "testUser@gmail.com"
+        currentCRMId = "112ca06ed53d3db37e4cea49cc45b71e"
     }
     
     /// Wrapper function to fetch identities
@@ -160,7 +228,9 @@ struct MobileSDK {
     ///   - attributeValue: attribute value
     func updateUserAttribute(attributeName: String, attributeValue: String) {
         // Create a profile map, add attributes to the map and update profile using the map
-        
+        var profileMap = [String: Any]()
+        profileMap[attributeName] = attributeValue
+        UserProfile.updateUserAttributes(attributeDict: profileMap)
     }
     
     /// Send test push event using a TestPushPayload struct
@@ -169,7 +239,18 @@ struct MobileSDK {
     ///   - eventType: event type
     func sendTestPushEvent(applicationId: String, eventType: String) async {
         // Create payload and send experience event
-        
+        Task {
+            let testPushPayload = TestPushPayload(
+                application: Application(
+                    id: applicationId
+                ),
+                eventType: eventType
+            )
+            // send the final experience event
+            await sendExperienceEvent(
+                xdm: testPushPayload.asDictionary() ?? [:]
+            )
+        }
     }
     
     @MainActor
@@ -196,7 +277,7 @@ struct MobileSDK {
     ///   - data: data
     func sendTrackAction(action: String, data: [String: Any]?) {
         // Send trackAction event
-        
+        MobileCore.track(action: action, data: data)
     }
     
     @MainActor
@@ -206,7 +287,19 @@ struct MobileSDK {
     ///   - location: Target location
     func updatePropositionsAT(ecid: String, location: String) async {
         // set up the XDM dictionary, define decision scope and call update proposition API
-        
+        Task {
+            let ecid = ["ECID" : ["id" : ecid, "primary" : true] as [String : Any]]
+            let identityMap = ["identityMap" : ecid]
+            let xdmData = ["xdm" : identityMap]
+            let decisionScope = DecisionScope(name: location)
+            Optimize.clearCachedPropositions()
+            Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData) { data, error in
+                if let error = error as? AEPOptimizeError {
+                    // handle error
+                    Logger.aepMobileSDK.info("MobileSDK - updatePropositionsAT: encountered error \(error.type ?? "unknown")")
+                }
+            }
+        }
     }
     
     /// Update proposition for OD
@@ -215,8 +308,28 @@ struct MobileSDK {
     ///   - decisionScopes: decisionScopes
     func updatePropositionsOD(ecid: String, activityId: String, placementId: String, itemCount: Int) async {
         // set up the XDM dictionary, define decision scope and call update proposition API
+        Task {
+            let ecid = ["ECID" : ["id" : ecid, "primary" : true] as [String : Any]]
+            let identityMap = ["identityMap" : ecid]
+            let xdmData = ["xdm" : identityMap]
+            let decisionScope = DecisionScope(activityId: activityId, placementId: placementId, itemCount: UInt(itemCount))
+            Optimize.clearCachedPropositions()
+            Optimize.updatePropositions(for: [decisionScope], withXdm: xdmData) { data, error in
+                if let error = error as? AEPOptimizeError {
+                    // handle error
+                    Logger.aepMobileSDK.info("MobileSDK - updatePropositionsOD: encountered error \(error.type ?? "unknown")")
+                }
+            }
+        }
+    }
+    
+    /// Update propositions for Messaging decisioning surfaces
+    /// - Parameter surfaces: Array of Surface objects to fetch propositions for
+    func updatePropositionsForSurfaces(surfaces: [Surface]) {
+        // get the propositions for the surfaces configured.
         
     }
+
     
     @MainActor
     /// Process region event
@@ -225,7 +338,8 @@ struct MobileSDK {
     ///   - region: CLRegion
     func processRegionEvent(regionEvent: PlacesRegionEvent, forRegion region: CLRegion) async {
         // Process geolocation event
-       
+        Logger.aepMobileSDK.info("MobileSDK - send processRegionEvent...")
+        Places.processRegionEvent(regionEvent, forRegion: region)
     }
     
     @MainActor
@@ -237,9 +351,38 @@ struct MobileSDK {
     ///   - id: id of POI
     ///   - city: city of POI
     func sendBeaconEvent(ecid: String, eventType: String, name: String, id: String, category: String, beaconMajor: Double, beaconMinor: Double) async {
-        
+        Task {
+            // create the payload
+            let beaconEventPayload = BeaconInteractionPayload(
+                placeContext: PlaceContext(
+                    poIinteraction: POIinteraction(
+                        poiDetail: PoiDetail(
+                            name: name,
+                            poiID: id,
+                            locatingType: "beacon",
+                            category: category,
+                            beaconInteractionDetails: BeaconInteractionDetails(
+                                beaconMajor: beaconMajor,
+                                beaconMinor: beaconMinor)
+                        ),
+                        poiEntries: PoiEntries(
+                            value: eventType == "location.entry" ? 1 : 0
+                        ),
+                        poiExits: PoiExits(
+                            value: eventType == "location.exit" ? 1 : 0
+                        )
+                    )
+                ),
+                eventType: eventType
+            )
+            
+            // send the final experience event
+            Logger.aepMobileSDK.info("MobileSDK - send sendBeaconEvent...")
+            await sendExperienceEvent(
+                xdm: beaconEventPayload.asDictionary() ?? [:]
+            )
+        }
     }
-    
     
     /// Sample implementation to get access token
     /// - Returns: access token

@@ -4,6 +4,7 @@
         "sandbox": "mobile-and-web-sdk-courses",
         "showProducts": true,
         "showPersonalisation": true,
+        "showDecisioning": false,
         "showGeofences": true,
         "showBeacons": false,
         "ldap": "testUser",
@@ -22,7 +23,10 @@
         "eventType": "application.test"
     },
     "target": {
-        "location": "luma-mobileapp-abtest"
+        "location": "luma-mobileapp-tutorial-abtest"
+    },
+    "decisioning": {
+        "surface": "offersLocation"
     },
     "map": {
         "latitude": 52.37109,
