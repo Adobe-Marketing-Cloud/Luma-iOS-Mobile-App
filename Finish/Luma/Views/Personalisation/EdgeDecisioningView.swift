@@ -44,9 +44,15 @@ struct EdgeDecisioningView: View {
                 }
             }
             .onAppear {
+                Logger.aepMobileSDK.info("EdgeDecisioningView - onAppear")
+                Logger.aepMobileSDK.info("EdgeDecisioningView - decisioningSurface from AppStorage: '\(decisioningSurface)'")
+                Logger.aepMobileSDK.info("EdgeDecisioningView - Number of surfaces: \(surfaces.count)")
+                if let firstSurface = surfaces.first {
+                    Logger.aepMobileSDK.info("EdgeDecisioningView - First surface URI: '\(firstSurface.surface.uri)'")
+                }
                 MobileSDK.shared.sendTrackScreenEvent(stateName: "luma: content: ios: us: en: edgeDecisioning")
             }
-            .navigationTitle("Decisioning")
+            .navigationTitle("Personalisation")
             .navigationBarTitleDisplayMode(.automatic)
         }
     }

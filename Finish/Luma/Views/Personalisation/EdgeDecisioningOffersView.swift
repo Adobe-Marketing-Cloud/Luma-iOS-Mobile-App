@@ -17,6 +17,8 @@ struct EdgeDecisioningOffersView: View {
     @State private var offers = [DecisioningOffer]()
     @State private var showInfoSheet = false
     @State private var propositionInfo: String = ""
+    @State private var errorInfo: String = ""
+    @State private var lastFetchTime: Date?
     
     var body: some View {
         Section {
@@ -30,7 +32,7 @@ struct EdgeDecisioningOffersView: View {
                         .onTapGesture {
                             offers.removeAll()
                             Task {
-                                await self.updatePropositionsForSurface()
+                                self.updatePropositionsForSurface()
                             }
                         }
                     Spacer()
@@ -80,58 +82,103 @@ struct EdgeDecisioningOffersView: View {
                 }
             }
         } header: {
-            Text(surfaceName)
+            Text("Surface \(surfaceName)")
         } footer: {
             Text("\(offers.count) offer(s) returned for surface...")
         }
         .task {
-            await self.updatePropositionsForSurface()
+            Logger.aepMobileSDK.info("DecisioningOffersView - Task started")
+
+            // Step 1: Update propositions (triggers network request to Edge Network)
+            self.updatePropositionsForSurface()
+            Logger.aepMobileSDK.info("DecisioningOffersView - Called updatePropositionsForSurface()")
+            
+            // Step 2: Brief wait for Edge Network to respond and cache propositions
+            Logger.aepMobileSDK.info("DecisioningOffersView - Waiting 0.5 seconds for Edge Network response...")
             try? await Task.sleep(nanoseconds: 500_000_000)
+            
+            // Step 3: Fetch the cached propositions
+            Logger.aepMobileSDK.info("DecisioningOffersView - Now fetching cached propositions")
             await self.fetchPropositions()
+            
+            Logger.aepMobileSDK.info("DecisioningOffersView - Task completed with \(offers.count) offer(s)")
         }
         .sheet(isPresented: $showInfoSheet) {
+            let timestamp = lastFetchTime?.formatted() ?? "Never"
             let infoText = """
             SURFACE PARAMETERS
-            
             Surface URI: \(surface.uri)
+            Last Fetch: \(timestamp)
             
-            RESPONSE
+            PROPOSITIONS RESPONSE
+            \(propositionInfo.isEmpty ? "No propositions received" : propositionInfo)
             
-            \(propositionInfo)
             """
+            
             InfoSheet(infoText: .init(infoText))
         }
     }
     
     // MARK: - Methods
     
-    @MainActor
-    func updatePropositionsForSurface() async {
+    func updatePropositionsForSurface() {
         Logger.aepMobileSDK.info("DecisioningOffersView - Starting proposition update for surface: \(surface.uri)")
-        await MobileSDK.shared.updatePropositionsForSurfaces(surfaces: [surface])
-        Logger.aepMobileSDK.info("DecisioningOffersView - updatePropositionsForSurfaces() called")
+        
+        // Call MobileSDK updatePropositionsForSurfaces Wrapper API to update propositions (this will fetch fresh from Edge network)
+        MobileSDK.shared.updatePropositionsForSurfaces(surfaces: [surface])
+        
+        Logger.aepMobileSDK.info("DecisioningOffersView - updatePropositionsForSurfaces() called directly on Messaging")
     }
     
     @MainActor
     func fetchPropositions() async {
         Logger.aepMobileSDK.info("DecisioningOffersView - Fetching propositions for surface: \(surface.uri)")
+        self.lastFetchTime = Date()
         
         Messaging.getPropositionsForSurfaces([surface]) { propositionsDict, error in
-            if let error = error {
-                Logger.aepMobileSDK.error("DecisioningOffersView - Error retrieving propositions: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let propositionsDict = propositionsDict else {
-                Logger.aepMobileSDK.error("DecisioningOffersView - propositionsDict is nil")
-                return
-            }
-            
             Task { @MainActor in
+                if let error = error {
+                    let errorMsg = "Error: \(error.localizedDescription)\n\(String(describing: error))"
+                    Logger.aepMobileSDK.error("DecisioningOffersView - Error: \(error.localizedDescription)")
+                    self.errorInfo = errorMsg
+                    return
+                }
+                
+                guard let propositionsDict = propositionsDict else {
+                    Logger.aepMobileSDK.error("DecisioningOffersView - propositionsDict is nil")
+                    self.errorInfo = """
+                    No data returned from cache.
+                    
+                    CRITICAL: getPropositionsForSurfaces only returns CACHED propositions.
+                    The surface must be cached BEFORE calling this API.
+                    
+                    If you see this error:
+                    1. Check console for Edge Network errors (422, policy ID errors)
+                    2. Surface may not have been cached yet (try pull-to-refresh)
+                    3. Edge Network may have returned an error (check decisioning policy ID)
+                    """
+                    return
+                }
+                
                 Logger.aepMobileSDK.info("DecisioningOffersView - Retrieved \(propositionsDict.count) surface(s)")
                 
                 var allOffers: [DecisioningOffer] = []
                 var infoText = ""
+                
+                if propositionsDict.isEmpty {
+                    self.errorInfo = """
+                    Empty propositions dictionary returned.
+                    
+                    This means the SDK has no cached propositions for this surface.
+                    
+                    Possible causes:
+                    1. Edge Network returned an error (check console for 422 errors)
+                    2. Campaign is not Live in AJO
+                    3. Surface URI mismatch between app and AJO campaign
+                    4. Decision policy ID error (old cached policy on Edge Network)
+                    5. Network request still in progress (try pull-to-refresh)
+                    """
+                }
                 
                 for (responseSurface, propositionsList) in propositionsDict {
                     Logger.aepMobileSDK.info("DecisioningOffersView - Surface: \(responseSurface.uri), Propositions: \(propositionsList.count)")
@@ -141,7 +188,13 @@ struct EdgeDecisioningOffersView: View {
                         infoText += "Scope: \(proposition.scope)\n"
                         infoText += "Items: \(proposition.items.count)\n"
                         
+                        Logger.aepMobileSDK.info("DecisioningOffersView - Proposition details: ID=\(proposition.uniqueId), Scope=\(proposition.scope)")
+                        
                         for item in proposition.items {
+                            // Log item ID which may contain policy information
+                            Logger.aepMobileSDK.info("DecisioningOffersView - Item ID: \(item.itemId)")
+                            infoText += "Item ID: \(item.itemId)\n"
+                            
                             if let content = parseCodeBasedContent(from: item.itemData) {
                                 if let offers = content.offers {
                                     allOffers.append(contentsOf: offers)
@@ -150,6 +203,8 @@ struct EdgeDecisioningOffersView: View {
                                 }
                             }
                         }
+                        
+                        infoText += "\n"
                     }
                 }
                 

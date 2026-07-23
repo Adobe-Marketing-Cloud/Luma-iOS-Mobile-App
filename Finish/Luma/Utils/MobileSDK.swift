@@ -323,10 +323,10 @@ struct MobileSDK {
         }
     }
     
-    @MainActor
     /// Update propositions for Messaging decisioning surfaces
     /// - Parameter surfaces: Array of Surface objects to fetch propositions for
-    func updatePropositionsForSurfaces(surfaces: [Surface]) async {
+    func updatePropositionsForSurfaces(surfaces: [Surface]) {
+        // get the propositions for the surfaces configured.
         Logger.aepMobileSDK.info("MobileSDK - updatePropositionsForSurfaces: Updating \(surfaces.count) surface(s)")
         for surface in surfaces {
             Logger.aepMobileSDK.info("MobileSDK - updatePropositionsForSurfaces: Surface URI: \(surface.uri)")
